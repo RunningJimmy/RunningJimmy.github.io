@@ -200,6 +200,103 @@
             
               
                 
+                <a class="post-title-link" href="/2015/11/15/hexo端口号4000被占/" itemprop="url">
+                  hexo无法启动之4000端口号被占用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-15T23:30:00+08:00" content="2015-11-15">
+              2015-11-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/15/hexo端口号4000被占/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/hexo端口号4000被占/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="缘起">缘起</h2><p>今天本地运行hexo博客的时候，突然Chrome访问<code>localhost:4000</code>打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。</p>
+<h2 id="尝试">尝试</h2><p>瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：</p>
+<pre><code>E:<span class="command">\hexo</span><span class="command">\node</span>_modules<span class="command">\hexo</span>-server<span class="command">\index</span>.js
+</code></pre><p>找到hexo.config.server配置项，port参数改为4400，果然正常启动了。</p>
+<h2 id="追根">追根</h2><p>好吧，这下我想知道是何方神圣占用了4000，看看这家伙什么来头，优先级多高，需不需hexo要给它让道。<br>CMD命令：</p>
+<pre><code><span class="title">netstat</span> -ano
+</code></pre><p>果然有个进程在占用4000端口，进程号6616。于是在任务栏右键启动任务管理器找，可是找半天发现win8任务管理器下进程选项卡的查看菜单中好像没有显示进程ID的选项，好吧，这个命令不太熟，百度之：</p>
+<pre><code>tasklist /<span class="keyword">fi</span> <span class="string">"pid eq 6616"</span>
+</code></pre><p>进程名FoxitProtect.exe，瞅那名字就知道是福昕阅读器，还是个service，进入服务列表查看它属性，启动方式居然是手动！</p>
+<h2 id="宣判">宣判</h2><p>问题是我今儿没用福昕阅读器啊，根据其服务描述“福昕阅读器的服务项，提供内容与产品更新等服务”怀疑是程序更新搞的，果断停掉！给我大Hexo端口号改回4000（因为机器上装了xampp，所以就不把80让给hexo了），然后回到git bash，Ctrl+c快捷键停掉服务，然后<code>hexo service</code>命令启动服务，访问<code>localhost:4000</code>OK！</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/01/响应式设计/" itemprop="url">
                   Responsive Web Design 响应式/自适应网页设计
                 </a>
@@ -895,104 +992,6 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/1940/10/24/hexo端口号4000被占/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="1940-10-24T10:26:18+08:00" content="1940-10-24">
-              1940-10-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/1940/10/24/hexo端口号4000被占/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="1940/10/24/hexo端口号4000被占/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>title: hexo无法启动之4000端口号被占用<br>date: 2015-11-15 23:30<br>tags: [hexo,端口]</p>
-<h2 id="缘起">缘起</h2><p>今天本地运行hexo博客的时候，突然Chrome访问<code>localhost:4000</code>打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。</p>
-<h2 id="尝试">尝试</h2><p>瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：</p>
-<pre><code>E:<span class="command">\hexo</span><span class="command">\node</span>_modules<span class="command">\hexo</span>-server<span class="command">\index</span>.js
-</code></pre><p>找到hexo.config.server配置项，port参数改为4400，果然正常启动了。</p>
-<h2 id="追根">追根</h2><p>好吧，这下我想知道是何方神圣占用了4000，看看这家伙什么来头，优先级多高，需不需hexo要给它让道。<br>CMD命令：</p>
-<pre><code><span class="title">netstat</span> -ano
-</code></pre><p>果然有个进程在占用4000端口，进程号6616。于是在任务栏右键启动任务管理器找，可是找半天发现win8任务管理器下进程选项卡的查看菜单中好像没有显示进程ID的选项，好吧，这个命令不太熟，百度之：</p>
-<pre><code>tasklist /<span class="keyword">fi</span> <span class="string">"pid eq 6616"</span>
-</code></pre><p>进程名FoxitProtect.exe，瞅那名字就知道是福昕阅读器，还是个service，进入服务列表查看它属性，启动方式居然是手动！</p>
-<h2 id="宣判">宣判</h2><p>问题是我今儿没用福昕阅读器啊，根据其服务描述“福昕阅读器的服务项，提供内容与产品更新等服务”怀疑是程序更新搞的，果断停掉！给我大Hexo端口号改回4000（因为机器上装了xampp，所以就不把80让给hexo了），然后回到git bash，Ctrl+c快捷键停掉服务，然后<code>hexo service</code>命令启动服务，访问<code>localhost:4000</code>OK！</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1049,7 +1048,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
