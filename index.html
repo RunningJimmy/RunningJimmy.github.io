@@ -297,7 +297,441 @@
             
               
                 
-                <a class="post-title-link" href="/2015/11/01/响应式设计/" itemprop="url">
+                <a class="post-title-link" href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" itemprop="url">
+                  Bootstrap查错工具Bootlint以及Bootstrap常见错误
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-04T21:49:09+08:00" content="2015-11-04">
+              2015-11-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/04/Bootstrap查错工具以及常见错误-待整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="查错工具Bootlint">查错工具Bootlint</h2><p>CSS检查工具Bootlint，它是bootstrap官方提供的一个js工具库，用于检测使用Bootstrap的页面中常见的HTML错误、class使用方式的错误，通常这些错误浏览器是检查不出来的。</p>
+<p>使用过程中发现，这玩意儿似乎不能指出错误位置，略不爽。</p>
+<p><strong>使用时机：</strong> 开发、测试阶段</p>
+<p><strong>用法：</strong>在页面底部写入引入bootlint的脚本：</p>
+<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
+    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+        <span class="keyword">var</span> s = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);
+        s.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
+            bootlint.showLintReportForCurrentDocument([]);
+        };
+        s.src = <span class="string">"js/bootlint.js"</span>;
+        <span class="built_in">document</span>.body.appendChild(s)
+    })();
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><h2 id="错误积累">错误积累</h2><p>1.<br>Bootstrap经典错误：</p>
+<pre><code>bootlint:  E027  `.table-responsive` <span class="keyword">is</span> supposed <span class="keyword">to</span> be used <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> table's parent wrapper `&lt;<span class="keyword">div</span>&gt;`, <span class="keyword">not</span> <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> table itself
+</code></pre><p><code>table-responsive</code>属性是用于<code>table</code>的父元素而不是用于<code>table</code>元素的</p>
+<ol>
+<li><p>glyphicon图标字体所加的元素必须是一个空元素，否则报错：</p>
+<pre><code>ootlin<span class="variable">t:</span>  E031  Glyphicon classes must <span class="keyword">only</span> <span class="keyword">be</span> used <span class="keyword">on</span> elements that contain <span class="keyword">no</span> text content <span class="built_in">and</span> have <span class="keyword">no</span> child elements.
+</code></pre></li>
+</ol>
+<p>3.</p>
+<pre><code><span class="label">bootlint:</span>  W012  <span class="escape">`.</span>container<span class="escape">` </span><span class="literal">or</span> <span class="escape">`.</span>container-fluid<span class="escape">` </span>should be the first child inside of <span class="literal">a</span> <span class="escape">`.</span>navbar<span class="escape">`
+</span> jQuery.fn.init[<span class="number">1</span>]
+</code></pre><p>4.<br>如果没有panel-collapse样式，会报错：</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"c1"</span> <span class="type">class</span>=<span class="string">"collapse panel-collapse"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"panel-body"</span>&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur odio officiis quae quis sit veritatis voluptates. At atque beatae, cum distinctio, dolor eaque eos eveniet ex, exercitationem inventore iure totam?&lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>5.轮播图内部只允许有一个子元素样式为carousel-inner：</p>
+<pre><code><span class="tag">bootlint</span>:  <span class="tag">E041</span>  `<span class="class">.carousel</span>` <span class="tag">must</span> <span class="tag">have</span> <span class="tag">exactly</span> <span class="tag">one</span> `<span class="class">.carousel-inner</span>` <span class="tag">child</span>.
+ <span class="tag">jQuery</span><span class="class">.fn</span><span class="class">.init</span><span class="attr_selector">[1]</span>
+</code></pre><p>6.</p>
+<p>7.轮播没写id：</p>
+<pre><code>bootlint:  W014  Carousel controls and indicators should <span class="operator"><span class="keyword">use</span> <span class="string">`href`</span> <span class="keyword">or</span> <span class="string">`data-target`</span> <span class="keyword">to</span> <span class="keyword">reference</span> an <span class="keyword">element</span> <span class="keyword">with</span> <span class="keyword">class</span> <span class="string">`.carousel`</span>.
+ [a.carousel-control.<span class="keyword">left</span>, <span class="keyword">context</span>: a.carousel-control.<span class="keyword">left</span>, jquery: <span class="string">"2.1.3"</span>, <span class="keyword">constructor</span>: <span class="keyword">function</span>, selector: <span class="string">""</span>, toArray: <span class="keyword">function</span>…]
+bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls <span class="keyword">and</span> indicators should <span class="keyword">use</span> <span class="string">`href`</span> <span class="keyword">or</span> <span class="string">`data-target`</span> <span class="keyword">to</span> <span class="keyword">reference</span> an <span class="keyword">element</span> <span class="keyword">with</span> <span class="keyword">class</span> <span class="string">`.carousel`</span>.
+ [a.carousel-control.<span class="keyword">right</span>, <span class="keyword">context</span>: a.carousel-control.<span class="keyword">right</span>, jquery: <span class="string">"2.1.3"</span>, <span class="keyword">constructor</span>: <span class="keyword">function</span>, selector: <span class="string">""</span>, toArray: <span class="keyword">function</span>…]</span>
+</code></pre><p>8.轮播下边的小列表没加轮播的id：</p>
+<pre><code>bootlint:  W014  Carousel controls and indicators should <span class="operator"><span class="keyword">use</span> <span class="string">`href`</span> <span class="keyword">or</span> <span class="string">`data-target`</span> <span class="keyword">to</span> <span class="keyword">reference</span> an <span class="keyword">element</span> <span class="keyword">with</span> <span class="keyword">class</span> <span class="string">`.carousel`</span>.</span>
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/03/Bootstrap05插件-已发布/" itemprop="url">
+                  Bootstrap插件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-03T20:40:32+08:00" content="2015-11-03">
+              2015-11-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/03/Bootstrap05插件-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/03/Bootstrap05插件-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="1-插件——概述">1.插件——概述</h2><p>  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(<code>bootstrap.js</code>)。<br>  调用上述十几个插件可以用两种格式：</p>
+<ol>
+<li>传统的JS方式调用： <code>$(...).dropdown();</code>   <code>$().tab(...);</code></li>
+<li>使用data-*扩展属性方式调用：  <code>&lt;a  data-toggle=&quot;dropdown&quot;&gt;</code></li>
+</ol>
+<h2 id="2-插件——下拉菜单">2.插件——下拉菜单</h2><ol>
+<li><code>$().dropdown( );</code></li>
+<li><code>&lt;a data-toggle=&quot;dropdown&quot;&gt;</code></li>
+</ol>
+<h2 id="3-插件——标签页(tab)">3.插件——标签页(tab)</h2><ol>
+<li><code>$().tab();</code></li>
+<li><code>&lt;a data-toggle=&quot;tab&quot;&gt;</code></li>
+</ol>
+<h2 id="4-插件——Bootstrap提供的弹出框">4.插件——Bootstrap提供的弹出框</h2><p>  (1)工具提示框(tooltip)<br>    <code>data-toggle=&quot;tooltip&quot;</code></p>
+<p>  (2)弹出框(popover)<br>    <code>data-toggle=&quot;popover&quot;</code></p>
+<p>  (3)警告框(alert)            —— 小重点</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"alert  alert-四种颜色 alert-dismissible"</span>&gt;
+    &lt;span <span class="type">class</span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span>&gt;&amp;<span class="keyword">times</span>;&lt;/span&gt;
+    xxxx
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>  (4)模态对话框(modal)        —— 小重点</p>
+<p><strong>模态框定义</strong>：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。模态框必需的结构：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal"</span>&gt;</span>                   <span class="comment">&lt;!--半透明的黑色遮罩层--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>         <span class="comment">&lt;!--宽/定位--&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-content"</span>&gt;</span>     <span class="comment">&lt;!--边框/背景色/阴影--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-header"</span>&gt;</span>头部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-body"</span>&gt;</span>主体<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-footer"</span>&gt;</span>尾部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>显示一个模态框：</p>
+<ol>
+<li><code>&lt;a href=&quot;#模态框ID&quot; data-toggle=&quot;modal&quot;&gt;</code></li>
+<li><code>&lt;button data-toggle=&quot;modal&quot; data-target=&quot;#模态框ID&quot;&gt;</code></li>
+</ol>
+<h2 id="5-插件——折叠效果(collapse)">5.插件——折叠效果(collapse)</h2><p>  触发一个折叠效果：</p>
+<ol>
+<li><code>&lt;a href=&quot;#折叠元素ID&quot; data-toggle=&quot;collapse&quot;&gt;</code></li>
+<li><p><code>&lt;button data-toggle=&quot;collapse&quot; data-target=&quot;#折叠元素ID&quot;&gt;</code></p>
+<p>加<code>in</code>样式效果：</p>
+<p> <code>&lt;div id=&quot;折叠元素ID&quot; class=&quot;collapse  in&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ol>
+<p>折叠组件的两个扩展用途：</p>
+<ol>
+<li>Accordion（手风琴）</li>
+<li>响应式导航条在手机屏幕中的效果</li>
+</ol>
+<h2 id="6-插件——轮播广告(carousel)——小重点">6.插件——轮播广告(carousel)——小重点</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel"</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel-inner"</span>&gt;
+      &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item active"</span>&gt;
+          &lt;img&gt;
+      &lt;/<span class="keyword">div</span>&gt;
+  &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><h2 id="7-插件——附加导航（Affix）">7.插件——附加导航（Affix）</h2><pre><code>&lt;<span class="tag">div</span> data-spy=<span class="string">"affix"</span> data-offset-<span class="attribute">top</span>=<span class="string">"100"</span>&gt;
+    &lt;<span class="tag">ul</span> class=<span class="string">"nav nav-pills"</span>&gt;
+&lt;/div&gt;
+</code></pre><h2 id="9-插件——滚动监听（scrollspy）——了解">9.插件——滚动监听（scrollspy）——了解</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
+<ol>
+<li>页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active</li>
+<li>导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样</li>
+<li>为页面添加滚动事件的监听函数 </li>
+</ol>
+<pre><code>body.onscroll= <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">if</span>(body滚动的距离 === 某个锚点距离顶端的距离){
+        此锚点对应的超链接的父元素li添加.active；
+    }
+}
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" itemprop="url">
+                  Bootstrap全局样式之栅格布局系统-总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-02T23:10:11+08:00" content="2015-11-02">
+              2015-11-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="Bootstrap全局CSS之栅格布局系统">Bootstrap全局CSS之栅格布局系统</h2><blockquote>
+<h3 id="WEB开发中页面布局方式演进：">WEB开发中页面布局方式演进：</h3></blockquote>
+<ol>
+<li>Table布局</li>
+<li>CSS+DIV布局</li>
+<li>Bootstrap栅格布局系统</li>
+</ol>
+<blockquote>
+<h3 id="栅格系统特点">栅格系统特点</h3></blockquote>
+<ol>
+<li>所有的行必须放在容器中：.container或者.contain-fluid</li>
+<li>分为多行，一行平均分为12个col;</li>
+<li>网页内容只能放在col中，不能直接放在row中</li>
+</ol>
+<blockquote>
+<h3 id="-container的宽度问题："><code>.container</code>的宽度问题：</h3></blockquote>
+<ul>
+<li>超大屏，屏宽&gt;1200px（）：容器宽1170px</li>
+<li>普通大屏，屏宽&gt;992px（）：容器宽950px</li>
+<li>小屏，屏宽&gt;768px（）：容器宽750px</li>
+<li>超小屏，屏宽&lt;768px（）：容器宽auto</li>
+</ul>
+<blockquote>
+<h3 id="-container-fluid的宽度问题："><code>.container-fluid</code>的宽度问题：</h3></blockquote>
+<ul>
+<li>width永远100%</li>
+</ul>
+<blockquote>
+<p>Bootstrap布局的特点是什么？</p>
+</blockquote>
+<ol>
+<li>宽度做了媒体查询，适应不同的屏幕；</li>
+<li>添加了前置和后置内容生成，可防止子元素margin越界、浮动造成的影响；</li>
+</ol>
+<blockquote>
+<p>回顾CSS的经典问题一：父元素下第一个子元素的margin-top越界问题以及末个子元素margin-bottom的越界问题？</p>
+</blockquote>
+<ol>
+<li>为父元素加边框，防止子元素延伸。副作用是边框；</li>
+<li>将margin换做padding；副作用是padding-top的值要加padding；</li>
+<li>父元素overflow，副作用是将溢出部分隐藏掉可能不满足需求；</li>
+<li><p>将父元素的第一个元素之前加一个无高度的table元素，<strong>无副作用！！！</strong></p>
+<pre><code><span class="class">.parent</span><span class="pseudo">:before</span><span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+}</span>
+</code></pre></li>
+</ol>
+<blockquote>
+<p>回顾CSS的经典问题二：如何解决所有子元素浮动以后，父元素高度为0的问题？</p>
+</blockquote>
+<ol>
+<li>为父元素设置固高，副作用：如果子元素是动态数据，没法确定子元素高；</li>
+<li>为父元素指定overflow:hidden；副作用:</li>
+<li><p>为父元素添加后置内容生成选择器，无副作用。</p>
+<pre><code><span class="class">.parent</span><span class="pseudo">:after</span><span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+}</span>
+</code></pre></li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/01/Bootstrap00响应式设计-已发布/" itemprop="url">
                   Responsive Web Design 响应式/自适应网页设计
                 </a>
               
@@ -319,8 +753,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/01/响应式设计/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/01/响应式设计/" itemprop="commentsCount"></span>
+                <a href="/2015/11/01/Bootstrap00响应式设计-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/01/Bootstrap00响应式设计-已发布/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -363,6 +797,7 @@
 <li>initial-scale 初始缩放比例</li>
 <li>user-scalable 是否允许用户缩放</li>
 </ul>
+<p><img src="bootstrap-viewport.png"> </p>
 <p></p>
 </li>
 </ul>
@@ -466,6 +901,108 @@
 <hr>
 <p>参考：觉唯设计有一篇文章讲得很好<a href="http://www.jiawin.com/response-type-layout-design" target="_blank">《响应式设计这点小事儿》</a></p>
 
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/01/bootstrap框架原理-待整理/" itemprop="url">
+                  Bootstrap框架原理之浅析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-01T20:09:37+08:00" content="2015-11-01">
+              2015-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/01/bootstrap框架原理-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/01/bootstrap框架原理-待整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <blockquote>
+<p>Bootstrap框架是如何实现的？</p>
+</blockquote>
+<p>样式原理：</p>
+<ul>
+<li>CSS重置</li>
+</ul>
+<p>行为原理：</p>
+<ul>
+<li>自定义属性，通过元素选择器找到它，然后为其绑定事件。</li>
+</ul>
+<blockquote>
+<p>举个栗子：</p>
+</blockquote>
+<pre><code><span class="escape">`n</span>av&gt;ul&gt;li&gt;<span class="literal">a</span>的自定义属性：data-toggle=<span class="string">"dropdown"</span>`
+</code></pre>
             
           </span>
         
@@ -992,6 +1529,195 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/30/CSS3之box-sizing-已发布/" itemprop="url">
+                  CSS3之box-sizing
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-09-30T21:40:32+08:00" content="2015-09-30">
+              2015-09-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/30/CSS3之box-sizing-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>box-sizing:</p>
+<ul>
+<li>content-box</li>
+<li>border-box</li>
+</ul>
+<p>盒子模型的计算方式由box-sizing属性控制，有两个值<code>content-box</code>和<code>border-box</code>。CSS中默认是前者，计算方式”<code>盒子宽=margin+border+padding+width</code>“;Bootstrap中默认是后者，计算方式为“<code>盒子宽：margin+width</code>”，border和padding都算在width中。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/" itemprop="url">
+                  Bootstrap组件之响应式导航条[未完待续]
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="1940-10-24T10:26:18+08:00" content="1940-10-24">
+              1940-10-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="1940/10/24/Bootstrap03组件之响应式导航条-待整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p><strong>[待整理]</strong></p>
+<p>导航条的第一个孩子必须是容器container或者contrainer-fluid</p>
+<p>很多元素在navbar中都有专用版本，用来控制元素在导航条中的位置</p>
+<p>navbar不放在容器里，否则会报警告：</p>
+<pre><code><span class="label">bootlint:</span>  W012  <span class="escape">`.</span>container<span class="escape">` </span><span class="literal">or</span> <span class="escape">`.</span>container-fluid<span class="escape">` </span>should be the first child inside of <span class="literal">a</span> <span class="escape">`.</span>navbar<span class="escape">`
+</span> jQuery.fn.init[<span class="number">1</span>]
+</code></pre><p>默认高度最低是50px</p>
+<p>导航条的结构是固定的</p>
+<p>bootstrap推荐所有表单都有label，可以支持盲人屏幕阅读软件；如果正常人浏览不需要的话，可以对其增加class=”sr-only”，看其css，发现它的宽高都被缩小到1px。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
@@ -1034,7 +1760,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1048,7 +1774,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

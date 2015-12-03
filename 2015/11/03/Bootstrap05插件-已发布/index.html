@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,端口," />
+  <meta name="keywords" content="boostrap,jQuery,插件," />
 
 
 
@@ -51,22 +51,25 @@
 
 
 
-<meta name="description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
+<meta name="description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
+
+传统的JS方式调用： $(...).dropdown();   $().tab(...);
+使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo无法启动之4000端口号被占用">
-<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/index.html">
+<meta property="og:title" content="Bootstrap插件">
+<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/03/Bootstrap05插件-已发布/index.html">
 <meta property="og:site_name" content="芥了末">
-<meta property="og:description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
-<meta property="og:updated_time" content="2015-11-29T18:57:50.000Z">
+<meta property="og:description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
+
+传统的JS方式调用： $(...).dropdown();   $().tab(...);
+使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
+<meta property="og:updated_time" content="2015-12-03T17:19:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo无法启动之4000端口号被占用">
-<meta name="twitter:description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
+<meta name="twitter:title" content="Bootstrap插件">
+<meta name="twitter:description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
+
+传统的JS方式调用： $(...).dropdown();   $().tab(...);
+使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
 
 
 
@@ -78,7 +81,7 @@ E:\hexo\node_modules\hexo-server\i">
   };
 </script>
 
-  <title> hexo无法启动之4000端口号被占用 | 芥了末 </title>
+  <title> Bootstrap插件 | 芥了末 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +201,7 @@ E:\hexo\node_modules\hexo-server\i">
             
             
               
-                hexo无法启动之4000端口号被占用
+                Bootstrap插件
               
             
           </h1>
@@ -207,8 +210,8 @@ E:\hexo\node_modules\hexo-server\i">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-15T23:30:00+08:00" content="2015-11-15">
-              2015-11-15
+            <time itemprop="dateCreated" datetime="2015-11-03T20:40:32+08:00" content="2015-11-03">
+              2015-11-03
             </time>
           </span>
 
@@ -218,8 +221,8 @@ E:\hexo\node_modules\hexo-server\i">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/15/hexo端口号4000被占/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/hexo端口号4000被占/" itemprop="commentsCount"></span>
+                <a href="/2015/11/03/Bootstrap05插件-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/03/Bootstrap05插件-已发布/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,17 +241,78 @@ E:\hexo\node_modules\hexo-server\i">
       
 
       
-        <span itemprop="articleBody"><h2 id="缘起">缘起</h2><p>今天本地运行hexo博客的时候，突然Chrome访问<code>localhost:4000</code>打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。</p>
-<h2 id="尝试">尝试</h2><p>瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：</p>
-<pre><code>E:<span class="command">\hexo</span><span class="command">\node</span>_modules<span class="command">\hexo</span>-server<span class="command">\index</span>.js
-</code></pre><p>找到hexo.config.server配置项，port参数改为4400，果然正常启动了。</p>
-<h2 id="追根">追根</h2><p>好吧，这下我想知道是何方神圣占用了4000，看看这家伙什么来头，优先级多高，需不需hexo要给它让道。<br>CMD命令：</p>
-<pre><code><span class="title">netstat</span> -ano
-</code></pre><p>果然有个进程在占用4000端口，进程号6616。于是在任务栏右键启动任务管理器找，可是找半天发现win8任务管理器下进程选项卡的查看菜单中好像没有显示进程ID的选项，好吧，这个命令不太熟，百度之：</p>
-<pre><code>tasklist /<span class="keyword">fi</span> <span class="string">"pid eq 6616"</span>
-</code></pre><p>进程名FoxitProtect.exe，瞅那名字就知道是福昕阅读器，还是个service，进入服务列表查看它属性，启动方式居然是手动！</p>
-<h2 id="宣判">宣判</h2><p>问题是我今儿没用福昕阅读器啊，根据其服务描述“福昕阅读器的服务项，提供内容与产品更新等服务”怀疑是程序更新搞的，果断停掉！给我大Hexo端口号改回4000（因为机器上装了xampp，所以就不把80让给hexo了），然后回到git bash，Ctrl+c快捷键停掉服务，然后<code>hexo service</code>命令启动服务，访问<code>localhost:4000</code>OK！</p>
-</span>
+        <span itemprop="articleBody"><h2 id="1-插件——概述">1.插件——概述</h2><p>  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(<code>bootstrap.js</code>)。<br>  调用上述十几个插件可以用两种格式：</p>
+<ol>
+<li>传统的JS方式调用： <code>$(...).dropdown();</code>   <code>$().tab(...);</code></li>
+<li>使用data-*扩展属性方式调用：  <code>&lt;a  data-toggle=&quot;dropdown&quot;&gt;</code></li>
+</ol>
+<h2 id="2-插件——下拉菜单">2.插件——下拉菜单</h2><ol>
+<li><code>$().dropdown( );</code></li>
+<li><code>&lt;a data-toggle=&quot;dropdown&quot;&gt;</code></li>
+</ol>
+<h2 id="3-插件——标签页(tab)">3.插件——标签页(tab)</h2><ol>
+<li><code>$().tab();</code></li>
+<li><code>&lt;a data-toggle=&quot;tab&quot;&gt;</code></li>
+</ol>
+<h2 id="4-插件——Bootstrap提供的弹出框">4.插件——Bootstrap提供的弹出框</h2><p>  (1)工具提示框(tooltip)<br>    <code>data-toggle=&quot;tooltip&quot;</code></p>
+<p>  (2)弹出框(popover)<br>    <code>data-toggle=&quot;popover&quot;</code></p>
+<p>  (3)警告框(alert)            —— 小重点</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"alert  alert-四种颜色 alert-dismissible"</span>&gt;
+    &lt;span <span class="type">class</span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span>&gt;&amp;<span class="keyword">times</span>;&lt;/span&gt;
+    xxxx
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>  (4)模态对话框(modal)        —— 小重点</p>
+<p><strong>模态框定义</strong>：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。模态框必需的结构：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal"</span>&gt;</span>                   <span class="comment">&lt;!--半透明的黑色遮罩层--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>         <span class="comment">&lt;!--宽/定位--&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-content"</span>&gt;</span>     <span class="comment">&lt;!--边框/背景色/阴影--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-header"</span>&gt;</span>头部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-body"</span>&gt;</span>主体<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-footer"</span>&gt;</span>尾部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>显示一个模态框：</p>
+<ol>
+<li><code>&lt;a href=&quot;#模态框ID&quot; data-toggle=&quot;modal&quot;&gt;</code></li>
+<li><code>&lt;button data-toggle=&quot;modal&quot; data-target=&quot;#模态框ID&quot;&gt;</code></li>
+</ol>
+<h2 id="5-插件——折叠效果(collapse)">5.插件——折叠效果(collapse)</h2><p>  触发一个折叠效果：</p>
+<ol>
+<li><code>&lt;a href=&quot;#折叠元素ID&quot; data-toggle=&quot;collapse&quot;&gt;</code></li>
+<li><p><code>&lt;button data-toggle=&quot;collapse&quot; data-target=&quot;#折叠元素ID&quot;&gt;</code></p>
+<p>加<code>in</code>样式效果：</p>
+<p> <code>&lt;div id=&quot;折叠元素ID&quot; class=&quot;collapse  in&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ol>
+<p>折叠组件的两个扩展用途：</p>
+<ol>
+<li>Accordion（手风琴）</li>
+<li>响应式导航条在手机屏幕中的效果</li>
+</ol>
+<h2 id="6-插件——轮播广告(carousel)——小重点">6.插件——轮播广告(carousel)——小重点</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel"</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel-inner"</span>&gt;
+      &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item active"</span>&gt;
+          &lt;img&gt;
+      &lt;/<span class="keyword">div</span>&gt;
+  &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><h2 id="7-插件——附加导航（Affix）">7.插件——附加导航（Affix）</h2><pre><code>&lt;<span class="tag">div</span> data-spy=<span class="string">"affix"</span> data-offset-<span class="attribute">top</span>=<span class="string">"100"</span>&gt;
+    &lt;<span class="tag">ul</span> class=<span class="string">"nav nav-pills"</span>&gt;
+&lt;/div&gt;
+</code></pre><h2 id="9-插件——滚动监听（scrollspy）——了解">9.插件——滚动监听（scrollspy）——了解</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
+<ol>
+<li>页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active</li>
+<li>导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样</li>
+<li>为页面添加滚动事件的监听函数 </li>
+</ol>
+<pre><code>body.onscroll= <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">if</span>(body滚动的距离 === 某个锚点距离顶端的距离){
+        此锚点对应的超链接的父元素li添加.active；
+    }
+}
+</code></pre></span>
       
     </div>
 
@@ -256,9 +320,11 @@ E:\hexo\node_modules\hexo-server\i">
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/boostrap/" rel="tag">#boostrap</a>
           
-            <a href="/tags/端口/" rel="tag">#端口</a>
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
+            <a href="/tags/插件/" rel="tag">#插件</a>
           
         </div>
       
@@ -267,13 +333,17 @@ E:\hexo\node_modules\hexo-server\i">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="next" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
-                <i class="fa fa-chevron-left"></i> Bootstrap查错工具Bootlint以及Bootstrap常见错误
+              <a href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" rel="next" title="Bootstrap全局样式之栅格布局系统-总结">
+                <i class="fa fa-chevron-left"></i> Bootstrap全局样式之栅格布局系统-总结
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="prev" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
+                Bootstrap查错工具Bootlint以及Bootstrap常见错误 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -288,10 +358,10 @@ E:\hexo\node_modules\hexo-server\i">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/15/hexo端口号4000被占/"
-     data-title="hexo无法启动之4000端口号被占用"
+        <div class="ds-share flat" data-thread-key="2015/11/03/Bootstrap05插件-已发布/"
+     data-title="Bootstrap插件"
      data-content=""
-     data-url="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/">
+     data-url="http://www.zhangzhengji.com/2015/11/03/Bootstrap05插件-已发布/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -322,8 +392,8 @@ E:\hexo\node_modules\hexo-server\i">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/15/hexo端口号4000被占/"
-           data-title="hexo无法启动之4000端口号被占用" data-url="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/">
+      <div class="ds-thread" data-thread-key="2015/11/03/Bootstrap05插件-已发布/"
+           data-title="Bootstrap插件" data-url="http://www.zhangzhengji.com/2015/11/03/Bootstrap05插件-已发布/">
       </div>
     
   </div>
@@ -413,7 +483,7 @@ E:\hexo\node_modules\hexo-server\i">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试"><span class="nav-number">2.</span> <span class="nav-text">尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追根"><span class="nav-number">3.</span> <span class="nav-text">追根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宣判"><span class="nav-number">4.</span> <span class="nav-text">宣判</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插件——概述"><span class="nav-number">1.</span> <span class="nav-text">1.插件——概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-插件——下拉菜单"><span class="nav-number">2.</span> <span class="nav-text">2.插件——下拉菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插件——标签页(tab)"><span class="nav-number">3.</span> <span class="nav-text">3.插件——标签页(tab)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-插件——Bootstrap提供的弹出框"><span class="nav-number">4.</span> <span class="nav-text">4.插件——Bootstrap提供的弹出框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-插件——折叠效果(collapse)"><span class="nav-number">5.</span> <span class="nav-text">5.插件——折叠效果(collapse)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-插件——轮播广告(carousel)——小重点"><span class="nav-number">6.</span> <span class="nav-text">6.插件——轮播广告(carousel)——小重点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-插件——附加导航（Affix）"><span class="nav-number">7.</span> <span class="nav-text">7.插件——附加导航（Affix）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-插件——滚动监听（scrollspy）——了解"><span class="nav-number">8.</span> <span class="nav-text">9.插件——滚动监听（scrollspy）——了解</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

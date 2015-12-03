@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,端口," />
+  <meta name="keywords" content="CSS3,bootstrap,box-sizing," />
 
 
 
@@ -51,22 +51,31 @@
 
 
 
-<meta name="description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
+<meta name="description" content="box-sizing:
+
+content-box
+border-box
+
+盒子模型的计算方式由box-sizing属性控制，有两个值content-box和border-box。CSS中默认是前者，计算方式”盒子宽=margin+border+padding+width“;Bootstrap中默认是后者，计算方式为“盒子宽：margin+width”，border和padding都算在width中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo无法启动之4000端口号被占用">
-<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/index.html">
+<meta property="og:title" content="CSS3之box-sizing">
+<meta property="og:url" content="http://www.zhangzhengji.com/2015/09/30/CSS3之box-sizing-已发布/index.html">
 <meta property="og:site_name" content="芥了末">
-<meta property="og:description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
-<meta property="og:updated_time" content="2015-11-29T18:57:50.000Z">
+<meta property="og:description" content="box-sizing:
+
+content-box
+border-box
+
+盒子模型的计算方式由box-sizing属性控制，有两个值content-box和border-box。CSS中默认是前者，计算方式”盒子宽=margin+border+padding+width“;Bootstrap中默认是后者，计算方式为“盒子宽：margin+width”，border和padding都算在width中">
+<meta property="og:updated_time" content="2015-12-03T17:18:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo无法启动之4000端口号被占用">
-<meta name="twitter:description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
+<meta name="twitter:title" content="CSS3之box-sizing">
+<meta name="twitter:description" content="box-sizing:
+
+content-box
+border-box
+
+盒子模型的计算方式由box-sizing属性控制，有两个值content-box和border-box。CSS中默认是前者，计算方式”盒子宽=margin+border+padding+width“;Bootstrap中默认是后者，计算方式为“盒子宽：margin+width”，border和padding都算在width中">
 
 
 
@@ -78,7 +87,7 @@ E:\hexo\node_modules\hexo-server\i">
   };
 </script>
 
-  <title> hexo无法启动之4000端口号被占用 | 芥了末 </title>
+  <title> CSS3之box-sizing | 芥了末 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +207,7 @@ E:\hexo\node_modules\hexo-server\i">
             
             
               
-                hexo无法启动之4000端口号被占用
+                CSS3之box-sizing
               
             
           </h1>
@@ -207,8 +216,8 @@ E:\hexo\node_modules\hexo-server\i">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-15T23:30:00+08:00" content="2015-11-15">
-              2015-11-15
+            <time itemprop="dateCreated" datetime="2015-09-30T21:40:32+08:00" content="2015-09-30">
+              2015-09-30
             </time>
           </span>
 
@@ -218,8 +227,8 @@ E:\hexo\node_modules\hexo-server\i">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/15/hexo端口号4000被占/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/hexo端口号4000被占/" itemprop="commentsCount"></span>
+                <a href="/2015/09/30/CSS3之box-sizing-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,16 +247,12 @@ E:\hexo\node_modules\hexo-server\i">
       
 
       
-        <span itemprop="articleBody"><h2 id="缘起">缘起</h2><p>今天本地运行hexo博客的时候，突然Chrome访问<code>localhost:4000</code>打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。</p>
-<h2 id="尝试">尝试</h2><p>瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：</p>
-<pre><code>E:<span class="command">\hexo</span><span class="command">\node</span>_modules<span class="command">\hexo</span>-server<span class="command">\index</span>.js
-</code></pre><p>找到hexo.config.server配置项，port参数改为4400，果然正常启动了。</p>
-<h2 id="追根">追根</h2><p>好吧，这下我想知道是何方神圣占用了4000，看看这家伙什么来头，优先级多高，需不需hexo要给它让道。<br>CMD命令：</p>
-<pre><code><span class="title">netstat</span> -ano
-</code></pre><p>果然有个进程在占用4000端口，进程号6616。于是在任务栏右键启动任务管理器找，可是找半天发现win8任务管理器下进程选项卡的查看菜单中好像没有显示进程ID的选项，好吧，这个命令不太熟，百度之：</p>
-<pre><code>tasklist /<span class="keyword">fi</span> <span class="string">"pid eq 6616"</span>
-</code></pre><p>进程名FoxitProtect.exe，瞅那名字就知道是福昕阅读器，还是个service，进入服务列表查看它属性，启动方式居然是手动！</p>
-<h2 id="宣判">宣判</h2><p>问题是我今儿没用福昕阅读器啊，根据其服务描述“福昕阅读器的服务项，提供内容与产品更新等服务”怀疑是程序更新搞的，果断停掉！给我大Hexo端口号改回4000（因为机器上装了xampp，所以就不把80让给hexo了），然后回到git bash，Ctrl+c快捷键停掉服务，然后<code>hexo service</code>命令启动服务，访问<code>localhost:4000</code>OK！</p>
+        <span itemprop="articleBody"><p>box-sizing:</p>
+<ul>
+<li>content-box</li>
+<li>border-box</li>
+</ul>
+<p>盒子模型的计算方式由box-sizing属性控制，有两个值<code>content-box</code>和<code>border-box</code>。CSS中默认是前者，计算方式”<code>盒子宽=margin+border+padding+width</code>“;Bootstrap中默认是后者，计算方式为“<code>盒子宽：margin+width</code>”，border和padding都算在width中。</p>
 </span>
       
     </div>
@@ -256,9 +261,11 @@ E:\hexo\node_modules\hexo-server\i">
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/CSS3/" rel="tag">#CSS3</a>
           
-            <a href="/tags/端口/" rel="tag">#端口</a>
+            <a href="/tags/bootstrap/" rel="tag">#bootstrap</a>
+          
+            <a href="/tags/box-sizing/" rel="tag">#box-sizing</a>
           
         </div>
       
@@ -267,13 +274,17 @@ E:\hexo\node_modules\hexo-server\i">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="next" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
-                <i class="fa fa-chevron-left"></i> Bootstrap查错工具Bootlint以及Bootstrap常见错误
+              <a href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/" rel="next" title="Bootstrap组件之响应式导航条[未完待续]">
+                <i class="fa fa-chevron-left"></i> Bootstrap组件之响应式导航条[未完待续]
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/10/01/PHP快速入门/" rel="prev" title="PHP快速入门">
+                PHP快速入门 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -288,10 +299,10 @@ E:\hexo\node_modules\hexo-server\i">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/15/hexo端口号4000被占/"
-     data-title="hexo无法启动之4000端口号被占用"
+        <div class="ds-share flat" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/"
+     data-title="CSS3之box-sizing"
      data-content=""
-     data-url="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/">
+     data-url="http://www.zhangzhengji.com/2015/09/30/CSS3之box-sizing-已发布/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -322,8 +333,8 @@ E:\hexo\node_modules\hexo-server\i">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/15/hexo端口号4000被占/"
-           data-title="hexo无法启动之4000端口号被占用" data-url="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/">
+      <div class="ds-thread" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/"
+           data-title="CSS3之box-sizing" data-url="http://www.zhangzhengji.com/2015/09/30/CSS3之box-sizing-已发布/">
       </div>
     
   </div>
@@ -413,7 +424,7 @@ E:\hexo\node_modules\hexo-server\i">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试"><span class="nav-number">2.</span> <span class="nav-text">尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追根"><span class="nav-number">3.</span> <span class="nav-text">追根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宣判"><span class="nav-number">4.</span> <span class="nav-text">宣判</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

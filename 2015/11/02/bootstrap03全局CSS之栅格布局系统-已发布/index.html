@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo,端口," />
+  <meta name="keywords" content="Bootstrap,contanier,margin越界,内容生成伪类,布局,栅格," />
 
 
 
@@ -51,22 +51,67 @@
 
 
 
-<meta name="description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
+<meta name="description" content="Bootstrap全局CSS之栅格布局系统
+WEB开发中页面布局方式演进：
+
+Table布局
+CSS+DIV布局
+Bootstrap栅格布局系统
+
+
+栅格系统特点
+
+所有的行必须放在容器中：.container或者.contain-fluid
+分为多行，一行平均分为12个col;
+网页内容只能放在col中，不能直接放在row中
+
+
+.container的宽度问题：
+
+超大屏，屏宽&amp;gt;1200p">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo无法启动之4000端口号被占用">
-<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/index.html">
+<meta property="og:title" content="Bootstrap全局样式之栅格布局系统-总结">
+<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/index.html">
 <meta property="og:site_name" content="芥了末">
-<meta property="og:description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
-<meta property="og:updated_time" content="2015-11-29T18:57:50.000Z">
+<meta property="og:description" content="Bootstrap全局CSS之栅格布局系统
+WEB开发中页面布局方式演进：
+
+Table布局
+CSS+DIV布局
+Bootstrap栅格布局系统
+
+
+栅格系统特点
+
+所有的行必须放在容器中：.container或者.contain-fluid
+分为多行，一行平均分为12个col;
+网页内容只能放在col中，不能直接放在row中
+
+
+.container的宽度问题：
+
+超大屏，屏宽&amp;gt;1200p">
+<meta property="og:updated_time" content="2015-12-03T17:18:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo无法启动之4000端口号被占用">
-<meta name="twitter:description" content="缘起今天本地运行hexo博客的时候，突然Chrome访问localhost:4000打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。
-尝试瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：
-E:\hexo\node_modules\hexo-server\i">
+<meta name="twitter:title" content="Bootstrap全局样式之栅格布局系统-总结">
+<meta name="twitter:description" content="Bootstrap全局CSS之栅格布局系统
+WEB开发中页面布局方式演进：
+
+Table布局
+CSS+DIV布局
+Bootstrap栅格布局系统
+
+
+栅格系统特点
+
+所有的行必须放在容器中：.container或者.contain-fluid
+分为多行，一行平均分为12个col;
+网页内容只能放在col中，不能直接放在row中
+
+
+.container的宽度问题：
+
+超大屏，屏宽&amp;gt;1200p">
 
 
 
@@ -78,7 +123,7 @@ E:\hexo\node_modules\hexo-server\i">
   };
 </script>
 
-  <title> hexo无法启动之4000端口号被占用 | 芥了末 </title>
+  <title> Bootstrap全局样式之栅格布局系统-总结 | 芥了末 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +243,7 @@ E:\hexo\node_modules\hexo-server\i">
             
             
               
-                hexo无法启动之4000端口号被占用
+                Bootstrap全局样式之栅格布局系统-总结
               
             
           </h1>
@@ -207,8 +252,8 @@ E:\hexo\node_modules\hexo-server\i">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-15T23:30:00+08:00" content="2015-11-15">
-              2015-11-15
+            <time itemprop="dateCreated" datetime="2015-11-02T23:10:11+08:00" content="2015-11-02">
+              2015-11-02
             </time>
           </span>
 
@@ -218,8 +263,8 @@ E:\hexo\node_modules\hexo-server\i">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/15/hexo端口号4000被占/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/hexo端口号4000被占/" itemprop="commentsCount"></span>
+                <a href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,16 +283,68 @@ E:\hexo\node_modules\hexo-server\i">
       
 
       
-        <span itemprop="articleBody"><h2 id="缘起">缘起</h2><p>今天本地运行hexo博客的时候，突然Chrome访问<code>localhost:4000</code>打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。</p>
-<h2 id="尝试">尝试</h2><p>瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：</p>
-<pre><code>E:<span class="command">\hexo</span><span class="command">\node</span>_modules<span class="command">\hexo</span>-server<span class="command">\index</span>.js
-</code></pre><p>找到hexo.config.server配置项，port参数改为4400，果然正常启动了。</p>
-<h2 id="追根">追根</h2><p>好吧，这下我想知道是何方神圣占用了4000，看看这家伙什么来头，优先级多高，需不需hexo要给它让道。<br>CMD命令：</p>
-<pre><code><span class="title">netstat</span> -ano
-</code></pre><p>果然有个进程在占用4000端口，进程号6616。于是在任务栏右键启动任务管理器找，可是找半天发现win8任务管理器下进程选项卡的查看菜单中好像没有显示进程ID的选项，好吧，这个命令不太熟，百度之：</p>
-<pre><code>tasklist /<span class="keyword">fi</span> <span class="string">"pid eq 6616"</span>
-</code></pre><p>进程名FoxitProtect.exe，瞅那名字就知道是福昕阅读器，还是个service，进入服务列表查看它属性，启动方式居然是手动！</p>
-<h2 id="宣判">宣判</h2><p>问题是我今儿没用福昕阅读器啊，根据其服务描述“福昕阅读器的服务项，提供内容与产品更新等服务”怀疑是程序更新搞的，果断停掉！给我大Hexo端口号改回4000（因为机器上装了xampp，所以就不把80让给hexo了），然后回到git bash，Ctrl+c快捷键停掉服务，然后<code>hexo service</code>命令启动服务，访问<code>localhost:4000</code>OK！</p>
+        <span itemprop="articleBody"><h2 id="Bootstrap全局CSS之栅格布局系统">Bootstrap全局CSS之栅格布局系统</h2><blockquote>
+<h3 id="WEB开发中页面布局方式演进：">WEB开发中页面布局方式演进：</h3></blockquote>
+<ol>
+<li>Table布局</li>
+<li>CSS+DIV布局</li>
+<li>Bootstrap栅格布局系统</li>
+</ol>
+<blockquote>
+<h3 id="栅格系统特点">栅格系统特点</h3></blockquote>
+<ol>
+<li>所有的行必须放在容器中：.container或者.contain-fluid</li>
+<li>分为多行，一行平均分为12个col;</li>
+<li>网页内容只能放在col中，不能直接放在row中</li>
+</ol>
+<blockquote>
+<h3 id="-container的宽度问题："><code>.container</code>的宽度问题：</h3></blockquote>
+<ul>
+<li>超大屏，屏宽&gt;1200px（）：容器宽1170px</li>
+<li>普通大屏，屏宽&gt;992px（）：容器宽950px</li>
+<li>小屏，屏宽&gt;768px（）：容器宽750px</li>
+<li>超小屏，屏宽&lt;768px（）：容器宽auto</li>
+</ul>
+<blockquote>
+<h3 id="-container-fluid的宽度问题："><code>.container-fluid</code>的宽度问题：</h3></blockquote>
+<ul>
+<li>width永远100%</li>
+</ul>
+<blockquote>
+<p>Bootstrap布局的特点是什么？</p>
+</blockquote>
+<ol>
+<li>宽度做了媒体查询，适应不同的屏幕；</li>
+<li>添加了前置和后置内容生成，可防止子元素margin越界、浮动造成的影响；</li>
+</ol>
+<blockquote>
+<p>回顾CSS的经典问题一：父元素下第一个子元素的margin-top越界问题以及末个子元素margin-bottom的越界问题？</p>
+</blockquote>
+<ol>
+<li>为父元素加边框，防止子元素延伸。副作用是边框；</li>
+<li>将margin换做padding；副作用是padding-top的值要加padding；</li>
+<li>父元素overflow，副作用是将溢出部分隐藏掉可能不满足需求；</li>
+<li><p>将父元素的第一个元素之前加一个无高度的table元素，<strong>无副作用！！！</strong></p>
+<pre><code><span class="class">.parent</span><span class="pseudo">:before</span><span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+}</span>
+</code></pre></li>
+</ol>
+<blockquote>
+<p>回顾CSS的经典问题二：如何解决所有子元素浮动以后，父元素高度为0的问题？</p>
+</blockquote>
+<ol>
+<li>为父元素设置固高，副作用：如果子元素是动态数据，没法确定子元素高；</li>
+<li>为父元素指定overflow:hidden；副作用:</li>
+<li><p>为父元素添加后置内容生成选择器，无副作用。</p>
+<pre><code><span class="class">.parent</span><span class="pseudo">:after</span><span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+}</span>
+</code></pre></li>
+</ol>
 </span>
       
     </div>
@@ -256,9 +353,17 @@ E:\hexo\node_modules\hexo-server\i">
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/Bootstrap/" rel="tag">#Bootstrap</a>
           
-            <a href="/tags/端口/" rel="tag">#端口</a>
+            <a href="/tags/contanier/" rel="tag">#contanier</a>
+          
+            <a href="/tags/margin越界/" rel="tag">#margin越界</a>
+          
+            <a href="/tags/内容生成伪类/" rel="tag">#内容生成伪类</a>
+          
+            <a href="/tags/布局/" rel="tag">#布局</a>
+          
+            <a href="/tags/栅格/" rel="tag">#栅格</a>
           
         </div>
       
@@ -267,13 +372,17 @@ E:\hexo\node_modules\hexo-server\i">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="next" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
-                <i class="fa fa-chevron-left"></i> Bootstrap查错工具Bootlint以及Bootstrap常见错误
+              <a href="/2015/11/01/Bootstrap00响应式设计-已发布/" rel="next" title="Responsive Web Design 响应式/自适应网页设计">
+                <i class="fa fa-chevron-left"></i> Responsive Web Design 响应式/自适应网页设计
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/03/Bootstrap05插件-已发布/" rel="prev" title="Bootstrap插件">
+                Bootstrap插件 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -288,10 +397,10 @@ E:\hexo\node_modules\hexo-server\i">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/15/hexo端口号4000被占/"
-     data-title="hexo无法启动之4000端口号被占用"
+        <div class="ds-share flat" data-thread-key="2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/"
+     data-title="Bootstrap全局样式之栅格布局系统-总结"
      data-content=""
-     data-url="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/">
+     data-url="http://www.zhangzhengji.com/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -322,8 +431,8 @@ E:\hexo\node_modules\hexo-server\i">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/15/hexo端口号4000被占/"
-           data-title="hexo无法启动之4000端口号被占用" data-url="http://www.zhangzhengji.com/2015/11/15/hexo端口号4000被占/">
+      <div class="ds-thread" data-thread-key="2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/"
+           data-title="Bootstrap全局样式之栅格布局系统-总结" data-url="http://www.zhangzhengji.com/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/">
       </div>
     
   </div>
@@ -413,7 +522,7 @@ E:\hexo\node_modules\hexo-server\i">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尝试"><span class="nav-number">2.</span> <span class="nav-text">尝试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#追根"><span class="nav-number">3.</span> <span class="nav-text">追根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宣判"><span class="nav-number">4.</span> <span class="nav-text">宣判</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bootstrap全局CSS之栅格布局系统"><span class="nav-number">1.</span> <span class="nav-text">Bootstrap全局CSS之栅格布局系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WEB开发中页面布局方式演进："><span class="nav-number">1.1.</span> <span class="nav-text">WEB开发中页面布局方式演进：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栅格系统特点"><span class="nav-number">1.2.</span> <span class="nav-text">栅格系统特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-container的宽度问题："><span class="nav-number">1.3.</span> <span class="nav-text">.container的宽度问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-container-fluid的宽度问题："><span class="nav-number">1.4.</span> <span class="nav-text">.container-fluid的宽度问题：</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
