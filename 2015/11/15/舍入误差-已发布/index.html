@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="boostrap,jQuery,插件," />
+  <meta name="keywords" content="舍入误差," />
 
 
 
@@ -51,25 +51,34 @@
 
 
 
-<meta name="description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
-
-传统的JS方式调用： $(...).dropdown();   $().tab(...);
-使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
+<meta name="description" content="1 引例先举个栗子：
+var a=2;
+var b=1.7;
+console.log(a-b);
+打印结果是0.30000000000000004。
+2 概念上述现象叫做计算机中的舍入误差。原本关于舍入误差，我只记得一句话：计算机底层运算时二进制的，无法精确表示0.1这个十进制数，所以会造成舍入误差。今天逛知乎看到关于这个问题的精彩答案，觉得有必要摘过来存下~感谢作者Adam Wen。
+3 原理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bootstrap插件">
-<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/03/Bootstrap05插件-已发布/index.html">
+<meta property="og:title" content="舍入误差">
+<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/15/舍入误差-已发布/index.html">
 <meta property="og:site_name" content="芥了末">
-<meta property="og:description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
-
-传统的JS方式调用： $(...).dropdown();   $().tab(...);
-使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
-<meta property="og:updated_time" content="2015-12-03T17:19:00.000Z">
+<meta property="og:description" content="1 引例先举个栗子：
+var a=2;
+var b=1.7;
+console.log(a-b);
+打印结果是0.30000000000000004。
+2 概念上述现象叫做计算机中的舍入误差。原本关于舍入误差，我只记得一句话：计算机底层运算时二进制的，无法精确表示0.1这个十进制数，所以会造成舍入误差。今天逛知乎看到关于这个问题的精彩答案，觉得有必要摘过来存下~感谢作者Adam Wen。
+3 原理">
+<meta property="og:updated_time" content="2015-12-06T16:32:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bootstrap插件">
-<meta name="twitter:description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
-
-传统的JS方式调用： $(...).dropdown();   $().tab(...);
-使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
+<meta name="twitter:title" content="舍入误差">
+<meta name="twitter:description" content="1 引例先举个栗子：
+var a=2;
+var b=1.7;
+console.log(a-b);
+打印结果是0.30000000000000004。
+2 概念上述现象叫做计算机中的舍入误差。原本关于舍入误差，我只记得一句话：计算机底层运算时二进制的，无法精确表示0.1这个十进制数，所以会造成舍入误差。今天逛知乎看到关于这个问题的精彩答案，觉得有必要摘过来存下~感谢作者Adam Wen。
+3 原理">
 
 
 
@@ -81,7 +90,7 @@
   };
 </script>
 
-  <title> Bootstrap插件 | 芥了末 </title>
+  <title> 舍入误差 | 芥了末 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -201,7 +210,7 @@
             
             
               
-                Bootstrap插件
+                舍入误差
               
             
           </h1>
@@ -210,8 +219,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-03T20:40:32+08:00" content="2015-11-03">
-              2015-11-03
+            <time itemprop="dateCreated" datetime="2015-11-15T23:30:00+08:00" content="2015-11-15">
+              2015-11-15
             </time>
           </span>
 
@@ -221,8 +230,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/03/Bootstrap05插件-已发布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/03/Bootstrap05插件-已发布/" itemprop="commentsCount"></span>
+                <a href="/2015/11/15/舍入误差-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/舍入误差-已发布/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -241,78 +250,39 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="1-插件——概述">1.插件——概述</h2><p>  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(<code>bootstrap.js</code>)。<br>  调用上述十几个插件可以用两种格式：</p>
-<ol>
-<li>传统的JS方式调用： <code>$(...).dropdown();</code>   <code>$().tab(...);</code></li>
-<li>使用data-*扩展属性方式调用：  <code>&lt;a  data-toggle=&quot;dropdown&quot;&gt;</code></li>
-</ol>
-<h2 id="2-插件——下拉菜单">2.插件——下拉菜单</h2><ol>
-<li><code>$().dropdown( );</code></li>
-<li><code>&lt;a data-toggle=&quot;dropdown&quot;&gt;</code></li>
-</ol>
-<h2 id="3-插件——标签页(tab)">3.插件——标签页(tab)</h2><ol>
-<li><code>$().tab();</code></li>
-<li><code>&lt;a data-toggle=&quot;tab&quot;&gt;</code></li>
-</ol>
-<h2 id="4-插件——Bootstrap提供的弹出框">4.插件——Bootstrap提供的弹出框</h2><p>  (1)工具提示框(tooltip)<br>    <code>data-toggle=&quot;tooltip&quot;</code></p>
-<p>  (2)弹出框(popover)<br>    <code>data-toggle=&quot;popover&quot;</code></p>
-<p>  (3)警告框(alert)            —— 小重点</p>
-<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"alert  alert-四种颜色 alert-dismissible"</span>&gt;
-    &lt;span <span class="type">class</span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span>&gt;&amp;<span class="keyword">times</span>;&lt;/span&gt;
-    xxxx
-&lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>  (4)模态对话框(modal)        —— 小重点</p>
-<p><strong>模态框定义</strong>：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。模态框必需的结构：</p>
-<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal"</span>&gt;</span>                   <span class="comment">&lt;!--半透明的黑色遮罩层--&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>         <span class="comment">&lt;!--宽/定位--&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-content"</span>&gt;</span>     <span class="comment">&lt;!--边框/背景色/阴影--&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-header"</span>&gt;</span>头部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-body"</span>&gt;</span>主体<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-footer"</span>&gt;</span>尾部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-</code></pre><p>显示一个模态框：</p>
-<ol>
-<li><code>&lt;a href=&quot;#模态框ID&quot; data-toggle=&quot;modal&quot;&gt;</code></li>
-<li><code>&lt;button data-toggle=&quot;modal&quot; data-target=&quot;#模态框ID&quot;&gt;</code></li>
-</ol>
-<h2 id="5-插件——折叠效果(collapse)">5.插件——折叠效果(collapse)</h2><p>  触发一个折叠效果：</p>
-<ol>
-<li><code>&lt;a href=&quot;#折叠元素ID&quot; data-toggle=&quot;collapse&quot;&gt;</code></li>
-<li><p><code>&lt;button data-toggle=&quot;collapse&quot; data-target=&quot;#折叠元素ID&quot;&gt;</code></p>
-<p>加<code>in</code>样式效果：</p>
-<p> <code>&lt;div id=&quot;折叠元素ID&quot; class=&quot;collapse  in&quot;&gt;&lt;/div&gt;</code></p>
-</li>
-</ol>
-<p>折叠组件的两个扩展用途：</p>
-<ol>
-<li>Accordion（手风琴）</li>
-<li>响应式导航条在手机屏幕中的效果</li>
-</ol>
-<h2 id="6-插件——轮播广告(carousel)——小重点">6.插件——轮播广告(carousel)——小重点</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
-<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel"</span>&gt;
-  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel-inner"</span>&gt;
-      &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item active"</span>&gt;
-          &lt;img&gt;
-      &lt;/<span class="keyword">div</span>&gt;
-  &lt;/<span class="keyword">div</span>&gt;
-&lt;/<span class="keyword">div</span>&gt;
-</code></pre><h2 id="7-插件——附加导航（Affix）">7.插件——附加导航（Affix）</h2><pre><code>&lt;<span class="tag">div</span> data-spy=<span class="string">"affix"</span> data-offset-<span class="attribute">top</span>=<span class="string">"100"</span>&gt;
-    &lt;<span class="tag">ul</span> class=<span class="string">"nav nav-pills"</span>&gt;
-&lt;/div&gt;
-</code></pre><h2 id="9-插件——滚动监听（scrollspy）——了解">9.插件——滚动监听（scrollspy）——了解</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
-<ol>
-<li>页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active</li>
-<li>导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样</li>
-<li>为页面添加滚动事件的监听函数 </li>
-</ol>
-<pre><code>body.onscroll= <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    <span class="keyword">if</span>(body滚动的距离 === 某个锚点距离顶端的距离){
-        此锚点对应的超链接的父元素li添加.active；
-    }
-}
-</code></pre></span>
+        <span itemprop="articleBody"><h2 id="1_引例">1 引例</h2><p>先举个栗子：</p>
+<pre><code><span class="variable"><span class="keyword">var</span> a</span>=<span class="number">2</span>;
+<span class="variable"><span class="keyword">var</span> b</span>=<span class="number">1.7</span>;
+console.log(a-b);
+</code></pre><p>打印结果是<code>0.30000000000000004</code>。</p>
+<h2 id="2_概念">2 概念</h2><p>上述现象叫做计算机中的<strong>舍入误差</strong>。原本关于舍入误差，我只记得一句话：计算机底层运算时二进制的，无法精确表示0.1这个十进制数，所以会造成舍入误差。今天逛知乎看到关于这个问题的精彩答案，觉得有必要摘过来存下~感谢作者Adam Wen。</p>
+<h2 id="3_原理">3 原理</h2><p> 不管是什么数, 在计算机中最终都会被转化为 0 和 1 进行存储, 所以需要弄明白以下几点问题： </p>
+<ul>
+<li>一个小数如何转化为二进制</li>
+<li>浮点数的二进制如何存储</li>
+</ul>
+<h4 id="浮点数的二进制表示">浮点数的二进制表示</h4><p>首先我们要了解浮点数二进制表示, 有以下两个原则:</p>
+<ul>
+<li>整数部分对 2 取余然后逆序排列</li>
+<li>小数部分乘 2 取整数部分, 然后顺序排列</li>
+</ul>
+<h4 id="0-1_的表示是什么?">0.1 的表示是什么?</h4><p>我们继续按照浮点数的二进制表示来计算</p>
+<ul>
+<li>0.1 * 2 = 0.2 整数部分取 0</li>
+<li>0.2 * 2 = 0.4 整数部分取 0</li>
+<li>0.4 * 2 = 0.8 整数部分取 0</li>
+<li>0.8 * 2 = 1.6 整数部分取 1</li>
+<li>0.6 * 2 = 1.2 整数部分取 1</li>
+<li>0.2 * 2 = 0.4 整数部分取 0<br>…</li>
+</ul>
+<p>所以你会发现, 0.1 的二进制表示是 0.00011001100110011001100110011……0011<br>0011作为二进制小数的循环节不断的进行循环.</p>
+<p>这就引出了一个问题, 你永远不能存下 0.1 的二进制, 即使你把全世界的硬盘都放在一起, 也存不下 0.1 的二进制小数.</p>
+<h4 id="浮点数的二进制存储">浮点数的二进制存储</h4><p>Python 和 C 一样, 采用 IEEE 754 规范来存储浮点数. IEEE 754 对双精度浮点数的存储规范将 64 bit 分为 3 部分.</p>
+<p>第 1 bit 位用来存储 符号, 决定这个数是正数还是负数<br>然后使用 11 bit 来存储指数部分<br>剩下的 52 bit 用来存储尾数<br>Double-precision_floating-point_format<br>而且可以指出的是, double 能存储的数的个数是有限的, double 能代表的数必然不超过 2^64 个, 那么现实世界上有多少个小数呢? 无限个. 计算机能做的只能是一个接近这个小数的值, 是这个值在一定精度下与逻辑认为的值相等. 换句话说, 每个小数的存储(但是不是所有的), 都会伴有精度的丢失.</p>
+<h4 id="浮点数计算的问题">浮点数计算的问题</h4><h4 id="0-1_+_0-2_==_0-3">0.1 + 0.2 == 0.3</h4><p>0.1 在计算机存储中真正的数字是<code>0.1000000000000000055511151231257827021181583404541015625</code>,0.2 是<code>0.200000000000000011102230246251565404236316680908203125</code>,0.3 是<code>0.299999999999999988897769753748434595763683319091796875</code></p>
+<p>这就是为什么 0.1 + 0.2 != 0.3 的原因</p>
+<p><a href="http://www.zhihu.com/question/28551135/answer/41524706" target="_blank" rel="external">点这里查看原文</a>By Adam Wen From ZhiHu.</p>
+</span>
       
     </div>
 
@@ -320,11 +290,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/boostrap/" rel="tag">#boostrap</a>
-          
-            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
-          
-            <a href="/tags/插件/" rel="tag">#插件</a>
+            <a href="/tags/舍入误差/" rel="tag">#舍入误差</a>
           
         </div>
       
@@ -333,17 +299,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" rel="next" title="Bootstrap全局样式之栅格布局系统-总结">
-                <i class="fa fa-chevron-left"></i> Bootstrap全局样式之栅格布局系统-总结
+              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="next" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
+                <i class="fa fa-chevron-left"></i> Bootstrap查错工具Bootlint以及Bootstrap常见错误
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="prev" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
-                Bootstrap查错工具Bootlint以及Bootstrap常见错误 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -358,10 +320,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/03/Bootstrap05插件-已发布/"
-     data-title="Bootstrap插件"
+        <div class="ds-share flat" data-thread-key="2015/11/15/舍入误差-已发布/"
+     data-title="舍入误差"
      data-content=""
-     data-url="http://www.zhangzhengji.com/2015/11/03/Bootstrap05插件-已发布/">
+     data-url="http://www.zhangzhengji.com/2015/11/15/舍入误差-已发布/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -392,8 +354,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/03/Bootstrap05插件-已发布/"
-           data-title="Bootstrap插件" data-url="http://www.zhangzhengji.com/2015/11/03/Bootstrap05插件-已发布/">
+      <div class="ds-thread" data-thread-key="2015/11/15/舍入误差-已发布/"
+           data-title="舍入误差" data-url="http://www.zhangzhengji.com/2015/11/15/舍入误差-已发布/">
       </div>
     
   </div>
@@ -483,7 +445,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插件——概述"><span class="nav-number">1.</span> <span class="nav-text">1.插件——概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-插件——下拉菜单"><span class="nav-number">2.</span> <span class="nav-text">2.插件——下拉菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插件——标签页(tab)"><span class="nav-number">3.</span> <span class="nav-text">3.插件——标签页(tab)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-插件——Bootstrap提供的弹出框"><span class="nav-number">4.</span> <span class="nav-text">4.插件——Bootstrap提供的弹出框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-插件——折叠效果(collapse)"><span class="nav-number">5.</span> <span class="nav-text">5.插件——折叠效果(collapse)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-插件——轮播广告(carousel)——小重点"><span class="nav-number">6.</span> <span class="nav-text">6.插件——轮播广告(carousel)——小重点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-插件——附加导航（Affix）"><span class="nav-number">7.</span> <span class="nav-text">7.插件——附加导航（Affix）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-插件——滚动监听（scrollspy）——了解"><span class="nav-number">8.</span> <span class="nav-text">9.插件——滚动监听（scrollspy）——了解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1_引例"><span class="nav-number">1.</span> <span class="nav-text">1 引例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2_概念"><span class="nav-number">2.</span> <span class="nav-text">2 概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3_原理"><span class="nav-number">3.</span> <span class="nav-text">3 原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点数的二进制表示"><span class="nav-number">3.0.1.</span> <span class="nav-text">浮点数的二进制表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1_的表示是什么?"><span class="nav-number">3.0.2.</span> <span class="nav-text">0.1 的表示是什么?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点数的二进制存储"><span class="nav-number">3.0.3.</span> <span class="nav-text">浮点数的二进制存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点数计算的问题"><span class="nav-number">3.0.4.</span> <span class="nav-text">浮点数计算的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1_+_0-2_==_0-3"><span class="nav-number">3.0.5.</span> <span class="nav-text">0.1 + 0.2 == 0.3</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
