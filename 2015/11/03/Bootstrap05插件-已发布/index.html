@@ -63,7 +63,7 @@
 
 传统的JS方式调用： $(...).dropdown();   $().tab(...);
 使用data-*扩展属性方式调用：  &amp;lt;a  data-toggl">
-<meta property="og:updated_time" content="2015-12-03T17:19:00.000Z">
+<meta property="og:updated_time" content="2015-12-15T15:42:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bootstrap插件">
 <meta name="twitter:description" content="1.插件——概述  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(bootstrap.js)。  调用上述十几个插件可以用两种格式：
@@ -256,12 +256,12 @@
 </ol>
 <h2 id="4-插件——Bootstrap提供的弹出框">4.插件——Bootstrap提供的弹出框</h2><p>  (1)工具提示框(tooltip)<br>    <code>data-toggle=&quot;tooltip&quot;</code></p>
 <p>  (2)弹出框(popover)<br>    <code>data-toggle=&quot;popover&quot;</code></p>
-<p>  (3)警告框(alert)            —— 小重点</p>
+<p>  (3)警告框(alert)            —— 常见</p>
 <pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"alert  alert-四种颜色 alert-dismissible"</span>&gt;
     &lt;span <span class="type">class</span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span>&gt;&amp;<span class="keyword">times</span>;&lt;/span&gt;
     xxxx
 &lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>  (4)模态对话框(modal)        —— 小重点</p>
+</code></pre><p>  (4)模态对话框(modal)        —— 常见</p>
 <p><strong>模态框定义</strong>：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。模态框必需的结构：</p>
 <pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal"</span>&gt;</span>                   <span class="comment">&lt;!--半透明的黑色遮罩层--&gt;</span>
   <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>         <span class="comment">&lt;!--宽/定位--&gt;</span>
@@ -290,7 +290,7 @@
 <li>Accordion（手风琴）</li>
 <li>响应式导航条在手机屏幕中的效果</li>
 </ol>
-<h2 id="6-插件——轮播广告(carousel)——小重点">6.插件——轮播广告(carousel)——小重点</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
+<h2 id="6-插件——轮播广告(carousel)——比较重要">6.插件——轮播广告(carousel)——比较重要</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
 <pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel"</span>&gt;
   &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel-inner"</span>&gt;
       &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item active"</span>&gt;
@@ -301,7 +301,7 @@
 </code></pre><h2 id="7-插件——附加导航（Affix）">7.插件——附加导航（Affix）</h2><pre><code>&lt;<span class="tag">div</span> data-spy=<span class="string">"affix"</span> data-offset-<span class="attribute">top</span>=<span class="string">"100"</span>&gt;
     &lt;<span class="tag">ul</span> class=<span class="string">"nav nav-pills"</span>&gt;
 &lt;/div&gt;
-</code></pre><h2 id="9-插件——滚动监听（scrollspy）——了解">9.插件——滚动监听（scrollspy）——了解</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
+</code></pre><h2 id="9-插件——滚动监听（scrollspy）——比较好玩">9.插件——滚动监听（scrollspy）——比较好玩</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
 <ol>
 <li>页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active</li>
 <li>导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样</li>
@@ -437,7 +437,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -451,7 +451,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -483,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插件——概述"><span class="nav-number">1.</span> <span class="nav-text">1.插件——概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-插件——下拉菜单"><span class="nav-number">2.</span> <span class="nav-text">2.插件——下拉菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插件——标签页(tab)"><span class="nav-number">3.</span> <span class="nav-text">3.插件——标签页(tab)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-插件——Bootstrap提供的弹出框"><span class="nav-number">4.</span> <span class="nav-text">4.插件——Bootstrap提供的弹出框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-插件——折叠效果(collapse)"><span class="nav-number">5.</span> <span class="nav-text">5.插件——折叠效果(collapse)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-插件——轮播广告(carousel)——小重点"><span class="nav-number">6.</span> <span class="nav-text">6.插件——轮播广告(carousel)——小重点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-插件——附加导航（Affix）"><span class="nav-number">7.</span> <span class="nav-text">7.插件——附加导航（Affix）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-插件——滚动监听（scrollspy）——了解"><span class="nav-number">8.</span> <span class="nav-text">9.插件——滚动监听（scrollspy）——了解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-插件——概述"><span class="nav-number">1.</span> <span class="nav-text">1.插件——概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-插件——下拉菜单"><span class="nav-number">2.</span> <span class="nav-text">2.插件——下拉菜单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-插件——标签页(tab)"><span class="nav-number">3.</span> <span class="nav-text">3.插件——标签页(tab)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-插件——Bootstrap提供的弹出框"><span class="nav-number">4.</span> <span class="nav-text">4.插件——Bootstrap提供的弹出框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-插件——折叠效果(collapse)"><span class="nav-number">5.</span> <span class="nav-text">5.插件——折叠效果(collapse)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-插件——轮播广告(carousel)——比较重要"><span class="nav-number">6.</span> <span class="nav-text">6.插件——轮播广告(carousel)——比较重要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-插件——附加导航（Affix）"><span class="nav-number">7.</span> <span class="nav-text">7.插件——附加导航（Affix）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-插件——滚动监听（scrollspy）——比较好玩"><span class="nav-number">8.</span> <span class="nav-text">9.插件——滚动监听（scrollspy）——比较好玩</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -177,15 +177,139 @@
 
     
     
+
+    
       
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/17/EXT初探-待整理/" itemprop="url">
+                  EXT初探
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-17T21:40:32+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/17/EXT初探-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/EXT初探-待整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
       
-        
-        
-        
       
 
       
-    
+        
+          <span itemprop="articleBody">
+            
+              <p>今天上手Ext.js，简单做一下小结，后续再补充。</p>
+<h2 id="认识">认识</h2><p>Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。</p>
+<h2 id="特点">特点</h2><ul>
+<li>擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。</li>
+<li>EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，而纯前端人员学习难度稍大。</li>
+<li>文档详细到令人发指~不过是英文~</li>
+</ul>
+<h2 id="EXT内置对象">EXT内置对象</h2><ul>
+<li>Ext.MessageBox（简写Ext.Msg）</li>
+<li>Ext.window.Window（简写为Ext.Window）</li>
+</ul>
+<h2 id="亮点">亮点</h2><p>看到一种Button的配置值的写法<code>buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL</code>，还真的能渲染出“yes”“no”“cancel”三个按钮来，很奇怪——三个按钮同时显示的Button常量值不应该是<code>YESNOCANCEL</code>吗？：</p>
+<pre><code>Ext.onReady(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    Ext.Msg.show({
+        title: <span class="string">'地址'</span>,
+        msg: <span class="string">'轻请输入地址：'</span>,
+        width: <span class="number">500</span>,
+        buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL,
+        <span class="comment">//buttons: Ext.Msg.YESNOCANCEL,</span>
+        fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);
+        },
+        animateTarget: <span class="string">'addAddressBtn'</span>,
+        icon: Ext.window.MessageBox.INFO,
+    });
+});
+</code></pre><p>点源码进去看（笔者IDE是Webstrom，Ctrl+鼠标左键），发现EXT里的button常量的编号很奇怪，并不连续：</p>
+<pre><code>OK : <span class="number">1</span>,
+
+YES : <span class="number">2</span>,
+
+NO : <span class="number">4</span>,
+
+CANCEL : <span class="number">8</span>,
+
+OKCANCEL : <span class="number">9</span>,
+
+YESNO : <span class="number">6</span>,
+
+YESNOCANCEL : <span class="number">14</span>,
+</code></pre><p>不看不知道，一看吓一跳，原来这个Button的取值是真的在做按位或运算：</p>
+<ul>
+<li><code>9=1|8</code> 即 <code>OKCANCEL = OK | CANCEL</code> </li>
+<li><code>14=2|4|8</code> 即 <code>YESNOCANCEL = YES | NO | CANCEL</code> </li>
+</ul>
+<p>简直颠覆了我对单个符号的位运算“&amp;”和“|”的认知啊有木有！对于这种设计，我赵日天服了！</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -286,6 +410,239 @@ console.log(a-b);
 <h4 id="浮点数计算的问题">浮点数计算的问题</h4><h4 id="0-1_+_0-2_==_0-3">0.1 + 0.2 == 0.3</h4><p>0.1 在计算机存储中真正的数字是<code>0.1000000000000000055511151231257827021181583404541015625</code>,0.2 是<code>0.200000000000000011102230246251565404236316680908203125</code>,0.3 是<code>0.299999999999999988897769753748434595763683319091796875</code></p>
 <p>这就是为什么 0.1 + 0.2 != 0.3 的原因</p>
 <p><a href="http://www.zhihu.com/question/28551135/answer/41524706" target="_blank" rel="external">点这里查看原文</a>By Adam Wen From ZhiHu.</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/11/百度地图API之JS版-已发布/" itemprop="url">
+                  百度地图API之JS版
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-11T20:30:00+08:00" content="2015-11-11">
+              2015-11-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/11/百度地图API之JS版-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/11/百度地图API之JS版-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>得益于丰富的的API和完善的中文开发文档，百度地图在国内地图类第三方地图支持市场的占有率一直比较高。百度地图的API在百度开发者中心可以找到，今天简单地介绍一下百度地图的API。</p>
+<p>用百度账号登录百度开发者中心，进入百度地图开放平台页面，页面中可以找到申请密钥的按钮，点击申请。</p>
+<ul>
+<li>进入应用页面，创建应用，应用名称自拟；</li>
+<li>应用类型根据需要选择，这里选择服务端；</li>
+<li>启用服务最好全选，省去后续做其他领域的开发时再次设置；</li>
+<li>请求校验方式选择IP白名单校验，按下方提示输入即可。</li>
+<li>如果已经有应用，最好点“设置”按钮检查一下是否全部勾选。</li>
+<li>点击提交，创建应用，应用出现在应用列表。</li>
+<li>copy你的AccessKey（简称AK），待会要用。至此，准备工作就绪。</li>
+</ul>
+<p>回到百度地图开放平台首页<a href="http://developer.baidu.com/map/，点击WEB开发，选择JavaScript" target="_blank" rel="external">http://developer.baidu.com/map/，点击WEB开发，选择JavaScript</a> API大众版做示例。</p>
+<p>进入API页面，就可以看到清晰、详细的说明。话不多说，上DEMO：</p>
+<pre><code><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"Content-Type"</span> <span class="attribute">content</span>=<span class="value">"text/html; charset=utf-8"</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"initial-scale=1.0, user-scalable=no"</span> /&gt;</span>
+<span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+<span class="tag">body</span>, <span class="tag">html</span>,<span class="id">#allmap</span> <span class="rules">{<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;<span class="rule"><span class="attribute">margin</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"微软雅黑"</span></span></span>;}</span>
+</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"http://api.map.baidu.com/api?v=2.0&amp;ak=您的密钥"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+<span class="tag">&lt;<span class="title">title</span>&gt;</span>地图展示<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+<span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"allmap"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="actionscript">
+<span class="comment">// 百度地图API功能</span>
+<span class="keyword">var</span> map = <span class="keyword">new</span> BMap.Map(<span class="string">"allmap"</span>);    <span class="comment">// 创建Map实例</span>
+map.centerAndZoom(<span class="keyword">new</span> BMap.Point(<span class="number">116.404</span>, <span class="number">39.915</span>), <span class="number">11</span>);  <span class="comment">// 初始化地图,设置中心点坐标和地图级别</span>
+map.addControl(<span class="keyword">new</span> BMap.MapTypeControl());   <span class="comment">//添加地图类型控件</span>
+map.setCurrentCity(<span class="string">"北京"</span>);          <span class="comment">// 设置地图显示的城市 此项是必须设置的</span>
+map.enableScrollWheelZoom(<span class="literal">true</span>);     <span class="comment">//开启鼠标滚轮缩放</span>
+</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
+</code></pre><p>注：</p>
+<ul>
+<li>BMap是百度地图类库的根对象</li>
+<li>centerAndZoom()是地图的初始化方法。</li>
+</ul>
+<p>在上述案例中，有两点要注意的：</p>
+<ul>
+<li>在<code>&lt;head&gt;</code>部分的<code>&lt;script&gt;</code>中引入百度API在线的js库，参数中“您的密钥”用你之前copy下来的 密钥字符串替换；</li>
+<li>内部style是必要的，因为我们必须指定一个具体大小的容器，否则默认的div是没有大小的，导致运行结果是空白。</li>
+</ul>
+<p>因为百度给出的文档已经非常详细，具体的API介绍请移步<a href="http://developer.baidu.com/map/reference/index.php" target="_blank">官方文档类参考</a>，本文仅作为入门指引。</p>
+<p>如有不足，敬请指正！</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/05/Bootstrap框架原理-待整理/" itemprop="url">
+                  Bootstrap框架的原理一句话总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-05T20:09:08+08:00" content="2015-11-05">
+              2015-11-05
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/05/Bootstrap框架原理-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/Bootstrap框架原理-待整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <blockquote>
+<p>Bootstrap框架的原理简要概述</p>
+</blockquote>
+<p>样式原理：</p>
+<ul>
+<li>CSS重置</li>
+</ul>
+<p>行为原理：</p>
+<ul>
+<li>自定义属性，通过元素选择器找到它，然后为其绑定事件。</li>
+</ul>
 
             
           </span>
@@ -515,12 +872,12 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
 </ol>
 <h2 id="4-插件——Bootstrap提供的弹出框">4.插件——Bootstrap提供的弹出框</h2><p>  (1)工具提示框(tooltip)<br>    <code>data-toggle=&quot;tooltip&quot;</code></p>
 <p>  (2)弹出框(popover)<br>    <code>data-toggle=&quot;popover&quot;</code></p>
-<p>  (3)警告框(alert)            —— 小重点</p>
+<p>  (3)警告框(alert)            —— 常见</p>
 <pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"alert  alert-四种颜色 alert-dismissible"</span>&gt;
     &lt;span <span class="type">class</span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span>&gt;&amp;<span class="keyword">times</span>;&lt;/span&gt;
     xxxx
 &lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>  (4)模态对话框(modal)        —— 小重点</p>
+</code></pre><p>  (4)模态对话框(modal)        —— 常见</p>
 <p><strong>模态框定义</strong>：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。模态框必需的结构：</p>
 <pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal"</span>&gt;</span>                   <span class="comment">&lt;!--半透明的黑色遮罩层--&gt;</span>
   <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>         <span class="comment">&lt;!--宽/定位--&gt;</span>
@@ -549,7 +906,7 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
 <li>Accordion（手风琴）</li>
 <li>响应式导航条在手机屏幕中的效果</li>
 </ol>
-<h2 id="6-插件——轮播广告(carousel)——小重点">6.插件——轮播广告(carousel)——小重点</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
+<h2 id="6-插件——轮播广告(carousel)——比较重要">6.插件——轮播广告(carousel)——比较重要</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
 <pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel"</span>&gt;
   &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel-inner"</span>&gt;
       &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item active"</span>&gt;
@@ -560,7 +917,7 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
 </code></pre><h2 id="7-插件——附加导航（Affix）">7.插件——附加导航（Affix）</h2><pre><code>&lt;<span class="tag">div</span> data-spy=<span class="string">"affix"</span> data-offset-<span class="attribute">top</span>=<span class="string">"100"</span>&gt;
     &lt;<span class="tag">ul</span> class=<span class="string">"nav nav-pills"</span>&gt;
 &lt;/div&gt;
-</code></pre><h2 id="9-插件——滚动监听（scrollspy）——了解">9.插件——滚动监听（scrollspy）——了解</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
+</code></pre><h2 id="9-插件——滚动监听（scrollspy）——比较好玩">9.插件——滚动监听（scrollspy）——比较好玩</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
 <ol>
 <li>页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active</li>
 <li>导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样</li>
@@ -699,7 +1056,7 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
 <li>为父元素加边框，防止子元素延伸。副作用是边框；</li>
 <li>将margin换做padding；副作用是padding-top的值要加padding；</li>
 <li>父元素overflow，副作用是将溢出部分隐藏掉可能不满足需求；</li>
-<li><p>将父元素的第一个元素之前加一个无高度的table元素，<strong>无副作用！！！</strong></p>
+<li><p>将父元素的第一个元素之前加一个无高度的display:table元素，<strong>无副作用！！！</strong></p>
 <pre><code><span class="class">.parent</span><span class="pseudo">:before</span><span class="rules">{
     <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
     <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
@@ -932,108 +1289,6 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
 <hr>
 <p>参考：觉唯设计有一篇文章讲得很好<a href="http://www.jiawin.com/response-type-layout-design" target="_blank">《响应式设计这点小事儿》</a></p>
 
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/01/bootstrap框架原理-待整理/" itemprop="url">
-                  Bootstrap框架原理之浅析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-01T20:09:37+08:00" content="2015-11-01">
-              2015-11-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/01/bootstrap框架原理-待整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/01/bootstrap框架原理-待整理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <blockquote>
-<p>Bootstrap框架是如何实现的？</p>
-</blockquote>
-<p>样式原理：</p>
-<ul>
-<li>CSS重置</li>
-</ul>
-<p>行为原理：</p>
-<ul>
-<li>自定义属性，通过元素选择器找到它，然后为其绑定事件。</li>
-</ul>
-<blockquote>
-<p>举个栗子：</p>
-</blockquote>
-<pre><code><span class="escape">`n</span>av&gt;ul&gt;li&gt;<span class="literal">a</span>的自定义属性：data-toggle=<span class="string">"dropdown"</span>`
-</code></pre>
             
           </span>
         
@@ -1430,326 +1685,6 @@ query方法如果执行的是增删改操作，其返回值是一个布尔值；
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/01/PHP快速入门/" itemprop="url">
-                  PHP快速入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-01T18:09:18+08:00" content="2015-10-01">
-              2015-10-01
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/01/PHP快速入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/PHP快速入门/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="准备工作">准备工作</h2><p>安装XAMPP集成环境，启动apache。进入xampp安装目录下的htdocs目录，新建一个txt文件，重命名（F2）为以“.php”为扩展名的文件（比如test.php）。PHP语句写在<code>&lt;?php</code>和<code>?&gt;</code>之间。语句书写完毕，保存后，在浏览器中输入<code>http://localhost:88/test.php</code>访问（端口号根据自己实际情况调整）即可。</p>
-<pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
-    <span class="keyword">echo</span> <span class="string">'这是一个PHP文件'</span>;
-<span class="preprocessor">?&gt;</span></span>
-</code></pre><hr>
-<h2 id="常量与变量">常量与变量</h2><h3 id="常量">常量</h3><p>常量与javascript中一样，常量用const标示：<br>    const str = ‘this is string.’;//定义一个常量<br>在PHP中，常量是不允许重复赋值的，例如执行：</p>
-<pre><code>str = <span class="string">'abcdefg'</span>;
-报错
- * * 错误信息
- *   Parse <span class="built_in">error</span>: syntax <span class="built_in">error</span>, unexpected <span class="string">'='</span> <span class="keyword">in</span>
-</code></pre><h3 id="变量">变量</h3><p>PHP的变量以“$”开头，其用法与javascirpt中一致：</p>
-<pre><code><span class="variable">$str</span> = <span class="string">'this is string too.'</span>;
-<span class="variable">$str</span> = <span class="string">'abcdefg'</span>;
-echo <span class="variable">$str</span>;//abcdefg
-</code></pre><hr>
-<h2 id="数据类型">数据类型</h2><h3 id="四种标量类型：">四种标量类型：</h3><ol>
-<li>boolean</li>
-<li>integer</li>
-<li>float/double</li>
-<li>string</li>
-</ol>
-<h3 id="两种复合类型：">两种复合类型：</h3><ol>
-<li>array-数组</li>
-<li>object-对象</li>
-</ol>
-<h3 id="两种特殊类型：">两种特殊类型：</h3><ol>
-<li>resource-资源</li>
-<li>NULL</li>
-</ol>
-<h2 id="两种打印方式：">两种打印方式：</h2><p>echo 输出<br>var_dump 打印</p>
-<pre><code><span class="variable">$str</span>=<span class="string">'nihao'</span>;
-echo <span class="variable">$str</span>;
-/*
- * var_dump()函数
- * * 作用 - 打印变量的相关信息
- */
-var_dump(<span class="variable">$str</span>);
-</code></pre><h3 id="boolean">boolean</h3><pre><code><span class="variable">$boo</span> = <span class="literal">true</span>;
-echo <span class="variable">$boo</span>;//输出：<span class="number">1</span>
-var_dump(<span class="variable">$boo</span>);//输出：bool(<span class="literal">true</span>)
-<span class="variable">$foo</span> = fasel;
-echo <span class="variable">$foo</span>;//输出：<span class="string">''</span>，也即没有输出
-var_dump(<span class="variable">$foo</span>);//输出：bool(<span class="literal">false</span>)
-</code></pre><h3 id="integer">integer</h3><pre><code><span class="variable">$integer</span> = <span class="number">100</span>;
-echo <span class="variable">$integer</span>;//<span class="number">100</span>
-echo <span class="string">'&lt;br/&gt;'</span>;
-var_dump(<span class="variable">$integer</span>);//int(<span class="number">100</span>)
-</code></pre><h3 id="float/double">float/double</h3><pre><code><span class="variable">$f</span> = <span class="number">3.579</span>;
-echo <span class="variable">$f</span>;//<span class="number">3.579</span>
-echo <span class="string">'&lt;br/&gt;'</span>;    
-var_dump(<span class="variable">$f</span>);//float(<span class="number">3.579</span>)
-</code></pre><h3 id="string">string</h3><p>单引号和双引号都表示字符串，但两种方式用法不同。在单引号中的字符串，用法与其他语言相同，但在双引号下的字符串，是可以识别串中的变量名的，也因为匹配变量，其效率低于单引号下的字符串。</p>
-<h3 id="数组">数组</h3><p>定义一个数组</p>
-<ol>
-<li><p>直接量</p>
-<pre><code><span class="variable">$arr1</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];
-var_dump(<span class="variable">$arr1</span>);
-<span class="variable">$arr2</span>=[<span class="string">'jimaoshiwang'</span>,<span class="string">'zhaomin'</span>,<span class="string">'zhangwuji'</span>];
-var_dump(<span class="variable">$arr2</span>);
-</code></pre></li>
-<li><p>定义索引数组</p>
-<pre><code>格式：
-数组名=arr(
-    索引值 =&gt; 值,
-    索引值 =&gt; 值,
-    ...
-);
-
-示例：
-$arr1=arr(
-    <span class="number">0</span>=&gt;<span class="number">1</span>,
-    <span class="number">1</span>=&gt;<span class="number">2</span>,
-    <span class="number">2</span>=&gt;<span class="number">3</span>
-);
-</code></pre></li>
-<li><p>定义关联数组</p>
-<pre><code>格式：
-<span class="keyword">array</span>(
-    key(键) =&gt; 元素内容,
-    key(键) =&gt; 元素内容,
-    key(键) =&gt; 元素内容,
-    ...
-);
-
-示例：
-<span class="variable">$arr</span>=<span class="keyword">array</span>(
-    <span class="string">'总理'</span>=&gt;<span class="string">'李克强'</span>,
-    <span class="string">'boss'</span>=&gt;<span class="string">'习大大'</span>
-);
-var_dump(<span class="variable">$arr</span>);
-</code></pre></li>
-</ol>
-<h3 id="类与对象">类与对象</h3><pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
-    <span class="comment">// 定义一个类foo - 类似于javascript的构造器</span>
-    <span class="class"><span class="keyword">class</span> <span class="title">foo</span></span>{
-        <span class="comment">// 定义一个方法do_foo()</span>
-        <span class="function"><span class="keyword">function</span> <span class="title">do_foo</span><span class="params">()</span></span>{
-            <span class="keyword">echo</span> <span class="string">"Doing foo."</span>; 
-        }
-    }
-    <span class="comment">// 通过new关键字实例化一个对象</span>
-    <span class="variable">$bar</span> = <span class="keyword">new</span> foo;
-    <span class="comment">// 通过$bar对象,调用do_foo()方法</span>
-    <span class="variable">$bar</span>-&gt;do_foo();
-<span class="preprocessor">?&gt;</span></span>
-</code></pre><h3 id="resource-资源">resource-资源</h3><p>作用：用于保存外部资源的一个引用</p>
-<p>使用场景：在文件上传中保存上传的文件</p>
-<hr>
-<h2 id="运算符">运算符</h2><p>运算符基本与Javascript保持一致，字符串连接例外。<br>php中字符串连接使用”.”:</p>
-<pre><code><span class="variable">$zwj</span>=<span class="string">'zhangwuji'</span>;
-<span class="variable">$zzr</span>=<span class="string">'zhouzhiruo'</span>;
-<span class="variable">$str1</span>=<span class="variable">$zzr</span>.<span class="string">' is '</span>.<span class="variable">$zwj</span>.<span class="string">'\'</span>s nvpengyou<span class="string">';//输出一个“'</span>”要转义
-echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="string">'s nvpenyou</span>
-</code></pre><h2 id="循环">循环</h2><p>while循环</p>
-<pre><code><span class="variable">$i</span>=<span class="number">0</span>;
-<span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>){
-    echo <span class="variable">$i</span>++;
-}
-</code></pre><p>for循环</p>
-<pre><code><span class="variable">$arr</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];
-<span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">5</span>;<span class="variable">$i</span>++){
-    var_dump(<span class="variable">$arr</span>[<span class="variable">$i</span>]);
-}
-</code></pre><p>foreach</p>
-<pre><code>foreach(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$i</span>=&gt;<span class="variable">$value</span>){
-    var_dump(<span class="variable">$i</span>);
-    var_dump(<span class="variable">$arr</span>[<span class="variable">$i</span>]);
-    var_dump(<span class="variable">$value</span>);
-    echo <span class="string">'&lt;br/&gt;'</span>;
-}
-</code></pre><p>foreach是唯一与javascript中不同的循环，联系js中的<a href="http://pdf7.tarena.com.cn/tts8_source/ttsPage/WEB/WEB_V02/JAVASCRIPT/DAY04/COURSE/ppt.html" target="_blank">for-in</a>循环。</p>
-<h2 id="分支结构">分支结构</h2><p>与javascript几乎一致。</p>
-<h2 id="PHP预定义">PHP预定义</h2><p>预定义变量</p>
-<ul>
-<li>$_GET</li>
-<li>$_POST</li>
-<li>$_REQUEST：$_GET、$POST等</li>
-<li>$_FILE：    专用于文件上传</li>
-<li>$_COOKIE： 接收客户端保存的所有cookie数据</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/30/CSS3之box-sizing-已发布/" itemprop="url">
-                  CSS3之box-sizing
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-09-30T21:40:32+08:00" content="2015-09-30">
-              2015-09-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/30/CSS3之box-sizing-已发布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>box-sizing:</p>
-<ul>
-<li>content-box</li>
-<li>border-box</li>
-</ul>
-<p>盒子模型的计算方式由box-sizing属性控制，有两个值<code>content-box</code>和<code>border-box</code>。CSS中默认是前者，计算方式”<code>盒子宽=margin+border+padding+width</code>“;Bootstrap中默认是后者，计算方式为“<code>盒子宽：margin+width</code>”，border和padding都算在width中。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -1796,7 +1731,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1810,7 +1745,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

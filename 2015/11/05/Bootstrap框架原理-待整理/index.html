@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="软件设计," />
+  <meta name="keywords" content="Bootstrap," />
 
 
 
@@ -51,22 +51,40 @@
 
 
 
-<meta name="description" content="软件设计原则1. 避免重复原则（DRY – Don’t repeat yourself）编程的最基本原则是避免重复。在程序代码中总会有很多结构体，如循环、函数、类等等。一旦你重复某个语句或概念，就会很容易形成一个抽象体。
-2. 抽象原则（Abstraction Principle ）与DRY原则相关。要记住，程序代码中每一个重要的功能，只能出现在源代码的一个位置。
-3. 简单原则（Keep It">
+<meta name="description" content="Bootstrap框架的原理简要概述
+
+样式原理：
+
+CSS重置
+
+行为原理：
+
+自定义属性，通过元素选择器找到它，然后为其绑定事件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="软件设计原则">
-<meta property="og:url" content="http://www.zhangzhengji.com/2015/08/15/软件设计原则-已发布/index.html">
+<meta property="og:title" content="Bootstrap框架的原理一句话总结">
+<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/05/Bootstrap框架原理-待整理/index.html">
 <meta property="og:site_name" content="芥了末">
-<meta property="og:description" content="软件设计原则1. 避免重复原则（DRY – Don’t repeat yourself）编程的最基本原则是避免重复。在程序代码中总会有很多结构体，如循环、函数、类等等。一旦你重复某个语句或概念，就会很容易形成一个抽象体。
-2. 抽象原则（Abstraction Principle ）与DRY原则相关。要记住，程序代码中每一个重要的功能，只能出现在源代码的一个位置。
-3. 简单原则（Keep It">
-<meta property="og:updated_time" content="2015-12-06T16:50:06.000Z">
+<meta property="og:description" content="Bootstrap框架的原理简要概述
+
+样式原理：
+
+CSS重置
+
+行为原理：
+
+自定义属性，通过元素选择器找到它，然后为其绑定事件。">
+<meta property="og:updated_time" content="2015-12-11T17:39:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="软件设计原则">
-<meta name="twitter:description" content="软件设计原则1. 避免重复原则（DRY – Don’t repeat yourself）编程的最基本原则是避免重复。在程序代码中总会有很多结构体，如循环、函数、类等等。一旦你重复某个语句或概念，就会很容易形成一个抽象体。
-2. 抽象原则（Abstraction Principle ）与DRY原则相关。要记住，程序代码中每一个重要的功能，只能出现在源代码的一个位置。
-3. 简单原则（Keep It">
+<meta name="twitter:title" content="Bootstrap框架的原理一句话总结">
+<meta name="twitter:description" content="Bootstrap框架的原理简要概述
+
+样式原理：
+
+CSS重置
+
+行为原理：
+
+自定义属性，通过元素选择器找到它，然后为其绑定事件。">
 
 
 
@@ -78,7 +96,7 @@
   };
 </script>
 
-  <title> 软件设计原则 | 芥了末 </title>
+  <title> Bootstrap框架的原理一句话总结 | 芥了末 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +216,7 @@
             
             
               
-                软件设计原则
+                Bootstrap框架的原理一句话总结
               
             
           </h1>
@@ -207,8 +225,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-08-15T20:30:00+08:00" content="2015-08-15">
-              2015-08-15
+            <time itemprop="dateCreated" datetime="2015-11-05T20:09:08+08:00" content="2015-11-05">
+              2015-11-05
             </time>
           </span>
 
@@ -218,8 +236,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/08/15/软件设计原则-已发布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/15/软件设计原则-已发布/" itemprop="commentsCount"></span>
+                <a href="/2015/11/05/Bootstrap框架原理-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/05/Bootstrap框架原理-待整理/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,27 +256,17 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="软件设计原则">软件设计原则</h1><h3 id="1-_避免重复原则（DRY_–_Don’t_repeat_yourself）">1. 避免重复原则（DRY – Don’t repeat yourself）</h3><p>编程的最基本原则是避免重复。在程序代码中总会有很多结构体，如循环、函数、类等等。一旦你重复某个语句或概念，就会很容易形成一个抽象体。</p>
-<h3 id="2-_抽象原则（Abstraction_Principle_）">2. 抽象原则（Abstraction Principle ）</h3><p>与DRY原则相关。要记住，程序代码中每一个重要的功能，只能出现在源代码的一个位置。</p>
-<h3 id="3-_简单原则（Keep_It_Simple_and_Stupid_）">3. 简单原则（Keep It Simple and Stupid ）</h3><p>简单是软件设计的目标，简单的代码占用时间少，漏洞少，并且易于修改。</p>
-<h3 id="4-_避免创建你不要的代码_Avoid_Creating_a_YAGNI_(You_aren’t_going_to_need_it)">4. 避免创建你不要的代码 Avoid Creating a YAGNI (You aren’t going to need it)</h3><p>除非你需要它，否则别创建新功能。</p>
-<h3 id="5-_尽可能做可运行的最简单的事（Do_the_simplest_thing_that_could_possibly_work）">5. 尽可能做可运行的最简单的事（Do the simplest thing that could possibly work）</h3><p>尽可能做可运行的最简单的事。在编程中，一定要保持简单原则。作为一名程序员不断的反思“如何在工作中做到简化呢？”这将有助于在设计中保持简单的路径。</p>
-<h3 id="6-_别让我思考(Don’t_make_me_think_)">6. 别让我思考(Don’t make me think )</h3><p>这是Steve Krug一本书的标题，同时也和编程有关。所编写的代码一定要易于读易于理解，这样别人才会欣赏，也能够给你提出合理化的建议。相反，若是繁杂难解的程序，其他人总是会避而远之的。</p>
-<h3 id="7-_开闭原则(Open/Closed_Principle)">7. 开闭原则(Open/Closed Principle)</h3><p>你所编写的软件实体（类、模块、函数等）最好是开放的，这样别人可以拓展开发。不过，对于你的代码，得限定别人不得修改。换句话说，别人可以基于你的代码进行拓展编写，但却不能修改你的代码。</p>
-<h3 id="8-_代码维护(Write_Code_for_the_Maintainer)">8. 代码维护(Write Code for the Maintainer)</h3><p>一个优秀的代码，应当使本人或是他人在将来都能够对它继续编写或维护。代码维护时，或许本人会比较容易，但对他人却比较麻烦。因此你写的代码要尽可能保证他人能够容易维护。用书中原话说“如果一个维护者不再继续维护你的代码，很可能他就有想杀了你的冲动。”</p>
-<h3 id="9-_最小惊讶原则(Principle_of_least_astonishment)">9. 最小惊讶原则(Principle of least astonishment)</h3><p>最小惊讶原则通常是在用户界面方面引用，但同样适用于编写的代码。代码应该尽可能减少让读者惊喜。也就是说，你编写的代码只需按照项目的要求来编写。其他华丽的功能就不必了，以免弄巧成拙。</p>
-<h3 id="10-_单一责任原则(Single_Responsibility_Principle)">10. 单一责任原则(Single Responsibility Principle)</h3><p>某个代码的功能，应该保证只有单一的明确的执行任务。</p>
-<blockquote>
-<p>比如在bootstrap中，修饰一个元素，我们布局套一层div，定位套一层div，功能套一层，不同功能的逻辑用不同层的div来实现。</p>
+        <span itemprop="articleBody"><blockquote>
+<p>Bootstrap框架的原理简要概述</p>
 </blockquote>
-<h3 id="11-_低耦合原则(Minimize_Coupling)">11. 低耦合原则(Minimize Coupling)</h3><p>代码的任何一个部分应该减少对其他区域代码的依赖关系。尽量不要使用共享参数。低耦合往往是完美结构系统和优秀设计的标志。</p>
-<h3 id="12-_最大限度凝聚原则(Maximize_Cohesion)">12. 最大限度凝聚原则(Maximize Cohesion)</h3><p>相似的功能代码应尽量放在一个部分。   High Cohesion， Low Coupling！</p>
-<h3 id="13-_隐藏实现细节（Hide_Implementation_Details）">13. 隐藏实现细节（Hide Implementation Details）</h3><p>隐藏实现细节原则，当其他功能部分发生变化时，能够尽可能降低对其他组件的影响。</p>
-<h3 id="14-_迪米特法则又叫作最少知识原则(Law_of_Demeter)">14. 迪米特法则又叫作最少知识原则(Law of Demeter)</h3><p>该代码只和与其有直接关系的部分连接。（比如：该部分继承的类，包含的对象，参数传递的对象等）。</p>
-<h3 id="15-_避免过早优化(Avoid_Premature_Optimization)">15. 避免过早优化(Avoid Premature Optimization)</h3><p>除非你的代码运行的比你想像中的要慢，否则别去优化。假如你真的想优化，就必须先想好如何用数据证明，它的速度变快了。<br>“过早的优化是一切罪恶的根源”——Donald Knuth</p>
-<h3 id="16-_代码重用原则（Code_Reuse_is_Good）">16. 代码重用原则（Code Reuse is Good）</h3><p>重用代码能提高代码的可读性，缩短开发时间。</p>
-<h3 id="17-_关注点分离（Separation_of_Concerns）">17. 关注点分离（Separation of Concerns）</h3><p>不同领域的功能，应该由不同的代码和最小重迭的模块组成。</p>
-<h3 id="18-_拥抱改变（Embrace_Change）">18. 拥抱改变（Embrace Change）</h3><p>这是Kent Beck一本书的标题，同时也被认为是极限编程和敏捷方法的宗旨。<br>许多其他原则都是基于这个概念的，即你应该积极面对变化。事实上，一些较老的编程原则如最小化耦合原则都是为了使代码能够容易变化。无论你是否是个极限编程者，基于这个原则去编写代码会让你的工作变得更有意义。<br>作者简介：Christopher Diggins是加拿大一位有25年编程经验的资深技术人员，曾效力于Microsoft和AutoDesk，并创办过两家赢利的互联网公司。</p>
+<p>样式原理：</p>
+<ul>
+<li>CSS重置</li>
+</ul>
+<p>行为原理：</p>
+<ul>
+<li>自定义属性，通过元素选择器找到它，然后为其绑定事件。</li>
+</ul>
 </span>
       
     </div>
@@ -267,7 +275,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/软件设计/" rel="tag">#软件设计</a>
+            <a href="/tags/Bootstrap/" rel="tag">#Bootstrap</a>
           
         </div>
       
@@ -276,16 +284,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/1940/10/24/JS相关核心概念-待整理/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" rel="next" title="Bootstrap查错工具Bootlint以及Bootstrap常见错误">
+                <i class="fa fa-chevron-left"></i> Bootstrap查错工具Bootlint以及Bootstrap常见错误
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/30/CSS3之box-sizing-已发布/" rel="prev" title="CSS3之box-sizing">
-                CSS3之box-sizing <i class="fa fa-chevron-right"></i>
+              <a href="/2015/11/11/百度地图API之JS版-已发布/" rel="prev" title="百度地图API之JS版">
+                百度地图API之JS版 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -301,10 +309,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/08/15/软件设计原则-已发布/"
-     data-title="软件设计原则"
+        <div class="ds-share flat" data-thread-key="2015/11/05/Bootstrap框架原理-待整理/"
+     data-title="Bootstrap框架的原理一句话总结"
      data-content=""
-     data-url="http://www.zhangzhengji.com/2015/08/15/软件设计原则-已发布/">
+     data-url="http://www.zhangzhengji.com/2015/11/05/Bootstrap框架原理-待整理/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -335,8 +343,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/08/15/软件设计原则-已发布/"
-           data-title="软件设计原则" data-url="http://www.zhangzhengji.com/2015/08/15/软件设计原则-已发布/">
+      <div class="ds-thread" data-thread-key="2015/11/05/Bootstrap框架原理-待整理/"
+           data-title="Bootstrap框架的原理一句话总结" data-url="http://www.zhangzhengji.com/2015/11/05/Bootstrap框架原理-待整理/">
       </div>
     
   </div>
@@ -426,7 +434,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#软件设计原则"><span class="nav-number">1.</span> <span class="nav-text">软件设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_避免重复原则（DRY_–_Don’t_repeat_yourself）"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 避免重复原则（DRY – Don’t repeat yourself）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-_抽象原则（Abstraction_Principle_）"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 抽象原则（Abstraction Principle ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-_简单原则（Keep_It_Simple_and_Stupid_）"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. 简单原则（Keep It Simple and Stupid ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-_避免创建你不要的代码_Avoid_Creating_a_YAGNI_(You_aren’t_going_to_need_it)"><span class="nav-number">1.0.4.</span> <span class="nav-text">4. 避免创建你不要的代码 Avoid Creating a YAGNI (You aren’t going to need it)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-_尽可能做可运行的最简单的事（Do_the_simplest_thing_that_could_possibly_work）"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. 尽可能做可运行的最简单的事（Do the simplest thing that could possibly work）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-_别让我思考(Don’t_make_me_think_)"><span class="nav-number">1.0.6.</span> <span class="nav-text">6. 别让我思考(Don’t make me think )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-_开闭原则(Open/Closed_Principle)"><span class="nav-number">1.0.7.</span> <span class="nav-text">7. 开闭原则(Open/Closed Principle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-_代码维护(Write_Code_for_the_Maintainer)"><span class="nav-number">1.0.8.</span> <span class="nav-text">8. 代码维护(Write Code for the Maintainer)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-_最小惊讶原则(Principle_of_least_astonishment)"><span class="nav-number">1.0.9.</span> <span class="nav-text">9. 最小惊讶原则(Principle of least astonishment)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-_单一责任原则(Single_Responsibility_Principle)"><span class="nav-number">1.0.10.</span> <span class="nav-text">10. 单一责任原则(Single Responsibility Principle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-_低耦合原则(Minimize_Coupling)"><span class="nav-number">1.0.11.</span> <span class="nav-text">11. 低耦合原则(Minimize Coupling)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-_最大限度凝聚原则(Maximize_Cohesion)"><span class="nav-number">1.0.12.</span> <span class="nav-text">12. 最大限度凝聚原则(Maximize Cohesion)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-_隐藏实现细节（Hide_Implementation_Details）"><span class="nav-number">1.0.13.</span> <span class="nav-text">13. 隐藏实现细节（Hide Implementation Details）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-_迪米特法则又叫作最少知识原则(Law_of_Demeter)"><span class="nav-number">1.0.14.</span> <span class="nav-text">14. 迪米特法则又叫作最少知识原则(Law of Demeter)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-_避免过早优化(Avoid_Premature_Optimization)"><span class="nav-number">1.0.15.</span> <span class="nav-text">15. 避免过早优化(Avoid Premature Optimization)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-_代码重用原则（Code_Reuse_is_Good）"><span class="nav-number">1.0.16.</span> <span class="nav-text">16. 代码重用原则（Code Reuse is Good）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-_关注点分离（Separation_of_Concerns）"><span class="nav-number">1.0.17.</span> <span class="nav-text">17. 关注点分离（Separation of Concerns）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-_拥抱改变（Embrace_Change）"><span class="nav-number">1.0.18.</span> <span class="nav-text">18. 拥抱改变（Embrace Change）</span></a></li></ol></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

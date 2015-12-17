@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Bootstrap,原理,待整理," />
+  <meta name="keywords" content="ext,javascript," />
 
 
 
@@ -51,55 +51,28 @@
 
 
 
-<meta name="description" content="Bootstrap框架是如何实现的？
-
-样式原理：
-
-CSS重置
-
-行为原理：
-
-自定义属性，通过元素选择器找到它，然后为其绑定事件。
-
-
-举个栗子：
-
-`nav&amp;gt;ul&amp;gt;li&amp;gt;a的自定义属性：data-toggle=&quot;dropdown&quot;`">
+<meta name="description" content="今天上手Ext.js，简单做一下小结，后续再补充。
+认识Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。
+特点
+擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
+EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Bootstrap框架原理之浅析">
-<meta property="og:url" content="http://www.zhangzhengji.com/2015/11/01/bootstrap框架原理-待整理/index.html">
+<meta property="og:title" content="EXT初探">
+<meta property="og:url" content="http://www.zhangzhengji.com/2015/12/17/EXT初探-待整理/index.html">
 <meta property="og:site_name" content="芥了末">
-<meta property="og:description" content="Bootstrap框架是如何实现的？
-
-样式原理：
-
-CSS重置
-
-行为原理：
-
-自定义属性，通过元素选择器找到它，然后为其绑定事件。
-
-
-举个栗子：
-
-`nav&amp;gt;ul&amp;gt;li&amp;gt;a的自定义属性：data-toggle=&quot;dropdown&quot;`">
-<meta property="og:updated_time" content="2015-12-03T17:20:02.000Z">
+<meta property="og:description" content="今天上手Ext.js，简单做一下小结，后续再补充。
+认识Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。
+特点
+擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
+EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
+<meta property="og:updated_time" content="2015-12-17T18:45:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bootstrap框架原理之浅析">
-<meta name="twitter:description" content="Bootstrap框架是如何实现的？
-
-样式原理：
-
-CSS重置
-
-行为原理：
-
-自定义属性，通过元素选择器找到它，然后为其绑定事件。
-
-
-举个栗子：
-
-`nav&amp;gt;ul&amp;gt;li&amp;gt;a的自定义属性：data-toggle=&quot;dropdown&quot;`">
+<meta name="twitter:title" content="EXT初探">
+<meta name="twitter:description" content="今天上手Ext.js，简单做一下小结，后续再补充。
+认识Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。
+特点
+擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
+EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 
 
 
@@ -111,7 +84,7 @@ CSS重置
   };
 </script>
 
-  <title> Bootstrap框架原理之浅析 | 芥了末 </title>
+  <title> EXT初探 | 芥了末 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +204,7 @@ CSS重置
             
             
               
-                Bootstrap框架原理之浅析
+                EXT初探
               
             
           </h1>
@@ -240,8 +213,8 @@ CSS重置
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-01T20:09:37+08:00" content="2015-11-01">
-              2015-11-01
+            <time itemprop="dateCreated" datetime="2015-12-17T21:40:32+08:00" content="2015-12-17">
+              2015-12-17
             </time>
           </span>
 
@@ -251,8 +224,8 @@ CSS重置
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/01/bootstrap框架原理-待整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/01/bootstrap框架原理-待整理/" itemprop="commentsCount"></span>
+                <a href="/2015/12/17/EXT初探-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/EXT初探-待整理/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -271,22 +244,53 @@ CSS重置
       
 
       
-        <span itemprop="articleBody"><blockquote>
-<p>Bootstrap框架是如何实现的？</p>
-</blockquote>
-<p>样式原理：</p>
-<ul>
-<li>CSS重置</li>
+        <span itemprop="articleBody"><p>今天上手Ext.js，简单做一下小结，后续再补充。</p>
+<h2 id="认识">认识</h2><p>Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。</p>
+<h2 id="特点">特点</h2><ul>
+<li>擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。</li>
+<li>EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，而纯前端人员学习难度稍大。</li>
+<li>文档详细到令人发指~不过是英文~</li>
 </ul>
-<p>行为原理：</p>
-<ul>
-<li>自定义属性，通过元素选择器找到它，然后为其绑定事件。</li>
+<h2 id="EXT内置对象">EXT内置对象</h2><ul>
+<li>Ext.MessageBox（简写Ext.Msg）</li>
+<li>Ext.window.Window（简写为Ext.Window）</li>
 </ul>
-<blockquote>
-<p>举个栗子：</p>
-</blockquote>
-<pre><code><span class="escape">`n</span>av&gt;ul&gt;li&gt;<span class="literal">a</span>的自定义属性：data-toggle=<span class="string">"dropdown"</span>`
-</code></pre></span>
+<h2 id="亮点">亮点</h2><p>看到一种Button的配置值的写法<code>buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL</code>，还真的能渲染出“yes”“no”“cancel”三个按钮来，很奇怪——三个按钮同时显示的Button常量值不应该是<code>YESNOCANCEL</code>吗？：</p>
+<pre><code>Ext.onReady(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    Ext.Msg.show({
+        title: <span class="string">'地址'</span>,
+        msg: <span class="string">'轻请输入地址：'</span>,
+        width: <span class="number">500</span>,
+        buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL,
+        <span class="comment">//buttons: Ext.Msg.YESNOCANCEL,</span>
+        fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+            <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);
+        },
+        animateTarget: <span class="string">'addAddressBtn'</span>,
+        icon: Ext.window.MessageBox.INFO,
+    });
+});
+</code></pre><p>点源码进去看（笔者IDE是Webstrom，Ctrl+鼠标左键），发现EXT里的button常量的编号很奇怪，并不连续：</p>
+<pre><code>OK : <span class="number">1</span>,
+
+YES : <span class="number">2</span>,
+
+NO : <span class="number">4</span>,
+
+CANCEL : <span class="number">8</span>,
+
+OKCANCEL : <span class="number">9</span>,
+
+YESNO : <span class="number">6</span>,
+
+YESNOCANCEL : <span class="number">14</span>,
+</code></pre><p>不看不知道，一看吓一跳，原来这个Button的取值是真的在做按位或运算：</p>
+<ul>
+<li><code>9=1|8</code> 即 <code>OKCANCEL = OK | CANCEL</code> </li>
+<li><code>14=2|4|8</code> 即 <code>YESNOCANCEL = YES | NO | CANCEL</code> </li>
+</ul>
+<p>简直颠覆了我对单个符号的位运算“&amp;”和“|”的认知啊有木有！对于这种设计，我赵日天服了！</p>
+</span>
       
     </div>
 
@@ -294,11 +298,9 @@ CSS重置
       
         <div class="post-tags">
           
-            <a href="/tags/Bootstrap/" rel="tag">#Bootstrap</a>
+            <a href="/tags/ext/" rel="tag">#ext</a>
           
-            <a href="/tags/原理/" rel="tag">#原理</a>
-          
-            <a href="/tags/待整理/" rel="tag">#待整理</a>
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
           
         </div>
       
@@ -307,17 +309,13 @@ CSS重置
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/15/hexo端口号4000被占/" rel="next" title="hexo无法启动之4000端口号被占用">
-                <i class="fa fa-chevron-left"></i> hexo无法启动之4000端口号被占用
+              <a href="/2015/11/15/舍入误差-已发布/" rel="next" title="舍入误差">
+                <i class="fa fa-chevron-left"></i> 舍入误差
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/01/Bootstrap00响应式设计-已发布/" rel="prev" title="Responsive Web Design 响应式/自适应网页设计">
-                Responsive Web Design 响应式/自适应网页设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -332,10 +330,10 @@ CSS重置
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/11/01/bootstrap框架原理-待整理/"
-     data-title="Bootstrap框架原理之浅析"
+        <div class="ds-share flat" data-thread-key="2015/12/17/EXT初探-待整理/"
+     data-title="EXT初探"
      data-content=""
-     data-url="http://www.zhangzhengji.com/2015/11/01/bootstrap框架原理-待整理/">
+     data-url="http://www.zhangzhengji.com/2015/12/17/EXT初探-待整理/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -366,8 +364,8 @@ CSS重置
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/01/bootstrap框架原理-待整理/"
-           data-title="Bootstrap框架原理之浅析" data-url="http://www.zhangzhengji.com/2015/11/01/bootstrap框架原理-待整理/">
+      <div class="ds-thread" data-thread-key="2015/12/17/EXT初探-待整理/"
+           data-title="EXT初探" data-url="http://www.zhangzhengji.com/2015/12/17/EXT初探-待整理/">
       </div>
     
   </div>
@@ -411,7 +409,7 @@ CSS重置
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -425,7 +423,7 @@ CSS重置
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -457,7 +455,7 @@ CSS重置
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#认识"><span class="nav-number">1.</span> <span class="nav-text">认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EXT内置对象"><span class="nav-number">3.</span> <span class="nav-text">EXT内置对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#亮点"><span class="nav-number">4.</span> <span class="nav-text">亮点</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -205,6 +205,326 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/01/PHP快速入门/" itemprop="url">
+                  PHP快速入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-01T18:09:18+08:00" content="2015-10-01">
+              2015-10-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/01/PHP快速入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/PHP快速入门/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="准备工作">准备工作</h2><p>安装XAMPP集成环境，启动apache。进入xampp安装目录下的htdocs目录，新建一个txt文件，重命名（F2）为以“.php”为扩展名的文件（比如test.php）。PHP语句写在<code>&lt;?php</code>和<code>?&gt;</code>之间。语句书写完毕，保存后，在浏览器中输入<code>http://localhost:88/test.php</code>访问（端口号根据自己实际情况调整）即可。</p>
+<pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+    <span class="keyword">echo</span> <span class="string">'这是一个PHP文件'</span>;
+<span class="preprocessor">?&gt;</span></span>
+</code></pre><hr>
+<h2 id="常量与变量">常量与变量</h2><h3 id="常量">常量</h3><p>常量与javascript中一样，常量用const标示：<br>    const str = ‘this is string.’;//定义一个常量<br>在PHP中，常量是不允许重复赋值的，例如执行：</p>
+<pre><code>str = <span class="string">'abcdefg'</span>;
+报错
+ * * 错误信息
+ *   Parse <span class="built_in">error</span>: syntax <span class="built_in">error</span>, unexpected <span class="string">'='</span> <span class="keyword">in</span>
+</code></pre><h3 id="变量">变量</h3><p>PHP的变量以“$”开头，其用法与javascirpt中一致：</p>
+<pre><code><span class="variable">$str</span> = <span class="string">'this is string too.'</span>;
+<span class="variable">$str</span> = <span class="string">'abcdefg'</span>;
+echo <span class="variable">$str</span>;//abcdefg
+</code></pre><hr>
+<h2 id="数据类型">数据类型</h2><h3 id="四种标量类型：">四种标量类型：</h3><ol>
+<li>boolean</li>
+<li>integer</li>
+<li>float/double</li>
+<li>string</li>
+</ol>
+<h3 id="两种复合类型：">两种复合类型：</h3><ol>
+<li>array-数组</li>
+<li>object-对象</li>
+</ol>
+<h3 id="两种特殊类型：">两种特殊类型：</h3><ol>
+<li>resource-资源</li>
+<li>NULL</li>
+</ol>
+<h2 id="两种打印方式：">两种打印方式：</h2><p>echo 输出<br>var_dump 打印</p>
+<pre><code><span class="variable">$str</span>=<span class="string">'nihao'</span>;
+echo <span class="variable">$str</span>;
+/*
+ * var_dump()函数
+ * * 作用 - 打印变量的相关信息
+ */
+var_dump(<span class="variable">$str</span>);
+</code></pre><h3 id="boolean">boolean</h3><pre><code><span class="variable">$boo</span> = <span class="literal">true</span>;
+echo <span class="variable">$boo</span>;//输出：<span class="number">1</span>
+var_dump(<span class="variable">$boo</span>);//输出：bool(<span class="literal">true</span>)
+<span class="variable">$foo</span> = fasel;
+echo <span class="variable">$foo</span>;//输出：<span class="string">''</span>，也即没有输出
+var_dump(<span class="variable">$foo</span>);//输出：bool(<span class="literal">false</span>)
+</code></pre><h3 id="integer">integer</h3><pre><code><span class="variable">$integer</span> = <span class="number">100</span>;
+echo <span class="variable">$integer</span>;//<span class="number">100</span>
+echo <span class="string">'&lt;br/&gt;'</span>;
+var_dump(<span class="variable">$integer</span>);//int(<span class="number">100</span>)
+</code></pre><h3 id="float/double">float/double</h3><pre><code><span class="variable">$f</span> = <span class="number">3.579</span>;
+echo <span class="variable">$f</span>;//<span class="number">3.579</span>
+echo <span class="string">'&lt;br/&gt;'</span>;    
+var_dump(<span class="variable">$f</span>);//float(<span class="number">3.579</span>)
+</code></pre><h3 id="string">string</h3><p>单引号和双引号都表示字符串，但两种方式用法不同。在单引号中的字符串，用法与其他语言相同，但在双引号下的字符串，是可以识别串中的变量名的，也因为匹配变量，其效率低于单引号下的字符串。</p>
+<h3 id="数组">数组</h3><p>定义一个数组</p>
+<ol>
+<li><p>直接量</p>
+<pre><code><span class="variable">$arr1</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];
+var_dump(<span class="variable">$arr1</span>);
+<span class="variable">$arr2</span>=[<span class="string">'jimaoshiwang'</span>,<span class="string">'zhaomin'</span>,<span class="string">'zhangwuji'</span>];
+var_dump(<span class="variable">$arr2</span>);
+</code></pre></li>
+<li><p>定义索引数组</p>
+<pre><code>格式：
+数组名=arr(
+    索引值 =&gt; 值,
+    索引值 =&gt; 值,
+    ...
+);
+
+示例：
+$arr1=arr(
+    <span class="number">0</span>=&gt;<span class="number">1</span>,
+    <span class="number">1</span>=&gt;<span class="number">2</span>,
+    <span class="number">2</span>=&gt;<span class="number">3</span>
+);
+</code></pre></li>
+<li><p>定义关联数组</p>
+<pre><code>格式：
+<span class="keyword">array</span>(
+    key(键) =&gt; 元素内容,
+    key(键) =&gt; 元素内容,
+    key(键) =&gt; 元素内容,
+    ...
+);
+
+示例：
+<span class="variable">$arr</span>=<span class="keyword">array</span>(
+    <span class="string">'总理'</span>=&gt;<span class="string">'李克强'</span>,
+    <span class="string">'boss'</span>=&gt;<span class="string">'习大大'</span>
+);
+var_dump(<span class="variable">$arr</span>);
+</code></pre></li>
+</ol>
+<h3 id="类与对象">类与对象</h3><pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
+    <span class="comment">// 定义一个类foo - 类似于javascript的构造器</span>
+    <span class="class"><span class="keyword">class</span> <span class="title">foo</span></span>{
+        <span class="comment">// 定义一个方法do_foo()</span>
+        <span class="function"><span class="keyword">function</span> <span class="title">do_foo</span><span class="params">()</span></span>{
+            <span class="keyword">echo</span> <span class="string">"Doing foo."</span>; 
+        }
+    }
+    <span class="comment">// 通过new关键字实例化一个对象</span>
+    <span class="variable">$bar</span> = <span class="keyword">new</span> foo;
+    <span class="comment">// 通过$bar对象,调用do_foo()方法</span>
+    <span class="variable">$bar</span>-&gt;do_foo();
+<span class="preprocessor">?&gt;</span></span>
+</code></pre><h3 id="resource-资源">resource-资源</h3><p>作用：用于保存外部资源的一个引用</p>
+<p>使用场景：在文件上传中保存上传的文件</p>
+<hr>
+<h2 id="运算符">运算符</h2><p>运算符基本与Javascript保持一致，字符串连接例外。<br>php中字符串连接使用”.”:</p>
+<pre><code><span class="variable">$zwj</span>=<span class="string">'zhangwuji'</span>;
+<span class="variable">$zzr</span>=<span class="string">'zhouzhiruo'</span>;
+<span class="variable">$str1</span>=<span class="variable">$zzr</span>.<span class="string">' is '</span>.<span class="variable">$zwj</span>.<span class="string">'\'</span>s nvpengyou<span class="string">';//输出一个“'</span>”要转义
+echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="string">'s nvpenyou</span>
+</code></pre><h2 id="循环">循环</h2><p>while循环</p>
+<pre><code><span class="variable">$i</span>=<span class="number">0</span>;
+<span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>){
+    echo <span class="variable">$i</span>++;
+}
+</code></pre><p>for循环</p>
+<pre><code><span class="variable">$arr</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];
+<span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">5</span>;<span class="variable">$i</span>++){
+    var_dump(<span class="variable">$arr</span>[<span class="variable">$i</span>]);
+}
+</code></pre><p>foreach</p>
+<pre><code>foreach(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$i</span>=&gt;<span class="variable">$value</span>){
+    var_dump(<span class="variable">$i</span>);
+    var_dump(<span class="variable">$arr</span>[<span class="variable">$i</span>]);
+    var_dump(<span class="variable">$value</span>);
+    echo <span class="string">'&lt;br/&gt;'</span>;
+}
+</code></pre><p>foreach是唯一与javascript中不同的循环，联系js中的<a href="http://pdf7.tarena.com.cn/tts8_source/ttsPage/WEB/WEB_V02/JAVASCRIPT/DAY04/COURSE/ppt.html" target="_blank">for-in</a>循环。</p>
+<h2 id="分支结构">分支结构</h2><p>与javascript几乎一致。</p>
+<h2 id="PHP预定义">PHP预定义</h2><p>预定义变量</p>
+<ul>
+<li>$_GET</li>
+<li>$_POST</li>
+<li>$_REQUEST：$_GET、$POST等</li>
+<li>$_FILE：    专用于文件上传</li>
+<li>$_COOKIE： 接收客户端保存的所有cookie数据</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/09/30/CSS3之box-sizing-已发布/" itemprop="url">
+                  CSS3之box-sizing
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-09-30T21:40:32+08:00" content="2015-09-30">
+              2015-09-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/30/CSS3之box-sizing-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>box-sizing:</p>
+<ul>
+<li>content-box</li>
+<li>border-box</li>
+</ul>
+<p>盒子模型的计算方式由box-sizing属性控制，有两个值<code>content-box</code>和<code>border-box</code>。CSS中默认是前者，计算方式”<code>盒子宽=margin+border+padding+width</code>“;Bootstrap中默认是后者，计算方式为“<code>盒子宽：margin+width</code>”，border和padding都算在width中。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/08/15/软件设计原则-已发布/" itemprop="url">
                   软件设计原则
                 </a>
@@ -271,6 +591,112 @@
 <h3 id="16-_代码重用原则（Code_Reuse_is_Good）">16. 代码重用原则（Code Reuse is Good）</h3><p>重用代码能提高代码的可读性，缩短开发时间。</p>
 <h3 id="17-_关注点分离（Separation_of_Concerns）">17. 关注点分离（Separation of Concerns）</h3><p>不同领域的功能，应该由不同的代码和最小重迭的模块组成。</p>
 <h3 id="18-_拥抱改变（Embrace_Change）">18. 拥抱改变（Embrace Change）</h3><p>这是Kent Beck一本书的标题，同时也被认为是极限编程和敏捷方法的宗旨。<br>许多其他原则都是基于这个概念的，即你应该积极面对变化。事实上，一些较老的编程原则如最小化耦合原则都是为了使代码能够容易变化。无论你是否是个极限编程者，基于这个原则去编写代码会让你的工作变得更有意义。<br>作者简介：Christopher Diggins是加拿大一位有25年编程经验的资深技术人员，曾效力于Microsoft和AutoDesk，并创办过两家赢利的互联网公司。</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/1940/10/24/JS相关核心概念-待整理/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="1940-10-24T10:26:18+08:00" content="1940-10-24">
+              1940-10-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/1940/10/24/JS相关核心概念-待整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="1940/10/24/JS相关核心概念-待整理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>JS中，带大括号的代码块中，唯有function(){}能创建作用域，这点与JAVA、C++等语言不一样。JS中的作用域只有两类：全局作用域与函数作用域。</p>
+<p>浏览器在对代码进行解析时，会先进行变量声明和函数声明以及函数形参声明；所以就有了声明提前的说法。</p>
+<p>JS最基础的GC方案比较简单：</p>
+<ul>
+<li>遍历所有可访问对象</li>
+<li><p>删除不可访问的对象</p>
+<p>和其他语言一样，javascript的GC策略也无法避免一个问题：GC时，停止响应其他操作，这是为了安全考虑。而Javascript的GC在100ms甚至以上，对一般的应用还好，但对于JS游戏，动画对连贯性要求比较高的应用，就麻烦了。这就是新引擎需要优化的点：避免GC造成的长时间停止响应。</p>
+</li>
+</ul>
+<p>优化：</p>
+<ul>
+<li>分代回收（Generation GC）</li>
+</ul>
+<p>这个和Java回收策略思想是一致的。目的是通过区分“临时”与“持久”对象；多回收“临时对象”区（young generation），少回收“持久对象”区（tenured generation），减少每次需遍历的对象，从而减少每次GC的耗时。</p>
+<ul>
+<li>增量GC</li>
+</ul>
+<p>这个方案的思想很简单，就是“每次处理一点，下次再处理一点，如此类推”。</p>
+<p><a href="http://www.cnblogs.com/hyddd/archive/2013/02/07/2908598.html" target="_blank">JS垃圾回收GC博客</a>，<br><a href="http://blog.chinaunix.net/uid-26672038-id-3522560.html" target="_blank">JS垃圾回收GC博客2</a>，<br><a href="http://kb.cnblogs.com/page/74836/" target="_blank">JS垃圾回收GC博客2</a></p>
 
             
           </span>
@@ -434,7 +860,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -448,7 +874,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
