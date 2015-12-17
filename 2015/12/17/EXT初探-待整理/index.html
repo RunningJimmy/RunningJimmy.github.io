@@ -52,7 +52,7 @@
 
 
 <meta name="description" content="今天上手Ext.js，简单做一下小结，后续再补充。
-认识Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。
+认识Ext.js是一个用javascript写的，主要用于创建RIA（富互联网）应用前端用户界面应用的前端ajax框架。
 特点
 擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
 EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
@@ -61,15 +61,15 @@ EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 <meta property="og:url" content="http://www.zhangzhengji.com/2015/12/17/EXT初探-待整理/index.html">
 <meta property="og:site_name" content="芥了末">
 <meta property="og:description" content="今天上手Ext.js，简单做一下小结，后续再补充。
-认识Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。
+认识Ext.js是一个用javascript写的，主要用于创建RIA（富互联网）应用前端用户界面应用的前端ajax框架。
 特点
 擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
 EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
-<meta property="og:updated_time" content="2015-12-17T18:45:06.000Z">
+<meta property="og:updated_time" content="2015-12-17T18:53:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EXT初探">
 <meta name="twitter:description" content="今天上手Ext.js，简单做一下小结，后续再补充。
-认识Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。
+认识Ext.js是一个用javascript写的，主要用于创建RIA（富互联网）应用前端用户界面应用的前端ajax框架。
 特点
 擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
 EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
@@ -245,7 +245,7 @@ EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 
       
         <span itemprop="articleBody"><p>今天上手Ext.js，简单做一下小结，后续再补充。</p>
-<h2 id="认识">认识</h2><p>Ext.js是一个用javascript写的，主要用于创建RIA（富客户端）应用前端用户界面应用的前端ajax框架。</p>
+<h2 id="认识">认识</h2><p>Ext.js是一个用javascript写的，主要用于创建RIA（富互联网）应用前端用户界面应用的前端ajax框架。</p>
 <h2 id="特点">特点</h2><ul>
 <li>擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。</li>
 <li>EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，而纯前端人员学习难度稍大。</li>
@@ -254,8 +254,9 @@ EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 <h2 id="EXT内置对象">EXT内置对象</h2><ul>
 <li>Ext.MessageBox（简写Ext.Msg）</li>
 <li>Ext.window.Window（简写为Ext.Window）</li>
+<li>等等</li>
 </ul>
-<h2 id="亮点">亮点</h2><p>看到一种Button的配置值的写法<code>buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL</code>，还真的能渲染出“yes”“no”“cancel”三个按钮来，很奇怪——三个按钮同时显示的Button常量值不应该是<code>YESNOCANCEL</code>吗？：</p>
+<h2 id="亮点">亮点</h2><p>看到一种Button的配置值的写法<code>buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL</code>，还真的能渲染出“yes”“no”“cancel”三个按钮来，很奇怪——三个按钮同时显示的Button常量值不应该是<code>YESNOCANCEL</code>吗？用“|”是什么鬼？</p>
 <pre><code>Ext.onReady(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
     Ext.Msg.show({
         title: <span class="string">'地址'</span>,
