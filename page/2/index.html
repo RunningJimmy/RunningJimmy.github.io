@@ -145,16 +145,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
 
       
       
@@ -177,6 +167,11 @@
 
     
     
+      
+      
+
+      
+    
 
     
       
@@ -200,8 +195,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/10/01/PHP快速入门/" itemprop="url">
-                  PHP快速入门
+                <a class="post-title-link" href="/2015/11/03/Bootstrap05插件-已发布/" itemprop="url">
+                  Bootstrap插件
                 </a>
               
             
@@ -211,7 +206,622 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-10-01T18:09:18+08:00" content="2015-10-01">
+            <time itemprop="dateCreated" datetime="2015-11-03T20:40:32+08:00" content="2015-11-03">
+              2015-11-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/03/Bootstrap05插件-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/03/Bootstrap05插件-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="1-插件——概述">1.插件——概述</h2><p>  Bootstrap基于jQuery提供了十几个插件函数（类似于jQueryUI插件库），每个插件对应一个.js文件，可以单独引用，也可以整体引用(<code>bootstrap.js</code>)。<br>  调用上述十几个插件可以用两种格式：</p>
+<ol>
+<li>传统的JS方式调用： <code>$(...).dropdown();</code>   <code>$().tab(...);</code></li>
+<li>使用data-*扩展属性方式调用：  <code>&lt;a  data-toggle=&quot;dropdown&quot;&gt;</code></li>
+</ol>
+<h2 id="2-插件——下拉菜单">2.插件——下拉菜单</h2><ol>
+<li><code>$().dropdown( );</code></li>
+<li><code>&lt;a data-toggle=&quot;dropdown&quot;&gt;</code></li>
+</ol>
+<h2 id="3-插件——标签页(tab)">3.插件——标签页(tab)</h2><ol>
+<li><code>$().tab();</code></li>
+<li><code>&lt;a data-toggle=&quot;tab&quot;&gt;</code></li>
+</ol>
+<h2 id="4-插件——Bootstrap提供的弹出框">4.插件——Bootstrap提供的弹出框</h2><p>  (1)工具提示框(tooltip)<br>    <code>data-toggle=&quot;tooltip&quot;</code></p>
+<p>  (2)弹出框(popover)<br>    <code>data-toggle=&quot;popover&quot;</code></p>
+<p>  (3)警告框(alert)            —— 常见</p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"alert  alert-四种颜色 alert-dismissible"</span>&gt;
+    &lt;span <span class="type">class</span>=<span class="string">"close"</span> data-dismiss=<span class="string">"alert"</span>&gt;&amp;<span class="keyword">times</span>;&lt;/span&gt;
+    xxxx
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><p>  (4)模态对话框(modal)        —— 常见</p>
+<p><strong>模态框定义</strong>：在父窗体中弹出一个子窗体，子窗体若不关闭，父窗体就无法获得焦点，同时父子窗体间还可以传递数据。window.alert()/confirm()/prompt()就是典型例子。模态框必需的结构：</p>
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal"</span>&gt;</span>                   <span class="comment">&lt;!--半透明的黑色遮罩层--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-dialog"</span>&gt;</span>         <span class="comment">&lt;!--宽/定位--&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-content"</span>&gt;</span>     <span class="comment">&lt;!--边框/背景色/阴影--&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-header"</span>&gt;</span>头部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-body"</span>&gt;</span>主体<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"modal-footer"</span>&gt;</span>尾部<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p>显示一个模态框：</p>
+<ol>
+<li><code>&lt;a href=&quot;#模态框ID&quot; data-toggle=&quot;modal&quot;&gt;</code></li>
+<li><code>&lt;button data-toggle=&quot;modal&quot; data-target=&quot;#模态框ID&quot;&gt;</code></li>
+</ol>
+<h2 id="5-插件——折叠效果(collapse)">5.插件——折叠效果(collapse)</h2><p>  触发一个折叠效果：</p>
+<ol>
+<li><code>&lt;a href=&quot;#折叠元素ID&quot; data-toggle=&quot;collapse&quot;&gt;</code></li>
+<li><p><code>&lt;button data-toggle=&quot;collapse&quot; data-target=&quot;#折叠元素ID&quot;&gt;</code></p>
+<p>加<code>in</code>样式效果：</p>
+<p> <code>&lt;div id=&quot;折叠元素ID&quot; class=&quot;collapse  in&quot;&gt;&lt;/div&gt;</code></p>
+</li>
+</ol>
+<p>折叠组件的两个扩展用途：</p>
+<ol>
+<li>Accordion（手风琴）</li>
+<li>响应式导航条在手机屏幕中的效果</li>
+</ol>
+<h2 id="6-插件——轮播广告(carousel)——比较重要">6.插件——轮播广告(carousel)——比较重要</h2><p>  本身结构较复杂，编写时只需要记住根class:  <code>.carousel</code></p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel"</span>&gt;
+  &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"carousel-inner"</span>&gt;
+      &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"item active"</span>&gt;
+          &lt;img&gt;
+      &lt;/<span class="keyword">div</span>&gt;
+  &lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+</code></pre><h2 id="7-插件——附加导航（Affix）">7.插件——附加导航（Affix）</h2><pre><code>&lt;<span class="tag">div</span> data-spy=<span class="string">"affix"</span> data-offset-<span class="attribute">top</span>=<span class="string">"100"</span>&gt;
+    &lt;<span class="tag">ul</span> class=<span class="string">"nav nav-pills"</span>&gt;
+&lt;/div&gt;
+</code></pre><h2 id="9-插件——滚动监听（scrollspy）——比较好玩">9.插件——滚动监听（scrollspy）——比较好玩</h2><p>  随着页面内容的滚动，某个导航中的项目，会自动的更改.active位置。<br>  实现思路：</p>
+<ol>
+<li>页面中必须首先有一个导航菜单(.nav)——其中可以定义一个菜单项为.active</li>
+<li>导航菜单中的超链接的href属性值必须和页面中的某个锚点名一样</li>
+<li>为页面添加滚动事件的监听函数 </li>
+</ol>
+<pre><code>body.onscroll= <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
+    <span class="keyword">if</span>(body滚动的距离 === 某个锚点距离顶端的距离){
+        此锚点对应的超链接的父元素li添加.active；
+    }
+}
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" itemprop="url">
+                  Bootstrap全局样式之栅格布局系统-总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-02T23:10:11+08:00" content="2015-11-02">
+              2015-11-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/bootstrap03全局CSS之栅格布局系统-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="Bootstrap全局CSS之栅格布局系统">Bootstrap全局CSS之栅格布局系统</h2><blockquote>
+<h3 id="WEB开发中页面布局方式演进：">WEB开发中页面布局方式演进：</h3></blockquote>
+<ol>
+<li>Table布局</li>
+<li>CSS+DIV布局</li>
+<li>Bootstrap栅格布局系统</li>
+</ol>
+<blockquote>
+<h3 id="栅格系统特点">栅格系统特点</h3></blockquote>
+<ol>
+<li>所有的行必须放在容器中：.container或者.contain-fluid</li>
+<li>分为多行，一行平均分为12个col;</li>
+<li>网页内容只能放在col中，不能直接放在row中</li>
+</ol>
+<blockquote>
+<h3 id="-container的宽度问题："><code>.container</code>的宽度问题：</h3></blockquote>
+<ul>
+<li>超大屏，屏宽&gt;1200px（）：容器宽1170px</li>
+<li>普通大屏，屏宽&gt;992px（）：容器宽950px</li>
+<li>小屏，屏宽&gt;768px（）：容器宽750px</li>
+<li>超小屏，屏宽&lt;768px（）：容器宽auto</li>
+</ul>
+<blockquote>
+<h3 id="-container-fluid的宽度问题："><code>.container-fluid</code>的宽度问题：</h3></blockquote>
+<ul>
+<li>width永远100%</li>
+</ul>
+<blockquote>
+<p>Bootstrap布局的特点是什么？</p>
+</blockquote>
+<ol>
+<li>宽度做了媒体查询，适应不同的屏幕；</li>
+<li>添加了前置和后置内容生成，可防止子元素margin越界、浮动造成的影响；</li>
+</ol>
+<blockquote>
+<p>回顾CSS的经典问题一：父元素下第一个子元素的margin-top越界问题以及末个子元素margin-bottom的越界问题？</p>
+</blockquote>
+<ol>
+<li>为父元素加边框，防止子元素延伸。副作用是边框；</li>
+<li>将margin换做padding；副作用是padding-top的值要加padding；</li>
+<li>父元素overflow，副作用是将溢出部分隐藏掉可能不满足需求；</li>
+<li><p>将父元素的第一个元素之前加一个无高度的display:table元素，<strong>无副作用！！！</strong></p>
+<pre><code><span class="class">.parent</span><span class="pseudo">:before</span><span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+}</span>
+</code></pre></li>
+</ol>
+<blockquote>
+<p>回顾CSS的经典问题二：如何解决所有子元素浮动以后，父元素高度为0的问题？</p>
+</blockquote>
+<ol>
+<li>为父元素设置固高，副作用：如果子元素是动态数据，没法确定子元素高；</li>
+<li>为父元素指定overflow:hidden；副作用:</li>
+<li><p>为父元素添加后置内容生成选择器，无副作用。</p>
+<pre><code><span class="class">.parent</span><span class="pseudo">:after</span><span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"><span class="string">' '</span></span></span>;
+    <span class="rule"><span class="attribute">display</span>:<span class="value">table</span></span>;
+    <span class="rule"><span class="attribute">clear</span>:<span class="value">both</span></span>;
+}</span>
+</code></pre></li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/01/Bootstrap00响应式设计-已发布/" itemprop="url">
+                  Responsive Web Design 响应式/自适应网页设计
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-01T23:40:32+08:00" content="2015-11-01">
+              2015-11-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/01/Bootstrap00响应式设计-已发布/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/01/Bootstrap00响应式设计-已发布/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="1-_什么是响应式网页？">1. 什么是响应式网页？</h2><p>塞班、黑莓时代的手机浏览器只适合由WML（HMTL的子集）编写的功能简单的wap页面，若浏览HTML编写的页面，只能看到按比例强行缩小的页面,无法正常浏览。</p>
+<p>到了2010年5月提出，有前端设计师提出了响应式概念。网页内容能够随着显示设备的尺寸而调整布局，优化用户浏览体验。</p>
+<p><strong>响应式设计特点</strong>：</p>
+<ul>
+<li>流式网格布局（Fluid：流式、流动式、液态）</li>
+<li>可伸缩的图片和文字</li>
+<li>CSS3 Media Query<h2 id="2-_如何编写响应式网页？">2. 如何编写响应式网页？</h2></li>
+</ul>
+<ol>
+<li><p><strong>设置<code>viewport</code>标签</strong></p>
+<p> IOS率先入了viewport视口/视窗概念，用于显示网页的内容的一个逻辑概念，其宽度/高度都可以任意指定，可以大到2000px都可以，网页不是仅仅显示在物理窗口，而是显示视口中——就可以实现大网页不经缩放，直接显示在手机中——只是需要用户左右滑动窗口即可。后来Android也引入了该概念。举个栗子：</p>
+<pre><code>&lt;meta <span class="property">name</span>=<span class="string">"viewport"</span> content=<span class="string">"width=100%,initial-scale=1.0,user-scalable=no"</span>/&gt;
+</code></pre><p> 解释：</p>
+<ul>
+<li>name固定为viewport</li>
+<li><p>content属性中有以下属性：</p>
+<ul>
+<li>width 通常不要用绝对宽度，因为要自适应</li>
+<li>initial-scale 初始缩放比例</li>
+<li>user-scalable 是否允许用户缩放</li>
+</ul>
+<p><img src="bootstrap-viewport.png"> </p>
+<p></p>
+</li>
+</ul>
+</li>
+<li><p><strong>避免使用绝对单位（px），使用相对单位（%、auto、em）</strong></p>
+</li>
+<li><strong>使用流式定位:float</strong></li>
+<li><strong>图片大小实现自适应</strong><ul>
+<li><code>img{width:80%}//图片宽始终占父容器宽度的80%</code></li>
+<li><code>img{max-width:80%}//图片最大宽度占父容器宽度的80%；若缩小，效果与width无异；但若放大超过自身大小就停止放大，保持自身大小，保持分辨率</code></li>
+</ul>
+</li>
+<li><strong>使用CSS3的媒体查询</strong>，根据浏览器屏幕的特征，有选择性地执行某些CSS样式。而且严格来说，使用媒体查询之后，前四条均可不必遵循。</li>
+</ol>
+<h2 id="3-_介绍一下_MediaQuery_媒体查询">3. 介绍一下 MediaQuery 媒体查询</h2><p><strong>Media</strong>：指浏览网页的设备，指浏览网页的设备，如screen(pc/pad/phone)、print、tv、projection、屏幕阅读器…..</p>
+<p><strong>Query</strong>：查询出当前浏览设备的特性，如类型、宽度、高度、分辨率、色彩位深、方向Orientation(Landscape/Portrait)，根据这些特性，执行特定的CSS样式。</p>
+<h4 id="用法一：在link元素中使用media属性">用法一：在link元素中使用media属性</h4><pre><code><span class="tag">&lt;<span class="title">link</span> <span class="attribute">media</span>=<span class="value">"screen and (min-width:990px)"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/pc.css"</span>/&gt;</span>
+<span class="tag">&lt;<span class="title">link</span> <span class="attribute">media</span>=<span class="value">"screen and (max-width:989px) and (min-width:768px)"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/pad.css"</span>/&gt;</span>
+<span class="tag">&lt;<span class="title">link</span> <span class="attribute">media</span>=<span class="value">"screen and (MAX-width:767px)"</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"css/phone.css"</span>/&gt;</span>
+</code></pre><p>上边三个link标签分别适配了三种不同的设备，能够自动识别设备屏幕尺寸从而自动执行。<strong>（缺点：）</strong>但是如果打开F12 NetWork就会发现，虽然当前只会有一种设备的条件被满足，即只执行了其中一个CSS文件，但是3个CSS文件全部被浏览器请求到客户端加载，性能不好，所以这种用法并不常用。</p>
+<h4 id="用法二：在样式表中嵌入@media注解">用法二：在样式表中嵌入@media注解</h4><pre><code><span class="tag">body</span><span class="rules">{
+    <span class="rule"><span class="attribute">font-family</span>:<span class="value"><span class="string">"Microsoft YaHei"</span></span></span>;
+    <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;
+}</span>
+
+
+<span class="at_rule">@<span class="keyword">media</span> screen and (min-width:<span class="number">990px</span>)</span>{
+    <span class="comment">/**屏幕宽度大于990px*/</span>
+    <span class="tag">h1</span> <span class="rules">{
+        <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">3em</span></span></span>;
+        <span class="rule"><span class="attribute">border-bottom</span>:<span class="value"> <span class="number">3px</span> solid <span class="hexcolor">#ccc</span></span></span>;
+    }</span>
+
+    <span class="class">.box</span><span class="rules">{
+        <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#3a3</span></span></span>;
+        <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#dfd</span></span></span>;
+        <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#282</span></span></span>;
+        <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">8px</span></span></span>;
+    }</span>
+}
+
+<span class="at_rule">@<span class="keyword">media</span> screen and (min-width:<span class="number">767px</span>) and (max-width:<span class="number">989px</span>)</span>{
+    <span class="tag">h1</span> <span class="rules">{
+        <span class="rule"><span class="attribute">font-size</span>:<span class="value"><span class="number">2em</span></span></span>;
+        <span class="rule"><span class="attribute">border-bottom</span>:<span class="value"> <span class="number">3px</span> solid <span class="hexcolor">#ccc</span></span></span>;
+    }</span>
+
+    <span class="class">.box</span><span class="rules">{
+        <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#a33</span></span></span>;
+        <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#fdd</span></span></span>;
+        <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#822</span></span></span>;
+        <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">6px</span></span></span>;
+    }</span>
+}
+
+
+<span class="at_rule">@<span class="keyword">media</span> screen and (max-width:<span class="number">767px</span>)</span>{
+    <span class="comment">/*h1 {*/</span>
+        <span class="comment">/*font-size:1.5em;*/</span>
+        <span class="comment">/*border-bottom: 3px solid #ccc;*/</span>
+    <span class="comment">/*}*/</span>
+    <span class="tag">h1</span> <span class="rules">{
+        <span class="rule"><span class="attribute">display</span>:<span class="value">none</span></span>;
+    }</span>
+
+    <span class="class">.box</span><span class="rules">{
+        <span class="rule"><span class="attribute">border</span>:<span class="value"><span class="number">1px</span> solid <span class="hexcolor">#33a</span></span></span>;
+        <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ddf</span></span></span>;
+        <span class="rule"><span class="attribute">color</span>:<span class="value"> <span class="hexcolor">#228</span></span></span>;
+        <span class="rule"><span class="attribute">padding</span>:<span class="value"><span class="number">4px</span></span></span>;
+    }</span>
+}
+</code></pre><p><strong>注</strong>：media属性在样式切换时，并不是覆盖，而是未生效的css并没有被执行。</p>
+<h2 id="4-_如何测试响应式网页？">4. 如何测试响应式网页？</h2><ol>
+<li>使用真实物理设备——效果可靠但任务量太大<ul>
+<li>局域网：只要手机/平板/PC在同一个局域网（联同一个wifi）即可通过局域网IP访问</li>
+<li>互联网：免费或试用主机/云主机可实际测试，阿里云、SAE等</li>
+</ul>
+</li>
+<li>使用第三方工具测试<ul>
+<li>模拟器</li>
+<li>第三方在线测试工具（例如<a href="www.browserstack.com">www.browserstack.com</a>）</li>
+</ul>
+</li>
+<li>浏览器自带模拟器，F12调试工具。<ul>
+<li>优势：可以模拟常见的设备、网速、经纬度、加速度….</li>
+<li>不足：效果有待进一步的验证</li>
+</ul>
+</li>
+</ol>
+<p><strong>Tip</strong>:ChromeF12中按ESC，选择emulation标签，可以配置网络、触屏、经纬度和3D，重力加速度等等效果</p>
+<h2 id="5-_响应式设计的优缺点">5. 响应式设计的优缺点</h2><h3 id="优点：">优点：</h3><ul>
+<li>跨平台</li>
+<li>节省开发升本</li>
+<li>表现力一致<h3 id="缺点：">缺点：</h3></li>
+<li>为了照顾到所有屏幕，自由度低，局限性大</li>
+<li>代码冗余，加载较慢</li>
+<li>浏览器兼容性问题，低版本的IE内核会跪，用第三方兼容脚本又增加负载</li>
+</ul>
+<p><a href="http://www.zhihu.com/question/22731467" target="_blank">这里</a>是知乎上有人给出的响应式设计优缺点答案</p>
+<hr>
+<p>参考：觉唯设计有一篇文章讲得很好<a href="http://www.jiawin.com/response-type-layout-design" target="_blank">《响应式设计这点小事儿》</a></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/15/hexo端口号4000被占/" itemprop="url">
+                  hexo无法启动之4000端口号被占用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-15T23:30:00+08:00" content="2015-10-15">
+              2015-10-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/15/hexo端口号4000被占/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/15/hexo端口号4000被占/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="缘起">缘起</h2><p>今天本地运行hexo博客的时候，突然Chrome访问<code>localhost:4000</code>打不开了，一直在那儿转圈儿圈儿，换了FF也一样。问题是今天早些时候还好好的，也没想起这期间有什么特别的动作。</p>
+<h2 id="尝试">尝试</h2><p>瞅那家架势跟tomcat的8080访问不了很像，第一反应怀疑是不是我开什么软件把4000端口给占了，那我改个端口好了，找到这个文件：</p>
+<pre><code>E:<span class="command">\hexo</span><span class="command">\node</span>_modules<span class="command">\hexo</span>-server<span class="command">\index</span>.js
+</code></pre><p>找到hexo.config.server配置项，port参数改为4400，果然正常启动了。</p>
+<h2 id="追根">追根</h2><p>好吧，这下我想知道是何方神圣占用了4000，看看这家伙什么来头，优先级多高，需不需hexo要给它让道。<br>CMD命令：</p>
+<pre><code><span class="title">netstat</span> -ano
+</code></pre><p>果然有个进程在占用4000端口，进程号6616。于是在任务栏右键启动任务管理器找，可是找半天发现win8任务管理器下进程选项卡的查看菜单中好像没有显示进程ID的选项，好吧，这个命令不太熟，百度之：</p>
+<pre><code>tasklist /<span class="keyword">fi</span> <span class="string">"pid eq 6616"</span>
+</code></pre><p>进程名FoxitProtect.exe，瞅那名字就知道是福昕阅读器，还是个service，进入服务列表查看它属性，启动方式居然是手动！</p>
+<h2 id="宣判">宣判</h2><p>问题是我今儿没用福昕阅读器啊，根据其服务描述“福昕阅读器的服务项，提供内容与产品更新等服务”怀疑是程序更新搞的，果断停掉！给我大Hexo端口号改回4000（因为机器上装了xampp，所以就不把80让给hexo了），然后回到git bash，Ctrl+c快捷键停掉服务，然后<code>hexo service</code>命令启动服务，访问<code>localhost:4000</code>OK！</p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/01/PHP连接MySQL数据库 /" itemprop="url">
+                  PHP连接MySQL数据库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-01T20:22:42+08:00" content="2015-10-01">
               2015-10-01
             </time>
           </span>
@@ -222,8 +832,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/01/PHP快速入门/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/PHP快速入门/" itemprop="commentsCount"></span>
+                <a href="/2015/10/01/PHP连接MySQL数据库 /#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/PHP连接MySQL数据库 /" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -245,550 +855,199 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="准备工作">准备工作</h2><p>安装XAMPP集成环境，启动apache。进入xampp安装目录下的htdocs目录，新建一个txt文件，重命名（F2）为以“.php”为扩展名的文件（比如test.php）。PHP语句写在<code>&lt;?php</code>和<code>?&gt;</code>之间。语句书写完毕，保存后，在浏览器中输入<code>http://localhost:88/test.php</code>访问（端口号根据自己实际情况调整）即可。</p>
-<pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
-    <span class="keyword">echo</span> <span class="string">'这是一个PHP文件'</span>;
-<span class="preprocessor">?&gt;</span></span>
-</code></pre><hr>
-<h2 id="常量与变量">常量与变量</h2><h3 id="常量">常量</h3><p>常量与javascript中一样，常量用const标示：<br>    const str = ‘this is string.’;//定义一个常量<br>在PHP中，常量是不允许重复赋值的，例如执行：</p>
-<pre><code>str = <span class="string">'abcdefg'</span>;
-报错
- * * 错误信息
- *   Parse <span class="built_in">error</span>: syntax <span class="built_in">error</span>, unexpected <span class="string">'='</span> <span class="keyword">in</span>
-</code></pre><h3 id="变量">变量</h3><p>PHP的变量以“$”开头，其用法与javascirpt中一致：</p>
-<pre><code><span class="variable">$str</span> = <span class="string">'this is string too.'</span>;
-<span class="variable">$str</span> = <span class="string">'abcdefg'</span>;
-echo <span class="variable">$str</span>;//abcdefg
-</code></pre><hr>
-<h2 id="数据类型">数据类型</h2><h3 id="四种标量类型：">四种标量类型：</h3><ol>
-<li>boolean</li>
-<li>integer</li>
-<li>float/double</li>
-<li>string</li>
-</ol>
-<h3 id="两种复合类型：">两种复合类型：</h3><ol>
-<li>array-数组</li>
-<li>object-对象</li>
-</ol>
-<h3 id="两种特殊类型：">两种特殊类型：</h3><ol>
-<li>resource-资源</li>
-<li>NULL</li>
-</ol>
-<h2 id="两种打印方式：">两种打印方式：</h2><p>echo 输出<br>var_dump 打印</p>
-<pre><code><span class="variable">$str</span>=<span class="string">'nihao'</span>;
-echo <span class="variable">$str</span>;
-/*
- * var_dump()函数
- * * 作用 - 打印变量的相关信息
- */
-var_dump(<span class="variable">$str</span>);
-</code></pre><h3 id="boolean">boolean</h3><pre><code><span class="variable">$boo</span> = <span class="literal">true</span>;
-echo <span class="variable">$boo</span>;//输出：<span class="number">1</span>
-var_dump(<span class="variable">$boo</span>);//输出：bool(<span class="literal">true</span>)
-<span class="variable">$foo</span> = fasel;
-echo <span class="variable">$foo</span>;//输出：<span class="string">''</span>，也即没有输出
-var_dump(<span class="variable">$foo</span>);//输出：bool(<span class="literal">false</span>)
-</code></pre><h3 id="integer">integer</h3><pre><code><span class="variable">$integer</span> = <span class="number">100</span>;
-echo <span class="variable">$integer</span>;//<span class="number">100</span>
-echo <span class="string">'&lt;br/&gt;'</span>;
-var_dump(<span class="variable">$integer</span>);//int(<span class="number">100</span>)
-</code></pre><h3 id="float/double">float/double</h3><pre><code><span class="variable">$f</span> = <span class="number">3.579</span>;
-echo <span class="variable">$f</span>;//<span class="number">3.579</span>
-echo <span class="string">'&lt;br/&gt;'</span>;    
-var_dump(<span class="variable">$f</span>);//float(<span class="number">3.579</span>)
-</code></pre><h3 id="string">string</h3><p>单引号和双引号都表示字符串，但两种方式用法不同。在单引号中的字符串，用法与其他语言相同，但在双引号下的字符串，是可以识别串中的变量名的，也因为匹配变量，其效率低于单引号下的字符串。</p>
-<h3 id="数组">数组</h3><p>定义一个数组</p>
-<ol>
-<li><p>直接量</p>
-<pre><code><span class="variable">$arr1</span>=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];
-var_dump(<span class="variable">$arr1</span>);
-<span class="variable">$arr2</span>=[<span class="string">'jimaoshiwang'</span>,<span class="string">'zhaomin'</span>,<span class="string">'zhangwuji'</span>];
-var_dump(<span class="variable">$arr2</span>);
-</code></pre></li>
-<li><p>定义索引数组</p>
-<pre><code>格式：
-数组名=arr(
-    索引值 =&gt; 值,
-    索引值 =&gt; 值,
-    ...
-);
-
-示例：
-$arr1=arr(
-    <span class="number">0</span>=&gt;<span class="number">1</span>,
-    <span class="number">1</span>=&gt;<span class="number">2</span>,
-    <span class="number">2</span>=&gt;<span class="number">3</span>
-);
-</code></pre></li>
-<li><p>定义关联数组</p>
-<pre><code>格式：
-<span class="keyword">array</span>(
-    key(键) =&gt; 元素内容,
-    key(键) =&gt; 元素内容,
-    key(键) =&gt; 元素内容,
-    ...
-);
-
-示例：
-<span class="variable">$arr</span>=<span class="keyword">array</span>(
-    <span class="string">'总理'</span>=&gt;<span class="string">'李克强'</span>,
-    <span class="string">'boss'</span>=&gt;<span class="string">'习大大'</span>
-);
-var_dump(<span class="variable">$arr</span>);
-</code></pre></li>
-</ol>
-<h3 id="类与对象">类与对象</h3><pre><code><span class="php"><span class="preprocessor">&lt;?php</span>
-    <span class="comment">// 定义一个类foo - 类似于javascript的构造器</span>
-    <span class="class"><span class="keyword">class</span> <span class="title">foo</span></span>{
-        <span class="comment">// 定义一个方法do_foo()</span>
-        <span class="function"><span class="keyword">function</span> <span class="title">do_foo</span><span class="params">()</span></span>{
-            <span class="keyword">echo</span> <span class="string">"Doing foo."</span>; 
-        }
-    }
-    <span class="comment">// 通过new关键字实例化一个对象</span>
-    <span class="variable">$bar</span> = <span class="keyword">new</span> foo;
-    <span class="comment">// 通过$bar对象,调用do_foo()方法</span>
-    <span class="variable">$bar</span>-&gt;do_foo();
-<span class="preprocessor">?&gt;</span></span>
-</code></pre><h3 id="resource-资源">resource-资源</h3><p>作用：用于保存外部资源的一个引用</p>
-<p>使用场景：在文件上传中保存上传的文件</p>
-<hr>
-<h2 id="运算符">运算符</h2><p>运算符基本与Javascript保持一致，字符串连接例外。<br>php中字符串连接使用”.”:</p>
-<pre><code><span class="variable">$zwj</span>=<span class="string">'zhangwuji'</span>;
-<span class="variable">$zzr</span>=<span class="string">'zhouzhiruo'</span>;
-<span class="variable">$str1</span>=<span class="variable">$zzr</span>.<span class="string">' is '</span>.<span class="variable">$zwj</span>.<span class="string">'\'</span>s nvpengyou<span class="string">';//输出一个“'</span>”要转义
-echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="string">'s nvpenyou</span>
-</code></pre><h2 id="循环">循环</h2><p>while循环</p>
-<pre><code><span class="variable">$i</span>=<span class="number">0</span>;
-<span class="keyword">while</span>(<span class="variable">$i</span>&lt;<span class="number">10</span>){
-    echo <span class="variable">$i</span>++;
-}
-</code></pre><p>for循环</p>
-<pre><code><span class="variable">$arr</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];
-<span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">5</span>;<span class="variable">$i</span>++){
-    var_dump(<span class="variable">$arr</span>[<span class="variable">$i</span>]);
-}
-</code></pre><p>foreach</p>
-<pre><code>foreach(<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$i</span>=&gt;<span class="variable">$value</span>){
-    var_dump(<span class="variable">$i</span>);
-    var_dump(<span class="variable">$arr</span>[<span class="variable">$i</span>]);
-    var_dump(<span class="variable">$value</span>);
-    echo <span class="string">'&lt;br/&gt;'</span>;
-}
-</code></pre><p>foreach是唯一与javascript中不同的循环，联系js中的<a href="http://pdf7.tarena.com.cn/tts8_source/ttsPage/WEB/WEB_V02/JAVASCRIPT/DAY04/COURSE/ppt.html" target="_blank">for-in</a>循环。</p>
-<h2 id="分支结构">分支结构</h2><p>与javascript几乎一致。</p>
-<h2 id="PHP预定义">PHP预定义</h2><p>预定义变量</p>
-<ul>
-<li>$_GET</li>
-<li>$_POST</li>
-<li>$_REQUEST：$_GET、$POST等</li>
-<li>$_FILE：    专用于文件上传</li>
-<li>$_COOKIE： 接收客户端保存的所有cookie数据</li>
-</ul>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/09/30/CSS3之box-sizing-已发布/" itemprop="url">
-                  CSS3之box-sizing
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-09-30T21:40:32+08:00" content="2015-09-30">
-              2015-09-30
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/09/30/CSS3之box-sizing-已发布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/CSS3之box-sizing-已发布/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>box-sizing:</p>
-<ul>
-<li>content-box</li>
-<li>border-box</li>
-</ul>
-<p>盒子模型的计算方式由box-sizing属性控制，有两个值<code>content-box</code>和<code>border-box</code>。CSS中默认是前者，计算方式”<code>盒子宽=margin+border+padding+width</code>“;Bootstrap中默认是后者，计算方式为“<code>盒子宽：margin+width</code>”，border和padding都算在width中。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/15/软件设计原则-已发布/" itemprop="url">
-                  软件设计原则
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-08-15T20:30:00+08:00" content="2015-08-15">
-              2015-08-15
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/15/软件设计原则-已发布/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/15/软件设计原则-已发布/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h1 id="软件设计原则">软件设计原则</h1><h3 id="1-_避免重复原则（DRY_–_Don’t_repeat_yourself）">1. 避免重复原则（DRY – Don’t repeat yourself）</h3><p>编程的最基本原则是避免重复。在程序代码中总会有很多结构体，如循环、函数、类等等。一旦你重复某个语句或概念，就会很容易形成一个抽象体。</p>
-<h3 id="2-_抽象原则（Abstraction_Principle_）">2. 抽象原则（Abstraction Principle ）</h3><p>与DRY原则相关。要记住，程序代码中每一个重要的功能，只能出现在源代码的一个位置。</p>
-<h3 id="3-_简单原则（Keep_It_Simple_and_Stupid_）">3. 简单原则（Keep It Simple and Stupid ）</h3><p>简单是软件设计的目标，简单的代码占用时间少，漏洞少，并且易于修改。</p>
-<h3 id="4-_避免创建你不要的代码_Avoid_Creating_a_YAGNI_(You_aren’t_going_to_need_it)">4. 避免创建你不要的代码 Avoid Creating a YAGNI (You aren’t going to need it)</h3><p>除非你需要它，否则别创建新功能。</p>
-<h3 id="5-_尽可能做可运行的最简单的事（Do_the_simplest_thing_that_could_possibly_work）">5. 尽可能做可运行的最简单的事（Do the simplest thing that could possibly work）</h3><p>尽可能做可运行的最简单的事。在编程中，一定要保持简单原则。作为一名程序员不断的反思“如何在工作中做到简化呢？”这将有助于在设计中保持简单的路径。</p>
-<h3 id="6-_别让我思考(Don’t_make_me_think_)">6. 别让我思考(Don’t make me think )</h3><p>这是Steve Krug一本书的标题，同时也和编程有关。所编写的代码一定要易于读易于理解，这样别人才会欣赏，也能够给你提出合理化的建议。相反，若是繁杂难解的程序，其他人总是会避而远之的。</p>
-<h3 id="7-_开闭原则(Open/Closed_Principle)">7. 开闭原则(Open/Closed Principle)</h3><p>你所编写的软件实体（类、模块、函数等）最好是开放的，这样别人可以拓展开发。不过，对于你的代码，得限定别人不得修改。换句话说，别人可以基于你的代码进行拓展编写，但却不能修改你的代码。</p>
-<h3 id="8-_代码维护(Write_Code_for_the_Maintainer)">8. 代码维护(Write Code for the Maintainer)</h3><p>一个优秀的代码，应当使本人或是他人在将来都能够对它继续编写或维护。代码维护时，或许本人会比较容易，但对他人却比较麻烦。因此你写的代码要尽可能保证他人能够容易维护。用书中原话说“如果一个维护者不再继续维护你的代码，很可能他就有想杀了你的冲动。”</p>
-<h3 id="9-_最小惊讶原则(Principle_of_least_astonishment)">9. 最小惊讶原则(Principle of least astonishment)</h3><p>最小惊讶原则通常是在用户界面方面引用，但同样适用于编写的代码。代码应该尽可能减少让读者惊喜。也就是说，你编写的代码只需按照项目的要求来编写。其他华丽的功能就不必了，以免弄巧成拙。</p>
-<h3 id="10-_单一责任原则(Single_Responsibility_Principle)">10. 单一责任原则(Single Responsibility Principle)</h3><p>某个代码的功能，应该保证只有单一的明确的执行任务。</p>
-<blockquote>
-<p>比如在bootstrap中，修饰一个元素，我们布局套一层div，定位套一层div，功能套一层，不同功能的逻辑用不同层的div来实现。</p>
-</blockquote>
-<h3 id="11-_低耦合原则(Minimize_Coupling)">11. 低耦合原则(Minimize Coupling)</h3><p>代码的任何一个部分应该减少对其他区域代码的依赖关系。尽量不要使用共享参数。低耦合往往是完美结构系统和优秀设计的标志。</p>
-<h3 id="12-_最大限度凝聚原则(Maximize_Cohesion)">12. 最大限度凝聚原则(Maximize Cohesion)</h3><p>相似的功能代码应尽量放在一个部分。   High Cohesion， Low Coupling！</p>
-<h3 id="13-_隐藏实现细节（Hide_Implementation_Details）">13. 隐藏实现细节（Hide Implementation Details）</h3><p>隐藏实现细节原则，当其他功能部分发生变化时，能够尽可能降低对其他组件的影响。</p>
-<h3 id="14-_迪米特法则又叫作最少知识原则(Law_of_Demeter)">14. 迪米特法则又叫作最少知识原则(Law of Demeter)</h3><p>该代码只和与其有直接关系的部分连接。（比如：该部分继承的类，包含的对象，参数传递的对象等）。</p>
-<h3 id="15-_避免过早优化(Avoid_Premature_Optimization)">15. 避免过早优化(Avoid Premature Optimization)</h3><p>除非你的代码运行的比你想像中的要慢，否则别去优化。假如你真的想优化，就必须先想好如何用数据证明，它的速度变快了。<br>“过早的优化是一切罪恶的根源”——Donald Knuth</p>
-<h3 id="16-_代码重用原则（Code_Reuse_is_Good）">16. 代码重用原则（Code Reuse is Good）</h3><p>重用代码能提高代码的可读性，缩短开发时间。</p>
-<h3 id="17-_关注点分离（Separation_of_Concerns）">17. 关注点分离（Separation of Concerns）</h3><p>不同领域的功能，应该由不同的代码和最小重迭的模块组成。</p>
-<h3 id="18-_拥抱改变（Embrace_Change）">18. 拥抱改变（Embrace Change）</h3><p>这是Kent Beck一本书的标题，同时也被认为是极限编程和敏捷方法的宗旨。<br>许多其他原则都是基于这个概念的，即你应该积极面对变化。事实上，一些较老的编程原则如最小化耦合原则都是为了使代码能够容易变化。无论你是否是个极限编程者，基于这个原则去编写代码会让你的工作变得更有意义。<br>作者简介：Christopher Diggins是加拿大一位有25年编程经验的资深技术人员，曾效力于Microsoft和AutoDesk，并创办过两家赢利的互联网公司。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/1940/10/24/JS相关核心概念-待整理/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="1940-10-24T10:26:18+08:00" content="1940-10-24">
-              1940-10-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/1940/10/24/JS相关核心概念-待整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="1940/10/24/JS相关核心概念-待整理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p>JS中，带大括号的代码块中，唯有function(){}能创建作用域，这点与JAVA、C++等语言不一样。JS中的作用域只有两类：全局作用域与函数作用域。</p>
-<p>浏览器在对代码进行解析时，会先进行变量声明和函数声明以及函数形参声明；所以就有了声明提前的说法。</p>
-<p>JS最基础的GC方案比较简单：</p>
-<ul>
-<li>遍历所有可访问对象</li>
-<li><p>删除不可访问的对象</p>
-<p>和其他语言一样，javascript的GC策略也无法避免一个问题：GC时，停止响应其他操作，这是为了安全考虑。而Javascript的GC在100ms甚至以上，对一般的应用还好，但对于JS游戏，动画对连贯性要求比较高的应用，就麻烦了。这就是新引擎需要优化的点：避免GC造成的长时间停止响应。</p>
+              <h2 id="准备工作">准备工作</h2><ol>
+<li><p>在XAMPP安装目录下，检查xampp\php\ext\php_mysql.dll文件是否存在，php_mysql.dll文件和php_mysqli.dll文件是PHP连接MySQL数据库的基础。</p>
 </li>
-</ul>
-<p>优化：</p>
+<li><p>打开XAMPP软件的安装目录xampp\php\php.ini文件，检查以下语句是否存在，若不存在需添加：</p>
+<p> extension=php_mysql.dll<br> extension=php_mysqli.dll</p>
+</li>
+<li><p>启动XAMPP的apache和mysql。</p>
+</li>
+<li><p>附1：若没有建立数据库，使用以下语句：</p>
+<p> <code>CREATE DATABASE day1117 DEFAULT CHARACTER SET utf8;</code></p>
+</li>
+<li><p>附2：若没有简历数据表，使用以下语句：</p>
+<pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> myuser(
+    <span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,
+    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>),
+    <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>),
+    age <span class="built_in">INT</span>,
+    email <span class="built_in">VARCHAR</span>(<span class="number">30</span>),
+    addr <span class="built_in">VARCHAR</span>(<span class="number">30</span>)
+);</span>
+</code></pre></li>
+</ol>
+<h2 id="编写PHP脚本">编写PHP脚本</h2><p>完成PHP连接MySQL的步骤，PHP有关MySQL数据库的扩展</p>
+<p>mysqli_connect()函数<br>参数有5个：</p>
 <ul>
-<li>分代回收（Generation GC）</li>
+<li>host：指mysql数据库所在服务器的IP地址</li>
+<li>username：指登录mysql数据库的用户名</li>
+<li>passwd：登录mysql数据库的密码</li>
+<li>dbname：数据库名</li>
+<li>prot：端口号</li>
 </ul>
-<p>这个和Java回收策略思想是一致的。目的是通过区分“临时”与“持久”对象；多回收“临时对象”区（young generation），少回收“持久对象”区（tenured generation），减少每次需遍历的对象，从而减少每次GC的耗时。</p>
-<ul>
-<li>增量GC</li>
-</ul>
-<p>这个方案的思想很简单，就是“每次处理一点，下次再处理一点，如此类推”。</p>
-<p><a href="http://www.cnblogs.com/hyddd/archive/2013/02/07/2908598.html" target="_blank">JS垃圾回收GC博客</a>，<br><a href="http://blog.chinaunix.net/uid-26672038-id-3522560.html" target="_blank">JS垃圾回收GC博客2</a>，<br><a href="http://kb.cnblogs.com/page/74836/" target="_blank">JS垃圾回收GC博客2</a></p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/" itemprop="url">
-                  Bootstrap组件之响应式导航条[未完待续]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="1940-10-24T10:26:18+08:00" content="1940-10-24">
-              1940-10-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="1940/10/24/Bootstrap03组件之响应式导航条-待整理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
+<p>返回值是一个mysqli_result类型的对象</p>
+<p>附：mysqli_result类型的属性列表：</p>
+<pre><code>•mysqli_result — mysqli_result类
+•mysqli_result::$current_field — <span class="type">Get</span> current field offset <span class="keyword">of</span> a <span class="literal">result</span> <span class="type">pointer</span>
+•mysqli_result::data_seek — <span class="type">Adjusts</span> the <span class="literal">result</span> <span class="type">pointer</span> to an arbitrary row <span class="keyword">in</span> the <span class="literal">result</span>
+•mysqli_result::fetch_all — <span class="type">Fetches</span> all <span class="literal">result</span> rows <span class="keyword">as</span> an associative <span class="type">array</span>, a numeric <span class="type">array</span>, <span class="keyword">or</span> both
+•mysqli_result::fetch_array — <span class="type">Fetch</span> a <span class="literal">result</span> row <span class="keyword">as</span> an associative, a numeric <span class="type">array</span>, <span class="keyword">or</span> both
+•mysqli_result::fetch_assoc — <span class="type">Fetch</span> a <span class="literal">result</span> row <span class="keyword">as</span> an associative <span class="type">array</span>
+•mysqli_result::fetch_field_direct — <span class="type">Fetch</span> meta-data <span class="keyword">for</span> a single field
+•mysqli_result::fetch_field — <span class="type">Returns</span> the next field <span class="keyword">in</span> the <span class="literal">result</span> <span class="type">set</span>
+•mysqli_result::fetch_fields — <span class="type">Returns</span> an <span class="type">array</span> <span class="keyword">of</span> objects representing the fields <span class="keyword">in</span> a <span class="literal">result</span> <span class="type">set</span>
+•mysqli_result::fetch_object — <span class="type">Returns</span> the current row <span class="keyword">of</span> a <span class="literal">result</span> <span class="type">set</span> <span class="keyword">as</span> an <span class="keyword">object</span>
+•mysqli_result::fetch_row — <span class="type">Get</span> a <span class="literal">result</span> row <span class="keyword">as</span> an enumerated <span class="type">array</span>
+•mysqli_result::$field_count — <span class="type">Get</span> the number <span class="keyword">of</span> fields <span class="keyword">in</span> a <span class="literal">result</span>
+•mysqli_result::field_seek — <span class="type">Set</span> <span class="literal">result</span> <span class="type">pointer</span> to a specified field offset
+•mysqli_result::free — <span class="type">Frees</span> the memory associated <span class="keyword">with</span> a <span class="literal">result</span>
+•mysqli_result::$lengths — <span class="type">Returns</span> the lengths <span class="keyword">of</span> the columns <span class="keyword">of</span> the current row <span class="keyword">in</span> the <span class="literal">result</span> <span class="type">set</span>
+•mysqli_result::$num_rows — <span class="type">Gets</span> the number <span class="keyword">of</span> rows <span class="keyword">in</span> a <span class="literal">result</span>
+</code></pre><h2 id="过程化风格的连接步骤：">过程化风格的连接步骤：</h2><ol>
+<li>使用mysqli_connect()函数建立连接，该方法返回与数据库的连接对象，获取连接对象存入变量：</li>
+</ol>
+<pre><code><span class="variable">$conn</span>=mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'tarena'</span>,<span class="string">'3306'</span>);
+var_dump(<span class="variable">$conn</span>);
+</code></pre><ol>
+<li>编写SQL语句字符串：</li>
+</ol>
+<pre><code>$sql="<span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> myuser <span class="keyword">VALUES</span>    (<span class="literal">NULL</span>,<span class="string">'miejueshitai'</span>,<span class="string">'12345'</span>,<span class="number">86</span>,<span class="string">'miejue@qq.com'</span>,emei<span class="string">')";</span></span>
+</code></pre><ol>
+<li><p>使用mysqli_query()函数执行SQL语句：</p>
+<p> <code>$bool = mysqli_query($conn,$sql);</code></p>
+</li>
+<li><p>解析mysqli()函数返回的mysqli_result类型的对象；</p>
+</li>
+<li><p>关闭与MySQL数据库的连接，使用函数mysqli_close(连接对象)</p>
+<p><code>mysqli_close($conn);</code></p>
+</li>
+</ol>
+<h2 id="面向对象风格的连接步骤">面向对象风格的连接步骤</h2><p>（注意数据库和数据表的名称要与自己的相符）</p>
+<pre><code>/*
+    创建mysqli或者mysql对象，参见Mysql增强版本中的MySQLI类的构造器mysqli::__construct 
+*/
+<span class="variable">$mysqli</span>= new mysqli(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>);
 
 
-    <div class="post-body">
+<span class="keyword">if</span> (<span class="variable">$mysqli-</span>&gt;connect_error) {
+        die(<span class="string">'Connect Error ('</span> . <span class="variable">$mysqli-</span>&gt;connect_errno . <span class="string">') '</span>
+        . <span class="variable">$mysqli-</span>&gt;connect_error);
+}
 
-      
-      
+echo <span class="string">'Success... '</span> . <span class="variable">$mysqli-</span>&gt;host_info . <span class="string">"\n"</span>;
 
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>[待整理]</strong></p>
-<p>导航条的第一个孩子必须是容器container或者contrainer-fluid</p>
-<p>很多元素在navbar中都有专用版本，用来控制元素在导航条中的位置</p>
-<p>navbar不放在容器里，否则会报警告：</p>
-<pre><code><span class="label">bootlint:</span>  W012  <span class="escape">`.</span>container<span class="escape">` </span><span class="literal">or</span> <span class="escape">`.</span>container-fluid<span class="escape">` </span>should be the first child inside of <span class="literal">a</span> <span class="escape">`.</span>navbar<span class="escape">`
-</span> jQuery.fn.init[<span class="number">1</span>]
-</code></pre><p>默认高度最低是50px</p>
-<p>导航条的结构是固定的</p>
-<p>bootstrap推荐所有表单都有label，可以支持盲人屏幕阅读软件；如果正常人浏览不需要的话，可以对其增加class=”sr-only”，看其css，发现它的宽高都被缩小到1px。</p>
+<span class="variable">$sql</span>=<span class="string">"INSERT INTO myuser VALUES(NULL,'三丰道长','12345',86,'sanfeng@qq.com','武当')"</span>;
 
+
+/*调用mysqli对象的query()方法，因为<span class="variable">$mysqli</span>对象中已经封装了连接信息，所以直接传sql语句作为参数即可
+使用<span class="variable">$mysql-</span>&gt;query(<span class="variable">$sql</span>)方法
+query方法如果执行的是增删改操作，其返回值是一个布尔值；若是执行查询方法，其返回值是一个结果集对象*/
+<span class="variable">$mysqli-</span>&gt;query(<span class="string">'set names utf8'</span>);//设置编码
+<span class="variable">$mysqli-</span>&gt;query(<span class="variable">$sql</span>);
+
+
+
+//关闭连接
+<span class="variable">$mysqli-</span>&gt;close();
+</code></pre><h2 id="登录功能">登录功能</h2><p>废话不多说，直接上代码（注意数据库和数据表的名称要与自己的相符）：</p>
+<p>HTML页面（login.html）：</p>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">id</span>=<span class="value">"myform"</span> <span class="attribute">method</span>=<span class="value">"post"</span> <span class="attribute">action</span>=<span class="value">"login.php"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>用户名<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"username"</span> <span class="attribute">name</span>=<span class="value">"username"</span>&gt;</span><span class="tag">&lt;/<span class="title">input</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>密码<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">id</span>=<span class="value">"pwd"</span> <span class="attribute">name</span>=<span class="value">"pwd"</span>&gt;</span><span class="tag">&lt;/<span class="title">input</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>PHP页面（login.php）：</p>
+<pre><code>&lt;?php
+    <span class="variable">$username</span>=$_POST[<span class="string">'username'</span>];
+    <span class="variable">$pwd</span>=$_POST[<span class="string">'pwd'</span>];
+    // echo <span class="variable">$username</span>.<span class="string">','</span>.pwd;
+    <span class="variable">$conn</span>=mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>,<span class="string">'3306'</span>);
+    // var_dump(<span class="variable">$conn</span>);
+    <span class="variable">$sql</span>=<span class="string">"SELECT * FROM myuser WHERE name='"</span>
+        .<span class="variable">$username</span>
+        .<span class="string">"' AND pwd='"</span>
+        .<span class="variable">$pwd</span>.<span class="string">"'"</span>;
+
+    //echo <span class="variable">$sql</span>;
+    <span class="variable">$result</span>=mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);
+
+    /*result结果集无论有无记录，只要sql语句执行成功，即返回非空对象
+    而在sql语句执行出错时就会返回<span class="literal">false</span>。所以我们不能简单地用<span class="variable">$result</span>对象存在与否来判断结果*/
+    <span class="keyword">if</span>(<span class="variable">$result-</span>&gt;num_rows &gt; <span class="number">0</span>){
+        echo <span class="string">'登录成功'</span>;
+    }<span class="keyword">else</span>{
+        echo <span class="string">'对不起，账户名密码不匹配'</span>;
+    }
+?&gt;
+</code></pre><h2 id="注册功能">注册功能</h2><p>HTML页面：</p>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>注册<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"register.php"</span> <span class="attribute">method</span>=<span class="value">"POST"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span>&gt;</span> 
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>姓名<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"username"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>密码<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"pwd"</span> <span class="attribute">name</span>=<span class="value">"pwd"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="comment">&lt;!-- &lt;td&gt;&lt;/td&gt; --&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>PHP页面：</p>
+<pre><code><span class="variable">$username</span>=$_POST[<span class="string">'username'</span>];
+<span class="variable">$pwd</span>=$_POST[<span class="string">'pwd'</span>];
+<span class="variable">$mysqli</span>=new mysqli(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>);
+<span class="keyword">if</span>(<span class="variable">$mysqli-</span>&gt;connect_error){
+       die(<span class="string">'Connect Error ('</span> . <span class="variable">$mysqli-</span>&gt;connect_errno . <span class="string">') '</span>
+        . <span class="variable">$mysqli-</span>&gt;connect_error);
+}
+<span class="variable">$sql1</span>=<span class="string">"SELECT * FROM myuser where name='$username'"</span>;
+<span class="variable">$mysqli-</span>&gt;query(<span class="string">'set names utf8'</span>);
+<span class="variable">$result</span> = <span class="variable">$mysqli-</span>&gt;query(<span class="variable">$sql1</span>);
+<span class="keyword">if</span>(<span class="variable">$result-</span>&gt;num_rows&gt;<span class="number">0</span>){
+    echo <span class="string">'这个名字已经存在，换个名字吧'</span>;
+}<span class="keyword">else</span>{
+    <span class="variable">$sql2</span>=<span class="string">"INSERT INTO myuser(name,pwd) values('$username','$pwd')"</span>;
+    <span class="variable">$rst</span>=<span class="variable">$mysqli-</span>&gt;query(<span class="variable">$sql2</span>);
+    if(<span class="variable">$rst</span>){
+        echo <span class="string">'注册成功'</span>;
+    }else{
+        echo <span class="string">'注册失败'</span>;
+    }
+}
+</code></pre>
             
           </span>
         
@@ -814,7 +1073,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -868,10 +1127,10 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
           </div>
 
           <div class="site-state-item site-state-tags">
-            <a href="/tags">
+            
               <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">标签</span>
-              </a>
+              
           </div>
 
         </nav>
@@ -879,6 +1138,16 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://cv.zhangzhengji.com" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 简历
+                  
+                </a>
+              </span>
+            
           
         </div>
 
