@@ -65,7 +65,7 @@ EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 特点
 擅长各种图表，适合企业内部使用的信息管理类系统，不适合电商、门户网站。因为大部分HTML代码是由JS生成的，所以对搜索引擎不是十分友好，不适合需要SEO的网站。
 EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
-<meta property="og:updated_time" content="2015-12-17T18:53:14.000Z">
+<meta property="og:updated_time" content="2015-12-22T14:12:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EXT初探">
 <meta name="twitter:description" content="今天上手Ext.js，简单做一下小结，后续再补充。
@@ -246,7 +246,7 @@ EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
 <li>Ext.window.Window（简写为Ext.Window）</li>
 <li>等等</li>
 </ul>
-<h2 id="亮点">亮点</h2><p>看到一种Button的配置值的写法<code>buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL</code>，还真的能渲染出“yes”“no”“cancel”三个按钮来，很奇怪——三个按钮同时显示的Button常量值不应该是<code>YESNOCANCEL</code>吗？用“|”是什么鬼？</p>
+<h2 id="亮点">亮点</h2><p>看到一种Button的配置值的写法<code>buttons: Ext.Msg.YES | Ext.Msg.NO |  Ext.Msg.CANCEL</code>，还真的能渲染出“yes”“no”“cancel”三个按钮来，很奇怪——三个按钮同时显示的Button常量值不应该是<code>YESNOCANCEL</code>吗？用位运算或“|”是什么鬼？</p>
 <pre><code>Ext.onReady(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
     Ext.Msg.show({
         title: <span class="string">'地址'</span>,
@@ -261,7 +261,7 @@ EXT是纯JS框架，用来展示后端数据，适合后端程序员兼修，">
         icon: Ext.window.MessageBox.INFO,
     });
 });
-</code></pre><p>点源码进去看（笔者IDE是Webstrom，Ctrl+鼠标左键），发现EXT里的button常量的编号很奇怪，并不连续：</p>
+</code></pre><p>点源码进去看（笔者IDE是Webstrom，Ctrl+鼠标左键），发现EXT里的button常量的值并不连续：</p>
 <pre><code>OK : <span class="number">1</span>,
 
 YES : <span class="number">2</span>,
@@ -275,12 +275,12 @@ OKCANCEL : <span class="number">9</span>,
 YESNO : <span class="number">6</span>,
 
 YESNOCANCEL : <span class="number">14</span>,
-</code></pre><p>不看不知道，一看吓一跳，原来这个Button的取值是真的在做按位或运算：</p>
+</code></pre><p>一寻思，原来这个Button的取值是真的在做按位或运算：</p>
 <ul>
 <li><code>9=1|8</code> 即 <code>OKCANCEL = OK | CANCEL</code> </li>
 <li><code>14=2|4|8</code> 即 <code>YESNOCANCEL = YES | NO | CANCEL</code> </li>
 </ul>
-<p>简直颠覆了我对单个符号的位运算“&amp;”和“|”的认知啊有木有！对于这种设计，我赵日天服了！</p>
+<p>无论在字面语义上还是在值的运算上都可以用或来解释，这个设计真的很赞~</p>
 </span>
       
     </div>
