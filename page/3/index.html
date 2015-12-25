@@ -190,6 +190,285 @@
             
               
                 
+                <a class="post-title-link" href="/2015/10/01/PHP连接MySQL数据库 /" itemprop="url">
+                  PHP连接MySQL数据库
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-10-01T20:22:42+08:00" content="2015-10-01">
+              2015-10-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/01/PHP连接MySQL数据库 /#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/01/PHP连接MySQL数据库 /" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="准备工作">准备工作</h2><ol>
+<li><p>在XAMPP安装目录下，检查xampp\php\ext\php_mysql.dll文件是否存在，php_mysql.dll文件和php_mysqli.dll文件是PHP连接MySQL数据库的基础。</p>
+</li>
+<li><p>打开XAMPP软件的安装目录xampp\php\php.ini文件，检查以下语句是否存在，若不存在需添加：</p>
+<p> extension=php_mysql.dll<br> extension=php_mysqli.dll</p>
+</li>
+<li><p>启动XAMPP的apache和mysql。</p>
+</li>
+<li><p>附1：若没有建立数据库，使用以下语句：</p>
+<p> <code>CREATE DATABASE day1117 DEFAULT CHARACTER SET utf8;</code></p>
+</li>
+<li><p>附2：若没有简历数据表，使用以下语句：</p>
+<pre><code><span class="operator"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> myuser(
+    <span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,
+    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>),
+    <span class="keyword">password</span> <span class="built_in">VARCHAR</span>(<span class="number">30</span>),
+    age <span class="built_in">INT</span>,
+    email <span class="built_in">VARCHAR</span>(<span class="number">30</span>),
+    addr <span class="built_in">VARCHAR</span>(<span class="number">30</span>)
+);</span>
+</code></pre></li>
+</ol>
+<h2 id="编写PHP脚本">编写PHP脚本</h2><p>完成PHP连接MySQL的步骤，PHP有关MySQL数据库的扩展</p>
+<p>mysqli_connect()函数<br>参数有5个：</p>
+<ul>
+<li>host：指mysql数据库所在服务器的IP地址</li>
+<li>username：指登录mysql数据库的用户名</li>
+<li>passwd：登录mysql数据库的密码</li>
+<li>dbname：数据库名</li>
+<li>prot：端口号</li>
+</ul>
+<p>返回值是一个mysqli_result类型的对象</p>
+<p>附：mysqli_result类型的属性列表：</p>
+<pre><code>•mysqli_result — mysqli_result类
+•mysqli_result::$current_field — <span class="type">Get</span> current field offset <span class="keyword">of</span> a <span class="literal">result</span> <span class="type">pointer</span>
+•mysqli_result::data_seek — <span class="type">Adjusts</span> the <span class="literal">result</span> <span class="type">pointer</span> to an arbitrary row <span class="keyword">in</span> the <span class="literal">result</span>
+•mysqli_result::fetch_all — <span class="type">Fetches</span> all <span class="literal">result</span> rows <span class="keyword">as</span> an associative <span class="type">array</span>, a numeric <span class="type">array</span>, <span class="keyword">or</span> both
+•mysqli_result::fetch_array — <span class="type">Fetch</span> a <span class="literal">result</span> row <span class="keyword">as</span> an associative, a numeric <span class="type">array</span>, <span class="keyword">or</span> both
+•mysqli_result::fetch_assoc — <span class="type">Fetch</span> a <span class="literal">result</span> row <span class="keyword">as</span> an associative <span class="type">array</span>
+•mysqli_result::fetch_field_direct — <span class="type">Fetch</span> meta-data <span class="keyword">for</span> a single field
+•mysqli_result::fetch_field — <span class="type">Returns</span> the next field <span class="keyword">in</span> the <span class="literal">result</span> <span class="type">set</span>
+•mysqli_result::fetch_fields — <span class="type">Returns</span> an <span class="type">array</span> <span class="keyword">of</span> objects representing the fields <span class="keyword">in</span> a <span class="literal">result</span> <span class="type">set</span>
+•mysqli_result::fetch_object — <span class="type">Returns</span> the current row <span class="keyword">of</span> a <span class="literal">result</span> <span class="type">set</span> <span class="keyword">as</span> an <span class="keyword">object</span>
+•mysqli_result::fetch_row — <span class="type">Get</span> a <span class="literal">result</span> row <span class="keyword">as</span> an enumerated <span class="type">array</span>
+•mysqli_result::$field_count — <span class="type">Get</span> the number <span class="keyword">of</span> fields <span class="keyword">in</span> a <span class="literal">result</span>
+•mysqli_result::field_seek — <span class="type">Set</span> <span class="literal">result</span> <span class="type">pointer</span> to a specified field offset
+•mysqli_result::free — <span class="type">Frees</span> the memory associated <span class="keyword">with</span> a <span class="literal">result</span>
+•mysqli_result::$lengths — <span class="type">Returns</span> the lengths <span class="keyword">of</span> the columns <span class="keyword">of</span> the current row <span class="keyword">in</span> the <span class="literal">result</span> <span class="type">set</span>
+•mysqli_result::$num_rows — <span class="type">Gets</span> the number <span class="keyword">of</span> rows <span class="keyword">in</span> a <span class="literal">result</span>
+</code></pre><h2 id="过程化风格的连接步骤：">过程化风格的连接步骤：</h2><ol>
+<li>使用mysqli_connect()函数建立连接，该方法返回与数据库的连接对象，获取连接对象存入变量：</li>
+</ol>
+<pre><code><span class="variable">$conn</span>=mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>,<span class="string">'3306'</span>);
+var_dump(<span class="variable">$conn</span>);
+</code></pre><ol>
+<li>编写SQL语句字符串：</li>
+</ol>
+<pre><code>$sql="<span class="operator"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> myuser <span class="keyword">VALUES</span>    (<span class="literal">NULL</span>,<span class="string">'miejueshitai'</span>,<span class="string">'12345'</span>,<span class="number">86</span>,<span class="string">'miejue@qq.com'</span>,emei<span class="string">')";</span></span>
+</code></pre><ol>
+<li><p>使用mysqli_query()函数执行SQL语句：</p>
+<p> <code>$bool = mysqli_query($conn,$sql);</code></p>
+</li>
+<li><p>解析mysqli()函数返回的mysqli_result类型的对象；</p>
+</li>
+<li><p>关闭与MySQL数据库的连接，使用函数mysqli_close(连接对象)</p>
+<p><code>mysqli_close($conn);</code></p>
+</li>
+</ol>
+<h2 id="面向对象风格的连接步骤">面向对象风格的连接步骤</h2><p>（注意数据库和数据表的名称要与自己的相符）</p>
+<pre><code>/*
+    创建mysqli或者mysql对象，参见Mysql增强版本中的MySQLI类的构造器mysqli::__construct 
+*/
+<span class="variable">$mysqli</span>= new mysqli(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>);
+
+
+<span class="keyword">if</span> (<span class="variable">$mysqli-</span>&gt;connect_error) {
+        die(<span class="string">'Connect Error ('</span> . <span class="variable">$mysqli-</span>&gt;connect_errno . <span class="string">') '</span>
+        . <span class="variable">$mysqli-</span>&gt;connect_error);
+}
+
+echo <span class="string">'Success... '</span> . <span class="variable">$mysqli-</span>&gt;host_info . <span class="string">"\n"</span>;
+
+<span class="variable">$sql</span>=<span class="string">"INSERT INTO myuser VALUES(NULL,'三丰道长','12345',86,'sanfeng@qq.com','武当')"</span>;
+
+
+/*调用mysqli对象的query()方法，因为<span class="variable">$mysqli</span>对象中已经封装了连接信息，所以直接传sql语句作为参数即可
+使用<span class="variable">$mysql-</span>&gt;query(<span class="variable">$sql</span>)方法
+query方法如果执行的是增删改操作，其返回值是一个布尔值；若是执行查询方法，其返回值是一个结果集对象*/
+<span class="variable">$mysqli-</span>&gt;query(<span class="string">'set names utf8'</span>);//设置编码
+<span class="variable">$mysqli-</span>&gt;query(<span class="variable">$sql</span>);
+
+
+
+//关闭连接
+<span class="variable">$mysqli-</span>&gt;close();
+</code></pre><h2 id="登录功能">登录功能</h2><p>废话不多说，直接上代码（注意数据库和数据表的名称要与自己的相符）：</p>
+<p>HTML页面（login.html）：</p>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">id</span>=<span class="value">"myform"</span> <span class="attribute">method</span>=<span class="value">"post"</span> <span class="attribute">action</span>=<span class="value">"login.php"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>用户名<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">id</span>=<span class="value">"username"</span> <span class="attribute">name</span>=<span class="value">"username"</span>&gt;</span><span class="tag">&lt;/<span class="title">input</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>密码<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">id</span>=<span class="value">"pwd"</span> <span class="attribute">name</span>=<span class="value">"pwd"</span>&gt;</span><span class="tag">&lt;/<span class="title">input</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>PHP页面（login.php）：</p>
+<pre><code>&lt;?php
+    <span class="variable">$username</span>=$_POST[<span class="string">'username'</span>];
+    <span class="variable">$pwd</span>=$_POST[<span class="string">'pwd'</span>];
+    // echo <span class="variable">$username</span>.<span class="string">','</span>.pwd;
+    <span class="variable">$conn</span>=mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>,<span class="string">'3306'</span>);
+    // var_dump(<span class="variable">$conn</span>);
+    <span class="variable">$sql</span>=<span class="string">"SELECT * FROM myuser WHERE name='"</span>
+        .<span class="variable">$username</span>
+        .<span class="string">"' AND pwd='"</span>
+        .<span class="variable">$pwd</span>.<span class="string">"'"</span>;
+
+    //echo <span class="variable">$sql</span>;
+    <span class="variable">$result</span>=mysqli_query(<span class="variable">$conn</span>,<span class="variable">$sql</span>);
+
+    /*result结果集无论有无记录，只要sql语句执行成功，即返回非空对象
+    而在sql语句执行出错时就会返回<span class="literal">false</span>。所以我们不能简单地用<span class="variable">$result</span>对象存在与否来判断结果*/
+    <span class="keyword">if</span>(<span class="variable">$result-</span>&gt;num_rows &gt; <span class="number">0</span>){
+        echo <span class="string">'登录成功'</span>;
+    }<span class="keyword">else</span>{
+        echo <span class="string">'对不起，账户名密码不匹配'</span>;
+    }
+?&gt;
+</code></pre><h2 id="注册功能">注册功能</h2><p>HTML页面：</p>
+<pre><code><span class="tag">&lt;<span class="title">html</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">head</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>/&gt;</span>
+        <span class="tag">&lt;<span class="title">title</span>&gt;</span>注册<span class="tag">&lt;/<span class="title">title</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">head</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="title">body</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"register.php"</span> <span class="attribute">method</span>=<span class="value">"POST"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">table</span>&gt;</span> 
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>姓名<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"username"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span>密码<span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"pwd"</span> <span class="attribute">name</span>=<span class="value">"pwd"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+                <span class="tag">&lt;<span class="title">tr</span>&gt;</span>
+                    <span class="tag">&lt;<span class="title">td</span>&gt;</span><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>&gt;</span><span class="tag">&lt;/<span class="title">td</span>&gt;</span>
+                    <span class="comment">&lt;!-- &lt;td&gt;&lt;/td&gt; --&gt;</span>
+                <span class="tag">&lt;/<span class="title">tr</span>&gt;</span>
+            <span class="tag">&lt;/<span class="title">table</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">form</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">html</span>&gt;</span>
+</code></pre><p>PHP页面：</p>
+<pre><code><span class="variable">$username</span>=$_POST[<span class="string">'username'</span>];
+<span class="variable">$pwd</span>=$_POST[<span class="string">'pwd'</span>];
+<span class="variable">$mysqli</span>=new mysqli(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">''</span>,<span class="string">'myuser'</span>);
+<span class="keyword">if</span>(<span class="variable">$mysqli-</span>&gt;connect_error){
+       die(<span class="string">'Connect Error ('</span> . <span class="variable">$mysqli-</span>&gt;connect_errno . <span class="string">') '</span>
+        . <span class="variable">$mysqli-</span>&gt;connect_error);
+}
+<span class="variable">$sql1</span>=<span class="string">"SELECT * FROM myuser where name='$username'"</span>;
+<span class="variable">$mysqli-</span>&gt;query(<span class="string">'set names utf8'</span>);
+<span class="variable">$result</span> = <span class="variable">$mysqli-</span>&gt;query(<span class="variable">$sql1</span>);
+<span class="keyword">if</span>(<span class="variable">$result-</span>&gt;num_rows&gt;<span class="number">0</span>){
+    echo <span class="string">'这个名字已经存在，换个名字吧'</span>;
+}<span class="keyword">else</span>{
+    <span class="variable">$sql2</span>=<span class="string">"INSERT INTO myuser(name,pwd) values('$username','$pwd')"</span>;
+    <span class="variable">$rst</span>=<span class="variable">$mysqli-</span>&gt;query(<span class="variable">$sql2</span>);
+    if(<span class="variable">$rst</span>){
+        echo <span class="string">'注册成功'</span>;
+    }else{
+        echo <span class="string">'注册失败'</span>;
+    }
+}
+</code></pre>
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/10/01/PHP快速入门/" itemprop="url">
                   PHP快速入门
                 </a>
@@ -703,108 +982,12 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/" itemprop="url">
-                  Bootstrap组件之响应式导航条[未完待续]
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="1940-10-24T10:26:18+08:00" content="1940-10-24">
-              1940-10-24
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/1940/10/24/Bootstrap03组件之响应式导航条-待整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="1940/10/24/Bootstrap03组件之响应式导航条-待整理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>[待整理]</strong></p>
-<p>导航条的第一个孩子必须是容器container或者contrainer-fluid</p>
-<p>很多元素在navbar中都有专用版本，用来控制元素在导航条中的位置</p>
-<p>navbar不放在容器里，否则会报警告：</p>
-<pre><code><span class="label">bootlint:</span>  W012  <span class="escape">`.</span>container<span class="escape">` </span><span class="literal">or</span> <span class="escape">`.</span>container-fluid<span class="escape">` </span>should be the first child inside of <span class="literal">a</span> <span class="escape">`.</span>navbar<span class="escape">`
-</span> jQuery.fn.init[<span class="number">1</span>]
-</code></pre><p>默认高度最低是50px</p>
-<p>导航条的结构是固定的</p>
-<p>bootstrap推荐所有表单都有label，可以支持盲人屏幕阅读软件；如果正常人浏览不需要的话，可以对其增加class=”sr-only”，看其css，发现它的宽高都被缩小到1px。</p>
-
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -845,7 +1028,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -859,7 +1042,7 @@ echo <span class="variable">$str1</span>;//zhouzhiruo is zhangwuji<span class="s
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">标签</span>
               
           </div>

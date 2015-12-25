@@ -324,6 +324,95 @@ YESNOCANCEL : <span class="number">14</span>,
             
               
                 
+                <a class="post-title-link" href="/2015/12/15/囧哥说事儿之辩论/" itemprop="url">
+                  如何正确地辩论
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-15T20:22:42+08:00" content="2015-12-15">
+              2015-12-15
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/15/囧哥说事儿之辩论/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/15/囧哥说事儿之辩论/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>转自新浪囧知的一篇文章，我觉得所有人都有必要读。其实我记得上中学那会我们都挺严谨的，语文老师还举办过班级辩论赛，逻辑都挺清晰。为啥现在感觉越活越回去了呢，难道是被熏陶的？！</p>
+<p><img src="http://7xnskx.com1.z0.glb.clouddn.com/article%2F%E5%9B%A7%E7%9F%A5%E4%B9%8B%E8%BE%A9%E8%AE%BA.jpg"></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/11/15/舍入误差-已发布/" itemprop="url">
                   舍入误差
                 </a>
@@ -655,139 +744,12 @@ map.enableScrollWheelZoom(<span class="literal">true</span>);     <span class="c
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/" itemprop="url">
-                  Bootstrap查错工具Bootlint以及Bootstrap常见错误
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-04T21:49:09+08:00" content="2015-11-04">
-              2015-11-04
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/11/04/Bootstrap查错工具以及常见错误-待整理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/04/Bootstrap查错工具以及常见错误-待整理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <h2 id="查错工具Bootlint">查错工具Bootlint</h2><p>CSS检查工具Bootlint，它是bootstrap官方提供的一个js工具库，用于检测使用Bootstrap的页面中常见的HTML错误、class使用方式的错误，通常这些错误浏览器是检查不出来的。</p>
-<p>使用过程中发现，这玩意儿似乎不能指出错误位置，略不爽。</p>
-<p><strong>使用时机：</strong> 开发、测试阶段</p>
-<p><strong>用法：</strong>在页面底部写入引入bootlint的脚本：</p>
-<pre><code><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">
-    (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
-        <span class="keyword">var</span> s = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);
-        s.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{
-            bootlint.showLintReportForCurrentDocument([]);
-        };
-        s.src = <span class="string">"js/bootlint.js"</span>;
-        <span class="built_in">document</span>.body.appendChild(s)
-    })();
-</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-</code></pre><h2 id="错误积累">错误积累</h2><p>1.<br>Bootstrap经典错误：</p>
-<pre><code>bootlint:  E027  `.table-responsive` <span class="keyword">is</span> supposed <span class="keyword">to</span> be used <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> table's parent wrapper `&lt;<span class="keyword">div</span>&gt;`, <span class="keyword">not</span> <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> table itself
-</code></pre><p><code>table-responsive</code>属性是用于<code>table</code>的父元素而不是用于<code>table</code>元素的</p>
-<ol>
-<li><p>glyphicon图标字体所加的元素必须是一个空元素，否则报错：</p>
-<pre><code>ootlin<span class="variable">t:</span>  E031  Glyphicon classes must <span class="keyword">only</span> <span class="keyword">be</span> used <span class="keyword">on</span> elements that contain <span class="keyword">no</span> text content <span class="built_in">and</span> have <span class="keyword">no</span> child elements.
-</code></pre></li>
-</ol>
-<p>3.</p>
-<pre><code><span class="label">bootlint:</span>  W012  <span class="escape">`.</span>container<span class="escape">` </span><span class="literal">or</span> <span class="escape">`.</span>container-fluid<span class="escape">` </span>should be the first child inside of <span class="literal">a</span> <span class="escape">`.</span>navbar<span class="escape">`
-</span> jQuery.fn.init[<span class="number">1</span>]
-</code></pre><p>4.<br>如果没有panel-collapse样式，会报错：</p>
-<pre><code>&lt;<span class="keyword">div</span> <span class="property">id</span>=<span class="string">"c1"</span> <span class="type">class</span>=<span class="string">"collapse panel-collapse"</span>&gt;
-    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"panel-body"</span>&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur odio officiis quae quis sit veritatis voluptates. At atque beatae, cum distinctio, dolor eaque eos eveniet ex, exercitationem inventore iure totam?&lt;/<span class="keyword">div</span>&gt;
-&lt;/<span class="keyword">div</span>&gt;
-</code></pre><p>5.轮播图内部只允许有一个子元素样式为carousel-inner：</p>
-<pre><code><span class="tag">bootlint</span>:  <span class="tag">E041</span>  `<span class="class">.carousel</span>` <span class="tag">must</span> <span class="tag">have</span> <span class="tag">exactly</span> <span class="tag">one</span> `<span class="class">.carousel-inner</span>` <span class="tag">child</span>.
- <span class="tag">jQuery</span><span class="class">.fn</span><span class="class">.init</span><span class="attr_selector">[1]</span>
-</code></pre><p>6.</p>
-<p>7.轮播没写id：</p>
-<pre><code>bootlint:  W014  Carousel controls and indicators should <span class="operator"><span class="keyword">use</span> <span class="string">`href`</span> <span class="keyword">or</span> <span class="string">`data-target`</span> <span class="keyword">to</span> <span class="keyword">reference</span> an <span class="keyword">element</span> <span class="keyword">with</span> <span class="keyword">class</span> <span class="string">`.carousel`</span>.
- [a.carousel-control.<span class="keyword">left</span>, <span class="keyword">context</span>: a.carousel-control.<span class="keyword">left</span>, jquery: <span class="string">"2.1.3"</span>, <span class="keyword">constructor</span>: <span class="keyword">function</span>, selector: <span class="string">""</span>, toArray: <span class="keyword">function</span>…]
-bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls <span class="keyword">and</span> indicators should <span class="keyword">use</span> <span class="string">`href`</span> <span class="keyword">or</span> <span class="string">`data-target`</span> <span class="keyword">to</span> <span class="keyword">reference</span> an <span class="keyword">element</span> <span class="keyword">with</span> <span class="keyword">class</span> <span class="string">`.carousel`</span>.
- [a.carousel-control.<span class="keyword">right</span>, <span class="keyword">context</span>: a.carousel-control.<span class="keyword">right</span>, jquery: <span class="string">"2.1.3"</span>, <span class="keyword">constructor</span>: <span class="keyword">function</span>, selector: <span class="string">""</span>, toArray: <span class="keyword">function</span>…]</span>
-</code></pre><p>8.轮播下边的小列表没加轮播的id：</p>
-<pre><code>bootlint:  W014  Carousel controls and indicators should <span class="operator"><span class="keyword">use</span> <span class="string">`href`</span> <span class="keyword">or</span> <span class="string">`data-target`</span> <span class="keyword">to</span> <span class="keyword">reference</span> an <span class="keyword">element</span> <span class="keyword">with</span> <span class="keyword">class</span> <span class="string">`.carousel`</span>.</span>
-</code></pre>
-            
-          </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -828,7 +790,7 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -842,7 +804,7 @@ bootlint.js:<span class="number">11521</span> bootlint:  W014  Carousel controls
 
           <div class="site-state-item site-state-tags">
             
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">标签</span>
               
           </div>
